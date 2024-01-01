@@ -1,0 +1,487 @@
+@layer system {
+	@layer properties, selectors, modifiers;
+	@layer properties {
+		@property --system-cs-is-light {
+			syntax: "<integer>";
+			inherits: true;
+			initial-value: 1; /* ON */
+		}
+		:root {
+			/* TYPOGRAPHY */
+			/* https://modernfontstacks.com */
+			--system-font-sans: system-ui, sans-serif;
+			--system-font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+			--system-font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+			/* COLORS */
+
+			/**
+			 * color-scheme state
+			 *
+			 * Example:
+			 * color-mix(): Light mode is the first color value and dark mode the second.
+			 * color: color-mix(in oklab, black var(--system-cs-state), white);
+			 */
+			--system-cs-state: calc(var(--system-cs-is-light) * 100%);
+
+			/* System Colors */
+			--system-accent-color: AccentColor;
+			--system-accent-color-text: AccentColorText;
+			--system-active-text: ActiveText;
+			--system-button-border: ButtonBorder;
+			--system-button-face: ButtonFace;
+			--system-button-text: ButtonText;
+			--system-canvas: Canvas;
+			--system-canvas-text: CanvasText;
+			--system-field: Field;
+			--system-field-text: FieldText;
+			--system-gray-text: GrayText;
+			--system-highlight: Highlight;
+			--system-highlight-text: HighlightText;
+			--system-link-text: color-mix(in oklab, LinkText var(--system-cs-state), color-mix(in oklab, LinkText 60%, var(--system-canvas-text)));
+			--system-mark: Mark;
+			--system-mark-text: MarkText;
+			--system-selected-item: SelectedItem;
+			--system-selected-item-text: SelectedItemText;
+			--system-visited-text: color-mix(in oklab, VisitedText var(--system-cs-state), color-mix(in oklab, VisitedText 60%, var(--system-canvas-text)));
+
+			/* Additional Colors */
+			/* These are only mixed with system colors */
+			--system-dark-grey: color-mix(in oklab, CanvasText 85%, Canvas);
+			--system-mid-grey: color-mix(in oklab, Canvas 95%, CanvasText);
+			--system-grey: color-mix(in oklab, Canvas  75%, CanvasText);
+			--system-canvas-text-inverted: color-mix(in oklab, Canvas var(--system-cs-state), CanvasText);
+
+			/* System Spacing */
+			--system-spacing-layout: 2rem;
+			--system-spacing-content: 1em;
+			--system-spacing-heading: 1em;
+			--system-spacing-form: 1em;
+			--system-spacing-field: 1em;
+			--system-spacing-button: 1em;
+			--system-dimension-content: 85ch;
+
+		}
+	}
+	@layer modifiers {
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--system-cs-is-light: 0; /* OFF */
+			}
+		}
+	}
+	@layer selectors {
+		html {
+			font-family: var(--system-font-serif);
+			font-size: 100%;
+			line-height: 1.5;
+			color-scheme: light dark;
+			/*scroll-behavior: smooth;*/
+		}
+		body {
+			display: grid;
+			grid-template-columns: [--start] minmax(1rem,1fr) [--content-start] minmax(calc(325px - 2rem) ,85ch) [--content-end] minmax(1rem,1fr) [--end];
+			margin: 0;
+		}
+		body > header {
+			display: grid;
+			grid-template-columns: subgrid;
+			grid-column:  --start / --end;
+			padding-block: var(--system-spacing-layout);
+			& > * {
+				grid-column: --content-start/ --content-end;
+				margin: 0;
+				border: 0;
+				padding:0;
+			}
+			background: var(--system-mid-grey);
+			border-block-end: 1px solid var(--system-grey);
+		}
+		main {
+			/* Center main in page */
+			grid-column: --content-start / --content-end;
+		}
+		body > footer {
+			grid-column: --start / --end;
+		}
+
+		::selection {
+			background: var(--system-highlight);
+			color: var(--system-highlight-text);
+		}
+
+		:is(h1,h2,h3,h4,h5,h6) {
+			font-family: var(--system-font-sans);
+			line-height: 1.2;
+			color: var(--system-canvas-text);
+			margin-block-start:max(2.5rem, 2ex);
+			margin-block-end: 1ex;
+		}
+
+		:is(h1,h2,h3) {
+			text-wrap: balance;
+		}
+
+		h1 {
+			font-size: xxx-large;
+		}
+
+		h2 {
+			font-size: xx-large;
+		}
+
+		h3 {
+			font-size: x-large;
+		}
+
+		h4 {
+			font-size: large;
+		}
+
+		h5 {
+			font-size: medium;
+		}
+
+		h6 {
+			font-size: small;
+			text-transform: uppercase;
+		}
+
+		a {
+			color: var(--system-link-text);
+		}
+
+		a:hover {
+			color: color-mix(in oklab, var(--system-link-text) 80%, CanvasText);
+		}
+		a:active {
+			color: var(--system-active-text);
+		}
+		a:focus {
+			color: var(--system-link-text);
+		}
+		a:visited {
+			color: var(--system-visited-text);
+		}
+
+		abbr:hover {
+			/* Set the '?' cursor while hovering an abbreviation */
+			cursor: help;
+		}
+
+		blockquote {
+			padding: 1.5rem;
+			background: var(--system-mid-grey);
+			border-inline-start: 5px solid var(--system-grey);
+		}
+
+		abbr {
+			cursor: help;
+		}
+
+		blockquote *:last-child {
+			padding-block-end: 0;
+			margin-block-end: 0;
+		}
+
+
+
+		input, select, button {
+			/* Set body font family and some finicky elements */
+			font-family: var(--system-font-sans);
+		}
+
+		a button,
+		button,
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"] {
+			font-size: 1rem;
+			display: inline-block;
+			padding: 6px 12px;
+			text-align: center;
+			text-decoration: none;
+			white-space: nowrap;
+			background: var(--system-accent-color);
+			color: var(--system-canvas-text-inverted);
+			border: 0;
+			border-radius: 4px;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+
+		a button[disabled],
+		button[disabled],
+		input[type="submit"][disabled],
+		input[type="reset"][disabled],
+		input[type="button"][disabled] {
+			cursor: default;
+			opacity: .5;
+
+			/* Set the [X] cursor while hovering a disabled link */
+			cursor: not-allowed;
+		}
+
+		.button:focus,
+		.button:enabled:hover,
+		button:focus,
+		button:enabled:hover,
+		input[type="submit"]:focus,
+		input[type="submit"]:enabled:hover,
+		input[type="reset"]:focus,
+		input[type="reset"]:enabled:hover,
+		input[type="button"]:focus,
+		input[type="button"]:enabled:hover {
+			background: color-mix(in oklab, var(--system-accent-color) 85%, CanvasText);
+		}
+
+
+		a img {
+			margin-block-end: 0px;
+		}
+
+		code,
+		pre,
+		kbd,
+		samp {
+			/* Set the font family for monospaced elements */
+			font-family: var(--system-font-mono);
+		}
+
+		code,
+		samp,
+		kbd,
+		pre {
+			/* The main preformatted style. This is changed slightly across different cases. */
+			background: var(--system-mid-grey);
+			border: 1px solid var(--system-grey);
+			border-radius: 4px;
+			padding: 3px 6px;
+			/* ↓ font-size is relative to containing element, so it scales for titles*/
+			font-size: small;
+		}
+
+		kbd {
+			/* Makes the kbd element look like a keyboard key */
+			border-block-end: 3px solid var(--system-grey);
+		}
+
+		pre {
+			padding: 1rem 1.4rem;
+			max-width: 100%;
+			overflow: auto;
+		}
+
+		pre code {
+			/* When <code> is in a <pre>, reset it's formatting to blend in */
+			background: inherit;
+			font-size: inherit;
+			color: inherit;
+			border: 0;
+			padding: 0;
+			margin: 0;
+		}
+
+		code pre {
+			/* When <pre> is in a <code>, reset it's formatting to blend in */
+			display: inline;
+			background: inherit;
+			font-size: inherit;
+			color: inherit;
+			border: 0;
+			padding: 0;
+			margin: 0;
+		}
+
+		details {
+			/* Make the <details> look more "clickable" */
+			padding: .6rem 1rem;
+			background: var(--system-mid-grey);
+			border: 1px solid var(--system-grey);
+			border-radius: 4px;
+		}
+
+		summary {
+			/* Makes the <summary> look more like a "clickable" link with the pointer cursor */
+			cursor: pointer;
+			font-weight: bold;
+		}
+
+		details[open] {
+			/* Adjust the <details> padding while open */
+			padding-block-end: .75rem;
+		}
+
+		details[open] summary {
+			/* Adjust the <details> padding while open */
+			margin-block-end: 6px;
+		}
+
+		details[open] > *:last-child {
+			/* Resets the bottom margin of the last element in the <details> while <details> is opened. This prevents double margins/paddings. */
+			margin-block-end: 0;
+		}
+
+		dt {
+			font-weight: bold;
+		}
+
+		dd::before {
+			/* Add an arrow to data table definitions */
+			content: '→ ';
+		}
+
+		hr {
+			/* Reset the border of the <hr> separator, then set a better line */
+			border: 0;
+			border-block-end: medium solid var(--system-mid-grey);
+			margin: 1rem auto;
+		}
+
+		fieldset {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			border: 0;
+			padding: 0;
+			margin: 0;
+			&:has(legend){
+				margin-block-start: calc(1ex - 0.5lh);
+				margin-block-end: 1ex;
+				padding-block-start: 0.5lh;
+			}
+		}
+
+		legend {
+			position: relative;
+			inset: 0.5lh 0;
+		}
+		fieldset:has(:user-invalid),
+		form:has(:user-invalid),
+		form :user-invalid:not(:focus-visible) {
+			accent-color: crimson;
+			outline: thin solid crimson;
+			&:is(fieldset) {
+				outline:0;
+				box-shadow:-13px 0 0 var(--system-canvas), -16px 0 0 crimson;
+			}
+			&:is(form) {
+				outline:0;
+				box-shadow:-13px 0 0 var(--system-canvas), -16px 0 0 color-mix(in oklab, red 42%, var(--system-canvas));
+			}
+
+		}
+
+		fieldset > :is(p,div,fieldset) {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			margin-block: calc((1lh - 1em) / 2);
+			gap: calc((1lh - 1em) / 2);
+			border: 0;
+			padding: 0;
+			&:has([type="checkbox"], [type="radio"]) {
+				display: grid;
+				grid-template-columns: min-content 1fr;
+				row-gap: calc(1em - 1ex);
+				padding-block:calc(1em - 1ex);
+				font-family: var(--system-font-sans);
+				line-height: 1;
+			}
+			&:is(fieldset):has(:user-valid) {
+				& input {
+					accent-color: initial;
+					outline: 0;
+				}
+			}
+		}
+		table {
+			/* border-collapse sets the table's elements to share borders, rather than floating as separate "boxes". */
+			border-collapse: collapse;
+			width: 100%;
+			font-family: Arial;
+		}
+
+		td,
+		th {
+			border: thin solid var(--system-grey);
+			text-align: left;
+			padding: .5rem;
+		}
+
+		th {
+			background: var(--system-mid-grey);
+		}
+
+		tr:nth-child(even) {
+			/* Set every other cell slightly darker. Improves readability. */
+			background: var(--system-mid-grey);
+		}
+
+		table caption {
+			font-weight: bold;
+			margin-block-end: .5rem;
+		}
+
+		textarea {
+			/* Don't let the <textarea> extend off the screen naturally or when dragged by the user */
+			max-width: 100%;
+		}
+
+		ol,
+		ul {
+			/* Replace the browser default padding */
+			padding-inline-start: 2rem;
+		}
+
+		li {
+			margin-block-start: .4rem;
+		}
+
+		ul ul,
+		ol ul,
+		ul ol,
+		ol ol {
+			margin-block-end: 0;
+		}
+
+		mark {
+			padding: 3px 6px;
+			background: var(--system-mark);
+			color: var(--system-mark-text);
+		}
+
+		textarea,
+		select,
+		input {
+			padding: 6px 12px;
+			margin-block-end: .5rem;
+			background: var(--system-field);
+			color: var(--system-field-text);
+			border: 1px solid var(--system-grey);
+			border-radius: 4px;
+			box-shadow: none;
+			box-sizing: border-box;
+			font-size: 1rem;
+			accent-color: var(--system-accent-color);
+			&:is([type='radio']){
+				border-radius: 50%;
+			}
+		}
+
+		figure {
+			margin-block: 1rem;
+			margin-inline: 0;
+		}
+		figcaption {
+			text-align: center;
+			font-style: italic;
+			font-size: small;
+		}
+		img {
+			max-width: 100%;
+		}
+	}
+}
+
+
