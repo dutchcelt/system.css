@@ -81,13 +81,13 @@
 
 			/* Additional Colors */
 			/* These are only mixed with system colors */
-			--system-dark-grey: color-mix(in oklab, Canvas 95%, CanvasText);
-			--system-mid-grey: color-mix(in oklab, CanvasText 85%, Canvas);
-			--system-grey: color-mix(in oklab, Canvas  75%, CanvasText);
+			--system-gray-surface: color-mix(in oklab, Canvas 95%, CanvasText);
+			--system-gray-stroke: color-mix(in oklab, Canvas 75%, CanvasText);
+			--system-gray-type: color-mix(in oklab, Canvas 60%, CanvasText);
 			--system-canvas-text-inverted: color-mix(in oklab, Canvas var(--system-cs-state), CanvasText);
 
 			/* System Spacing */
-			--system-spacing-layout: 2rem;
+			--system-spacing-layout: 1rem;
 			--system-spacing-content: 1em;
 			--system-spacing-heading: 1em;
 			--system-spacing-form: 1em;
@@ -136,8 +136,15 @@
 		}
 
 		body > header {
-			background: var(--system-dark-grey);
-			border-block-end: thin solid var(--system-grey);
+			background: var(--system-gray-surface);
+			border-block-end: thin solid var(--system-gray-stroke);
+			& > :is(h1,h2,h3),
+			& > p:only-child{
+				font-weight: var(--system-font-weight-extralight);
+				font-family: var(--system-font-family-display);
+				font-size: var(--system-font-size-xxl);
+				color: var(--system-gray-type);
+			}
 		}
 		body > :is(header,main,footer):not(:has(*)) {
 			display: none;
@@ -164,6 +171,7 @@
 		}
 
 		h1 {
+			font-weight: var(--system-font-weight-extrabold);
 			font-size: var(--system-font-size-xxxl);
 		}
 
@@ -212,8 +220,8 @@
 
 		blockquote {
 			padding: 1.5rem;
-			background: var(--system-dark-grey);
-			border-inline-start: 5px solid var(--system-grey);
+			background: var(--system-gray-surface);
+			border-inline-start: 5px solid var(--system-gray-stroke);
 			& *:last-child {
 				padding-block-end: 0;
 				margin-block-end: 0;
@@ -282,8 +290,8 @@
 		kbd,
 		pre {
 			/* The main preformatted style. This is changed slightly across different cases. */
-			background: var(--system-dark-grey);
-			border: thin solid var(--system-grey);
+			background: var(--system-gray-surface);
+			border: thin solid var(--system-gray-stroke);
 			border-radius: 4px;
 			padding: 3px 6px;
 			/* ↓ font-size is relative to containing element, so it scales for titles*/
@@ -292,7 +300,7 @@
 
 		kbd {
 			/* Makes the kbd element look like a keyboard key */
-			border-block-end: 3px solid var(--system-grey);
+			border-block-end: 3px solid var(--system-gray-stroke);
 		}
 
 		pre {
@@ -325,8 +333,8 @@
 		details {
 			/* Make the <details> look more "clickable" */
 			padding: .6rem 1rem;
-			background: var(--system-dark-grey);
-			border: 1px solid var(--system-grey);
+			background: var(--system-gray-surface);
+			border: 1px solid var(--system-gray-stroke);
 			border-radius: 4px;
 		}
 
@@ -363,7 +371,7 @@
 		hr {
 			/* Reset the border of the <hr> separator, then set a better line */
 			border: 0;
-			border-block-end: medium solid var(--system-dark-grey);
+			border-block-end: medium solid var(--system-gray-surface);
 			margin: 2rem 0;
 		}
 
@@ -394,13 +402,12 @@
 			outline: thin solid crimson;
 			&:is(fieldset) {
 				outline:0;
-				box-shadow:-13px 0 0 var(--system-canvas), -16px 0 0 crimson;
+				box-shadow:-15px 0 0 var(--system-canvas), -18px 0 0 crimson;
 			}
 			&:is(form) {
 				outline:0;
-				box-shadow:-14px 0 0 var(--system-canvas), -15px 0 0 color-mix(in oklab, crimson 50%, var(--system-canvas));
+				box-shadow:-16px 0 0 var(--system-canvas), -17px 0 0 color-mix(in oklab, crimson 50%, var(--system-canvas));
 			}
-
 		}
 
 		fieldset > :is(p,div,fieldset) {
@@ -427,29 +434,28 @@
 					outline: 0;
 				}
 			}
-
 		}
+
 		table {
 			/* border-collapse sets the table's elements to share borders, rather than floating as separate "boxes". */
 			border-collapse: collapse;
 			width: 100%;
 			font-family: var(--system-font-family-data);
 		}
-
 		td,
 		th {
-			border: thin solid var(--system-grey);
+			border: thin solid var(--system-gray-stroke);
 			text-align: left;
 			padding: .5rem;
 		}
 
 		th {
-			background: var(--system-dark-grey);
+			background: var(--system-gray-surface);
 		}
 
 		tr:nth-child(even) {
 			/* Set every other cell slightly darker. Improves readability. */
-			background: var(--system-dark-grey);
+			background: var(--system-gray-surface);
 		}
 
 		table caption {
@@ -492,7 +498,7 @@
 			margin-block-end: .5rem;
 			background: var(--system-field);
 			color: var(--system-field-text);
-			border: thin solid var(--system-grey);
+			border: thin solid var(--system-gray-stroke);
 			border-radius: 4px;
 			box-shadow: none;
 			box-sizing: border-box;
