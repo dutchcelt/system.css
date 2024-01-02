@@ -13,7 +13,7 @@
             <h1>Demo: system.css </h1>
         </header>
         <main>
-            <h1>Heading 1</h1>
+            <h1>The quick brown fox jumps over the lazy dog</h1>
             <p>This is paragraph text. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <p>This is more paragraph text. Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequatur delectus dolore enim error id, magni numquam obcaecati quam quas quos rerum sunt suscipit temporibus totam. Blanditiis fuga maxime quae.</p>
             <h2>Heading 2</h2>
@@ -127,9 +127,7 @@
                 </tfoot>
             </table>
 
-            <br>
             <hr>
-            <br>
 
 
             <form id="form" action="/">
@@ -143,10 +141,8 @@
                         <input id="lastname" type="text" placeholder="Last name" name='lastname' required="true" />
                     </div>
                 </fieldset>
-                <fieldset required>
-
+                <fieldset>
                     <legend>Gender (optional)</legend>
-
                     <fieldset>
                         <input type="radio" name="gender" id="gender_male" value="Male">
                         <label for="gender_male">Male</label>
@@ -161,7 +157,6 @@
                         <label for="email">E-mail</label>
                         <input type="email" id="email" required />
                     </div>
-
                     <div>
                         <label for="tel">Phone number</label>
                         <input type="tel" id="tel" required />
@@ -176,9 +171,8 @@
                             <option>Brazil</option>
                         </select>
                     </div>
-
                 </fieldset>
-                <fieldset required>
+                <fieldset>
                     <div>
                         <label for="password">password</label>
                         <input type="password" id="password" pattern=".{8,24}" required="required" title="This must be a valid password. Minimum of 8 characters with a max of 24." />
@@ -190,7 +184,7 @@
                         <textarea id="textarea"></textarea>
                     </div>
                 </fieldset>
-                <fieldset required>
+                <fieldset>
                     <div>
                         <input type='checkbox' name='terms' id='terms' required />
                         <label for="terms"> I agree to the <a>terms and conditions</a></label>
@@ -201,23 +195,19 @@
                     <button>Cancel</button>
                     <button type="submit">Submit form</button>
                 </div>
+                <p><small><em><strong>Note</strong>: Try to avoid the use of disabled items.</em></small></p>
             </form>
 
-            <br>
             <hr>
-            <br>
             <figure>
-                <img src="system-office.webp" alt="white desk lamp beside green plant">
-                <figcaption>Samantha Gades, My Bedroom-Simplicity, 2018.</figcaption>
+                <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="800" height="450" fill="var(--system-grey)"></rect>
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui" font-size="72px" fill="var(--system-canvas-text)">Aspect Ratio 16:9</text>
+                </svg>
             </figure>
             <p>
-                Inline image: <a href="https://unsplash.com/photos/white-desk-lamp-beside-green-plant-BlIhVfXbi9s"><img src="system-office.webp" width="50" alt="white desk lamp beside green plant"></a>
+                Inline image: <img src="data:image/svg+xml,%3Csvg viewBox='0 0 800 450' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='800' height='450' fill='%23cccccc'%3E%3C/rect%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-size='72px' fill='%23333333'%3EAspect Ratio 16:9%3C/text%3E%3C/svg%3E" width="50" alt="dummy image">
             </p>
-            
-            
-            <br>
-            <hr>
-            <br>
 
 
         </main>
