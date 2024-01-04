@@ -1,4 +1,13 @@
-@layer system.properties, system.selectors, system.modifiers, design.tokens, design.foundation, design.utilities, component.properties, component.selectors, component.modifiers;
+@layer system.properties, 
+	system.selectors, 
+	system.modifiers, 
+	design.tokens, 
+	design.foundation, 
+	design.utilities, 
+	theme,
+	component.properties, 
+	component.selectors, 
+	component.modifiers;
 
 @layer system {
 	@layer properties {
