@@ -292,7 +292,7 @@
 		}
 
 		button {
-			font-size: var(--system-font-size-m);
+			font-size: inherit;
 			display: inline-block;
 			padding: var(--system-spacing-button);
 			text-align: center;
@@ -549,7 +549,7 @@
 			border-radius: var(--system-radius);
 			box-shadow: none;
 			box-sizing: border-box;
-			font-size: 1rem;
+			font-size: inherit;
 			accent-color: var(--system-accent-color);
 			&:is([type='radio']) {
 				border-radius: 50%;
