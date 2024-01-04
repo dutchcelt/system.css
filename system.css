@@ -1,5 +1,6 @@
+@layer system.properties, system.selectors, system.modifiers, design.tokens, design.foundation, design.utilities, component.properties, component.selectors, component.modifiers;
+
 @layer system {
-	@layer properties, selectors, modifiers;
 	@layer properties {
 		@property --system-cs-is-light {
 			syntax: '<integer>';
