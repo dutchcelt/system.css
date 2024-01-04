@@ -40,6 +40,7 @@
 			/**
 			 * Font Size keywords
 			 * https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#values
+			 * Note: These are absolute values. 
 			 */
 			--system-font-size-xxxl: xxx-large;
 			--system-font-size-xxl: xx-large;
@@ -138,7 +139,7 @@
 	@layer selectors {
 		html {
 			font-family: var(--system-font-family-body);
-			font-size: var(--system-font-size);
+			/* font-size: var(--system-font-size); */
 			line-height: var(--system-line-height);
 			color-scheme: light dark;
 		}
@@ -162,6 +163,7 @@
 			grid-template-columns: subgrid;
 			grid-column: --viewport-start / --viewport-end;
 			padding-block: var(--system-spacing-content);
+
 			& > * {
 				grid-column: --content-start / --content-end;
 				margin: 0;
