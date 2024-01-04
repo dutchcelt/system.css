@@ -1,21 +1,26 @@
-@layer system.properties, 
-	system.selectors, 
-	system.modifiers, 
+@layer --system.properties, 
+	--system.selectors, 
+	--system.modifiers, 
+	/* Optional: 
+	 * uncomment if these additional layers are useful in a larger context */
+	/* 
 	design.tokens, 
 	design.foundation, 
 	design.utilities, 
 	theme,
 	component.properties, 
 	component.selectors, 
-	component.modifiers;
+	component.modifiers 
+	*/;
 
-@layer system {
+@property --system-cs-is-light {
+	syntax: '<integer>';
+	inherits: true;
+	initial-value: 1; /* ON */
+}
+
+@layer --system {
 	@layer properties {
-		@property --system-cs-is-light {
-			syntax: '<integer>';
-			inherits: true;
-			initial-value: 1; /* ON */
-		}
 		:root {
 			/* TYPOGRAPHY */
 
