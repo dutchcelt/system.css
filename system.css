@@ -171,6 +171,18 @@
 		main {
 			/* Center main in page */
 			grid-column: --content-start / --content-end;
+			padding-block: clamp(
+				var(--system-spacing-content) * 2,
+				var(--system-spacing-layout),
+				var(--system-spacing-content) * 4
+			);
+			/* Waiting on margin-trim */
+			& > *:first-child {
+				margin-block-start: 0;
+			}
+			& > *:last-child {
+				margin-block-end: 0;
+			}
 		}
 
 		body > header {
@@ -237,7 +249,6 @@
 		a {
 			color: var(--system-link-text);
 		}
-
 		a:hover {
 			color: color-mix(in oklab, var(--system-link-text) 80%, CanvasText);
 		}
@@ -260,8 +271,11 @@
 			padding: var(--system-spacing-content);
 			background: var(--system-gray-surface);
 			border-inline-start: var(--system-stroke-thick) solid var(--system-gray-stroke);
-			& *:last-child {
-				padding-block-end: 0;
+			/* Waiting on margin-trim */
+			& > *:first-child {
+				margin-block-start: 0;
+			}
+			& > *:last-child {
 				margin-block-end: 0;
 			}
 		}
@@ -370,32 +384,37 @@
 		}
 
 		details {
-			/* Make the <details> look more "clickable" */
-			padding: var(--system-spacing-button);
-			background: var(--system-gray-surface);
 			border: var(--system-stroke-thin) solid var(--system-gray-stroke);
 			border-radius: var(--system-radius);
+			cursor: text;
+			overflow: clip;
 		}
 
 		summary {
-			/* Makes the <summary> look more like a "clickable" link with the pointer cursor */
 			cursor: pointer;
-			font-weight: var(--system-font-weight-bold);
+			font-family: var(--system-font-family-data);
+			font-weight: var(--system-font-weight-semibold);
+			padding: var(--system-spacing-button);
+			background: var(--system-gray-surface);
 		}
 
 		details[open] {
-			/* Adjust the <details> padding while open */
-			padding-block-end: 1ex;
+			padding-inline: var(--system-spacing-content);
+			padding-block-end: var(--system-spacing-button);
 		}
 
 		details[open] summary {
-			/* Adjust the <details> padding while open */
-			margin-block-end: 0.5ex;
+			margin-inline: calc(var(--system-spacing-content) * -1);
 		}
 
-		details[open] > *:last-child {
-			/* Resets the bottom margin of the last element in the <details> while <details> is opened. This prevents double margins/paddings. */
-			margin-block-end: 0;
+		details[open] {
+			/* Waiting on margin-trim */
+			& > *:nth-child(2) {
+				margin-block-start: var(--system-spacing-content);
+			}
+			& > *:last-child {
+				margin-block-end: var(--system-spacing-content);
+			}
 		}
 
 		dt {
@@ -411,7 +430,8 @@
 			/* Reset the border of the <hr> separator, then set a better line */
 			border: 0;
 			border-block-end: var(--system-stroke-medium) solid var(--system-gray-surface);
-			margin: var(--system-spacing-content-offset) 0;
+			margin-block: var(--system-spacing-content-offset);
+			margin-inline: 0;
 		}
 
 		fieldset {
@@ -506,12 +526,6 @@
 		textarea {
 			/* Don't let the <textarea> extend off the screen naturally or when dragged by the user */
 			max-width: 100%;
-		}
-
-		ol,
-		ul {
-			/* Replace the browser default padding */
-			padding-inline-start: var(--system-spacing-content-offset);
 		}
 
 		li {
