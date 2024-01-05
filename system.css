@@ -185,6 +185,7 @@
 			/* Center main in page */
 			grid-column: --content-start / --content-end;
 			container: --content / inline-size;
+			font-size: var(--system-font-size);
 			padding-block: clamp(
 				var(--system-spacing-content) * 2,
 				var(--system-spacing-layout),
@@ -192,10 +193,10 @@
 			);
 			/* Waiting on margin-trim */
 			& > *:first-child {
-				margin-block-start: 0;
+				margin-block-start: unset;
 			}
 			& > *:last-child {
-				margin-block-end: 0;
+				margin-block-end: unset;
 			}
 		}
 
@@ -287,10 +288,10 @@
 			border-inline-start: var(--system-stroke-thick) solid var(--system-gray-stroke);
 			/* Waiting on margin-trim */
 			& > *:first-child {
-				margin-block-start: 0;
+				margin-block-start: unset;
 			}
 			& > *:last-child {
-				margin-block-end: 0;
+				margin-block-end: unset;
 			}
 		}
 
@@ -355,7 +356,7 @@
 			border: var(--system-stroke-thin) solid var(--system-gray-stroke);
 			border-radius: var(--system-radius);
 			padding: var(--system-spacing-element);
-			font-size: smaller;
+			font-size: var(--system-font-size-s);
 		}
 
 		kbd {
@@ -488,7 +489,8 @@
 				column-gap: 1ch;
 				padding-block: calc(1em - 1ex);
 				font-family: var(--system-font-family-data);
-				line-height: 1;
+				font-size: var(--system-font-size-m);
+				line-height: var(--system-line-height-compact);
 			}
 			&:is(fieldset):has(:user-valid) {
 				& input {
@@ -503,6 +505,7 @@
 			border-collapse: collapse;
 			width: 100%;
 			font-family: var(--system-font-family-data);
+			font-size: var(--system-font-size-m);
 		}
 		td,
 		th {
@@ -550,7 +553,7 @@
 			border: var(--system-stroke-thin) solid var(--system-gray-stroke);
 			border-radius: var(--system-radius);
 			box-shadow: none;
-			font-size: inherit;
+			font-size: var(--system-font-size-m);
 			accent-color: var(--system-accent-color);
 			&:is([type='radio']) {
 				border-radius: 50%;
