@@ -259,7 +259,7 @@
 			color: var(--system-link-text);
 		}
 		a:hover {
-			color: color-mix(in oklab, var(--system-link-text) 80%, CanvasText);
+			color: color-mix(in oklab, var(--system-link-text) 80%, var(--system-canvas-text));
 		}
 		a:active {
 			color: var(--system-active-text);
@@ -314,7 +314,7 @@
 			font-weight: var(--system-font-weight-semibold);
 			cursor: pointer;
 			&:hover {
-				background: color-mix(in oklab, var(--system-button-face) 90%, CanvasText);
+				background: color-mix(in oklab, var(--system-button-face) 90%, var(--system-canvas-text));
 			}
 		}
 		button[type='submit'] {
@@ -322,7 +322,7 @@
 			color: var(--system-canvas-text-inverted);
 			&:is(:focus, :enabled:hover) {
 				color: var(--system-canvas-text-inverted);
-				background: color-mix(in oklab, var(--system-accent-color) 85%, CanvasText);
+				background: color-mix(in oklab, var(--system-accent-color) 85%, var(--system-canvas-text));
 			}
 		}
 		button[disabled] {
