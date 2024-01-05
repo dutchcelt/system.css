@@ -77,11 +77,23 @@
 			ButtonBorder
 		); /* ButtonBorder is broken in Safari */
 		--system-button-face: transparent; /* ButtonFace is broken in Safari */
-		--system-button-text: CanvasText; /* ButtonText is broken in Safari */
+		--system-button-text: color-mix(
+				in oklab,
+				ButtonText var(--system-cs-state),
+				var(--system-canvas-text)
+		); /* ButtonText is broken in Safari */
 		--system-canvas: Canvas;
 		--system-canvas-text: CanvasText;
-		--system-field: Field;
-		--system-field-text: FieldText;
+		--system-field: color-mix(
+				in oklab,
+				Field var(--system-cs-state),
+				var(--system-canvas)
+		); /* Field is broken in iOS */
+		--system-field-text: color-mix(
+				in oklab,
+				FieldText var(--system-cs-state),
+				var(--system-canvas-text)
+		); /* FieldText is broken in iOS */
 		--system-gray-text: GrayText;
 		--system-highlight: color-mix(
 			in oklab,
@@ -131,6 +143,7 @@
 		--system-dimension-content-width: 85ch;
 		--system-radius: clamp(3px, 0.6666ex, var(--system-spacing-single));
 	}
+}
 
 	/* MODIFIERS ########################################################################## */
 
