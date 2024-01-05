@@ -54,6 +54,7 @@
 		--system-stroke-thin: thin;
 		--system-stroke-medium: medium;
 		--system-stroke-thick: thick;
+		--system-stroke-offset: calc(1cap - 1ex);
 
 		/* COLORS */
 
@@ -78,7 +79,11 @@
 		--system-field: Field;
 		--system-field-text: FieldText;
 		--system-gray-text: GrayText;
-		--system-highlight: Highlight;
+		--system-highlight: color-mix(
+			in oklab,
+			Highlight var(--system-cs-state),
+			color-mix(in oklab, steelblue 80%, var(--system-canvas-text))
+		);
 		--system-highlight-text: HighlightText;
 		--system-link-text: color-mix(
 			in oklab,
@@ -208,7 +213,10 @@
 		background: var(--system-highlight);
 		color: var(--system-highlight-text);
 	}
-
+	:focus-visible {
+		outline: var(--system-stroke-medium) solid var(--system-highlight);
+		outline-offset: var(--system-stroke-offset);
+	}
 	:is(h1, h2, h3, h4, h5, h6) {
 		font-family: var(--system-font-family-display);
 		line-height: var(--system-line-height-display);
@@ -250,7 +258,7 @@
 		text-transform: uppercase;
 	}
 
-	a {
+	a:link {
 		color: var(--system-link-text);
 	}
 	a:hover {
@@ -314,7 +322,7 @@
 	button[type='submit'] {
 		background: var(--system-accent-color);
 		color: var(--system-canvas-text-inverted);
-		&:is(:focus, :enabled:hover) {
+		&:is(:focus, :focus-visible, :enabled:hover) {
 			color: var(--system-canvas-text-inverted);
 			background: color-mix(in oklab, var(--system-accent-color) 85%, var(--system-canvas-text));
 		}
@@ -449,7 +457,6 @@
 	fieldset:has(:user-invalid),
 	form:has(:user-invalid),
 	form :user-invalid:not(:focus-visible) {
-		accent-color: var(--system-error);
 		outline: var(--system-stroke-thin) solid var(--system-error);
 		&:is(fieldset) {
 			outline: 0;
