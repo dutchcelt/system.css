@@ -111,9 +111,9 @@
 
 			/* Additional Colors */
 			/* These are only mixed with system colors */
-			--system-gray-surface: color-mix(in oklab, var(--system-canvas) 95%, var(--system-canvas-text));
-			--system-gray-stroke: color-mix(in oklab, var(--system-canvas) 75%, var(--system-canvas-text));
-			--system-gray-type: color-mix(in oklab, var(--system-canvas) 60%, var(--system-canvas-text));
+			--system-gray-surface: color-mix(in oklab, var(--system-canvas) 92%, var(--system-canvas-text));
+			--system-gray-stroke: color-mix(in oklab, var(--system-canvas) 50%, var(--system-canvas-text));
+			--system-gray-type: color-mix(in oklab, var(--system-canvas) 50%, var(--system-canvas-text));
 			--system-error: color-mix(in oklab, var(--system-active-text) 90%, var(--system-canvas-text));
 			--system-canvas-text-inverted: color-mix(
 				in oklab,
