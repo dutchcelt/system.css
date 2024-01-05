@@ -143,7 +143,7 @@
 		--system-dimension-content-width: 85ch;
 		--system-radius: clamp(3px, 0.6666ex, var(--system-spacing-single));
 	}
-}
+
 
 	/* MODIFIERS ########################################################################## */
 
