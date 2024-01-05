@@ -122,15 +122,19 @@
 			);
 
 			/* System Spacing */
-			--system-spacing-layout: max(1rem, 5vw);
-			--system-spacing-content: max(1rem, 1ex);
-			--system-spacing-content-offset: max(2rem, 2.5ex);
-			--system-spacing-heading-offset: max(2rem, 2.5ex);
+			--system-spacing-single: clamp(8px, 1rem, 16px);
+			--system-spacing-double: clamp(16px, 2rem, 32px);
+			--system-spacing-layout: max(var(--system-spacing-single), 5vw);
+			--system-spacing-content: clamp(var(--system-spacing-single), 1ex, var(--system-spacing-double));
+			--system-spacing-section-block: max(var(--system-spacing-double), 2.5ex);
+			--system-spacing-heading-block-start: max(var(--system-spacing-double), 2.5ex);
+			--system-spacing-column-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
+			--system-spacing-row-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
 			--system-spacing-element: 0.5ex 0.5ch;
 			--system-spacing-button: 1ex 1.5ch;
-			--system-dimension-min-width: 325px;
+			--system-dimension-min-width: 320px;
 			--system-dimension-content-width: 85ch;
-			--system-radius: clamp(3px, 0.6666ex, 16px);
+			--system-radius: clamp(3px, 0.6666ex, var(--system-spacing-single));
 		}
 	}
 	@layer modifiers {
@@ -180,6 +184,7 @@
 		main {
 			/* Center main in page */
 			grid-column: --content-start / --content-end;
+			container: --content / inline-size;
 			padding-block: clamp(
 				var(--system-spacing-content) * 2,
 				var(--system-spacing-layout),
@@ -218,7 +223,7 @@
 			font-family: var(--system-font-family-display);
 			line-height: var(--system-line-height-display);
 			color: var(--system-canvas-text);
-			margin-block-start: var(--system-spacing-heading-offset);
+			margin-block-start: var(--system-spacing-heading-block-start);
 			margin-block-end: var(--system-spacing-content);
 		}
 
@@ -312,7 +317,6 @@
 			border: 0;
 			border-radius: var(--system-radius);
 			font-weight: var(--system-font-weight-semibold);
-			cursor: pointer;
 			&:hover {
 				background: color-mix(in oklab, var(--system-button-face) 90%, var(--system-canvas-text));
 			}
@@ -326,12 +330,8 @@
 			}
 		}
 		button[disabled] {
-			opacity: 0.3333;
-			cursor: not-allowed;
-			&:hover {
-				background: var(--system-button-face);
-				color: var(--system-button-text);
-			}
+			opacity: 0.25;
+			pointer-events: none;
 		}
 
 		a img,
@@ -351,18 +351,16 @@
 		samp,
 		kbd,
 		pre {
-			/* The main preformatted style. This is changed slightly across different cases. */
 			background: var(--system-gray-surface);
 			border: var(--system-stroke-thin) solid var(--system-gray-stroke);
 			border-radius: var(--system-radius);
 			padding: var(--system-spacing-element);
-			/* ↓ font-size is relative to containing element, so it scales for titles*/
-			font-size: var(--system-font-size-s);
+			font-size: smaller;
 		}
 
 		kbd {
 			/* Makes the kbd element look like a keyboard key */
-			border-block-end: 3px solid var(--system-gray-stroke);
+			border-block-end: var(--system-stroke-medium) solid var(--system-gray-stroke);
 		}
 
 		pre {
@@ -376,9 +374,9 @@
 			background: inherit;
 			font-size: inherit;
 			color: inherit;
-			border: 0;
-			padding: 0;
-			margin: 0;
+			border: unset;
+			padding: unset;
+			margin: unset;
 		}
 
 		code pre {
@@ -387,9 +385,9 @@
 			background: inherit;
 			font-size: inherit;
 			color: inherit;
-			border: 0;
-			padding: 0;
-			margin: 0;
+			border: unset;
+			padding: unset;
+			margin: unset;
 		}
 
 		details {
@@ -427,19 +425,14 @@
 		}
 
 		dt {
-			font-weight: var(--system-font-weight-bold);
-		}
-
-		dd::before {
-			/* Add an arrow to data table definitions */
-			content: '→ ';
+			font-weight: var(--system-font-weight-semibold);
 		}
 
 		hr {
 			/* Reset the border of the <hr> separator, then set a better line */
 			border: 0;
 			border-block-end: var(--system-stroke-medium) solid var(--system-gray-surface);
-			margin-block: var(--system-spacing-content-offset);
+			margin-block: var(--system-spacing-section-block);
 			margin-inline: 0;
 		}
 
