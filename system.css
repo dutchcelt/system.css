@@ -77,7 +77,7 @@
 			ButtonBorder
 		); /* ButtonBorder is broken in Safari */
 		--system-button-face: transparent; /* ButtonFace is broken in Safari */
-		--system-button-text: ButtonText;
+		--system-button-text: CanvasText; /* ButtonText is broken in Safari */
 		--system-canvas: Canvas;
 		--system-canvas-text: CanvasText;
 		--system-field: Field;
