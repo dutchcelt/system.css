@@ -305,8 +305,7 @@
 	select,
 	button,
 	textarea {
-
-		font-size: var(--system-font-size-m);
+		font: inherit;
 		font-family: var(--system-font-family-interactive);
 	}
 
@@ -556,10 +555,12 @@
 		border: var(--system-stroke-thin) solid var(--system-button-border);
 		border-radius: var(--system-radius);
 		box-shadow: none;
+		font-size: var(--system-font-size-m);
 		accent-color: var(--system-accent-color);
 		&:is([type='radio']) {
 			border-radius: 50%;
 		}
+		color-scheme: light dark;
 	}
 	select {
 		appearance: none;
