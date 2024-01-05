@@ -5,7 +5,7 @@
 	"type": "module",
 	"description": "A base stylesheet using system colors and css keywords.",
 	"scripts": {
-		"build": "npm vite build --base '/system.css/'"
+		"build": "npx -y vite build --base '/system.css/'"
 	},
 	"author": "C. Egor Kloos",
 	"license": "AGPLv3",
