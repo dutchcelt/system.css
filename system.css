@@ -189,7 +189,6 @@
 	}
 
 	body > header {
-		container: --header / inline-size;
 		background: var(--system-gray-surface);
 		border-block-end: var(--system-stroke-thin) solid var(--system-gray-stroke);
 		& > :is(h1, h2, h3),
@@ -199,9 +198,6 @@
 			font-size: var(--system-font-size-xxl);
 			color: var(--system-gray-type);
 		}
-	}
-	body > footer {
-		container: --footer / inline-size;
 	}
 
 	body > :is(header, main, footer):not(:has(*)) {
