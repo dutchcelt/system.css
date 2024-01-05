@@ -1,0 +1,16 @@
+{
+	"name": "system.css",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"description": "A base stylesheet using system colors and css keywords.",
+	"scripts": {
+		"build": "npm vite build --base '/system.css/'"
+	},
+	"author": "C. Egor Kloos",
+	"license": "AGPLv3",
+	"repository": "https://github.com/dutchcelt/system.css/",
+	"devDependencies": {
+		"vite": "^5.0.11"
+	}
+}
