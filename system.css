@@ -71,7 +71,11 @@
 		--system-accent-color: color-mix(in oklab, dodgerblue 90%, black); /* AccentColor doesn't work in chrome */
 		--system-accent-color-text: AccentColorText;
 		--system-active-text: ActiveText;
-		--system-button-border: ButtonBorder;
+		--system-button-border: color-mix(
+			in oklab,
+			var(--system-gray-stroke) var(--system-cs-state),
+			ButtonBorder
+		); /* ButtonBorder is broken in Safari */
 		--system-button-face: transparent; /* ButtonFace is broken in Safari */
 		--system-button-text: ButtonText;
 		--system-canvas: Canvas;
