@@ -1,18 +1,3 @@
-@layer --system.properties, 
-	--system.selectors, 
-	--system.modifiers, 
-	/* Optional: 
-	 * uncomment if these additional layers are useful in a larger context */
-	/* 
-	design.tokens, 
-	design.foundation, 
-	design.utilities, 
-	theme,
-	component.properties, 
-	component.selectors, 
-	component.modifiers 
-	*/;
-
 @property --system-cs-is-light {
 	syntax: '<integer>';
 	inherits: true;
@@ -20,563 +5,570 @@
 }
 
 @layer --system {
-	@layer properties {
-		:root {
-			/* TYPOGRAPHY */
+	/* PROPS ############################################################################## */
 
-			/* https://modernfontstacks.com */
-			--system-font-family-display: system-ui, sans-serif;
-			--system-font-family-data: system-ui, sans-serif;
-			--system-font-family-interactive: system-ui, sans-serif;
-			--system-font-family-body: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-			--system-font-family-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
-				'DejaVu Sans Mono', monospace;
+	:root {
+		/* TYPOGRAPHY */
 
-			--system-font-size: 112.5%; /* 112.5% => 18px */
-			--system-line-height: 1.5;
-			--system-line-height-compact: 1.2;
-			--system-line-height-display: 1.1;
+		/* https://modernfontstacks.com */
+		--system-font-family-display: system-ui, sans-serif;
+		--system-font-family-data: system-ui, sans-serif;
+		--system-font-family-interactive: system-ui, sans-serif;
+		--system-font-family-body: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+		--system-font-family-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
+			monospace;
 
-			/**
+		--system-font-size: 112.5%; /* 112.5% => 18px */
+		--system-line-height: 1.5;
+		--system-line-height-compact: 1.2;
+		--system-line-height-display: 1.1;
+
+		/**
 			 * Font Size keywords
 			 * https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#values
 			 * Note: These are absolute values. 
 			 */
-			--system-font-size-xxxl: xxx-large;
-			--system-font-size-xxl: xx-large;
-			--system-font-size-xl: x-large;
-			--system-font-size-l: large;
-			--system-font-size-m: medium;
-			--system-font-size-s: small;
-			--system-font-size-xs: x-small;
-			--system-font-size-xxs: xx-small;
+		--system-font-size-xxxl: xxx-large;
+		--system-font-size-xxl: xx-large;
+		--system-font-size-xl: x-large;
+		--system-font-size-l: large;
+		--system-font-size-m: medium;
+		--system-font-size-s: small;
+		--system-font-size-xs: x-small;
+		--system-font-size-xxs: xx-small;
 
-			/**
+		/**
 			 * OpenType specification for weights
 			 * https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#common_weight_name_mapping
 			 */
-			--system-font-weight-thin: 100;
-			--system-font-weight-extralight: 200;
-			--system-font-weight-light: 300;
-			--system-font-weight-normal: 400;
-			--system-font-weight-medium: 500;
-			--system-font-weight-semibold: 600;
-			--system-font-weight-bold: 700;
-			--system-font-weight-extrabold: 800;
-			--system-font-weight-black: 900;
+		--system-font-weight-thin: 100;
+		--system-font-weight-extralight: 200;
+		--system-font-weight-light: 300;
+		--system-font-weight-normal: 400;
+		--system-font-weight-medium: 500;
+		--system-font-weight-semibold: 600;
+		--system-font-weight-bold: 700;
+		--system-font-weight-extrabold: 800;
+		--system-font-weight-black: 900;
 
-			--system-stroke-thin: thin;
-			--system-stroke-medium: medium;
-			--system-stroke-thick: thick;
+		--system-stroke-thin: thin;
+		--system-stroke-medium: medium;
+		--system-stroke-thick: thick;
 
-			/* COLORS */
+		/* COLORS */
 
-			/**
+		/**
 			 * color-scheme state
 			 *
 			 * Example:
 			 * color-mix(): Light mode is the first color value and dark mode the second.
 			 * color: color-mix(in oklab, black var(--system-cs-state), white);
 			 */
-			--system-cs-state: calc(var(--system-cs-is-light, 1 /* fallback to light mode */) * 100%);
+		--system-cs-state: calc(var(--system-cs-is-light, 1 /* fallback to light mode */) * 100%);
 
-			/* System Colors */
-			--system-accent-color: dodgerblue; /* AccentColor doesn't work in chrome */
-			--system-accent-color-text: AccentColorText;
-			--system-active-text: ActiveText;
-			--system-button-border: ButtonBorder;
-			--system-button-face: ButtonFace;
-			--system-button-text: ButtonText;
-			--system-canvas: Canvas;
-			--system-canvas-text: CanvasText;
-			--system-field: Field;
-			--system-field-text: FieldText;
-			--system-gray-text: GrayText;
-			--system-highlight: Highlight;
-			--system-highlight-text: HighlightText;
-			--system-link-text: color-mix(
-				in oklab,
-				LinkText var(--system-cs-state),
-				color-mix(in oklab, LinkText 60%, var(--system-canvas-text))
-			);
-			--system-mark: Mark;
-			--system-mark-text: MarkText;
-			--system-selected-item: SelectedItem;
-			--system-selected-item-text: SelectedItemText;
-			--system-visited-text: color-mix(
-				in oklab,
-				VisitedText var(--system-cs-state),
-				color-mix(in oklab, VisitedText 60%, var(--system-canvas-text))
-			);
+		/* System Colors */
+		--system-accent-color: dodgerblue; /* AccentColor doesn't work in chrome */
+		--system-accent-color-text: AccentColorText;
+		--system-active-text: ActiveText;
+		--system-button-border: ButtonBorder;
+		--system-button-face: ButtonFace;
+		--system-button-text: ButtonText;
+		--system-canvas: Canvas;
+		--system-canvas-text: CanvasText;
+		--system-field: Field;
+		--system-field-text: FieldText;
+		--system-gray-text: GrayText;
+		--system-highlight: Highlight;
+		--system-highlight-text: HighlightText;
+		--system-link-text: color-mix(
+			in oklab,
+			LinkText var(--system-cs-state),
+			color-mix(in oklab, LinkText 60%, var(--system-canvas-text))
+		);
+		--system-mark: Mark;
+		--system-mark-text: MarkText;
+		--system-selected-item: SelectedItem;
+		--system-selected-item-text: SelectedItemText;
+		--system-visited-text: color-mix(
+			in oklab,
+			VisitedText var(--system-cs-state),
+			color-mix(in oklab, VisitedText 60%, var(--system-canvas-text))
+		);
 
-			/* Additional Colors */
-			/* These are only mixed with system colors */
-			--system-gray-surface: color-mix(in oklab, var(--system-canvas) 95%, var(--system-canvas-text));
-			--system-gray-stroke: color-mix(in oklab, var(--system-canvas) 55%, var(--system-canvas-text));
-			--system-gray-type: color-mix(in oklab, var(--system-canvas) 50%, var(--system-canvas-text));
-			--system-error: color-mix(in oklab, var(--system-active-text) 90%, var(--system-canvas-text));
-			--system-canvas-text-inverted: color-mix(
-				in oklab,
-				var(--system-canvas) var(--system-cs-state),
-				var(--system-canvas-text)
-			);
+		/* Additional Colors */
+		/* These are only mixed with system colors */
+		--system-gray-surface: color-mix(in oklab, var(--system-canvas) 95%, var(--system-canvas-text));
+		--system-gray-stroke: color-mix(in oklab, var(--system-canvas) 55%, var(--system-canvas-text));
+		--system-gray-type: color-mix(in oklab, var(--system-canvas) 50%, var(--system-canvas-text));
+		--system-error: color-mix(in oklab, var(--system-active-text) 90%, var(--system-canvas-text));
+		--system-canvas-text-inverted: color-mix(
+			in oklab,
+			var(--system-canvas) var(--system-cs-state),
+			var(--system-canvas-text)
+		);
 
-			/* System Spacing */
-			--system-spacing-single: clamp(8px, 1rem, 16px);
-			--system-spacing-double: clamp(16px, 2rem, 32px);
-			--system-spacing-layout: max(var(--system-spacing-single), 5vw);
-			--system-spacing-content: clamp(var(--system-spacing-single), 1ex, var(--system-spacing-double));
-			--system-spacing-section-block: max(var(--system-spacing-double), 2.5ex);
-			--system-spacing-heading-block-start: max(var(--system-spacing-double), 2.5ex);
-			--system-spacing-column-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
-			--system-spacing-row-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
-			--system-spacing-element: 0.5ex 0.5ch;
-			--system-spacing-button: 1ex 1.5ch;
-			--system-dimension-min-width: 320px;
-			--system-dimension-content-width: 85ch;
-			--system-radius: clamp(3px, 0.6666ex, var(--system-spacing-single));
+		/* System Spacing */
+		--system-spacing-single: clamp(8px, 1rem, 16px);
+		--system-spacing-double: clamp(16px, 2rem, 32px);
+		--system-spacing-layout: max(var(--system-spacing-single), 5vw);
+		--system-spacing-content: clamp(var(--system-spacing-single), 1ex, var(--system-spacing-double));
+		--system-spacing-section-block: max(var(--system-spacing-double), 2.5ex);
+		--system-spacing-heading-block-start: max(var(--system-spacing-double), 2.5ex);
+		--system-spacing-column-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
+		--system-spacing-row-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
+		--system-spacing-element: 0.5ex 0.5ch;
+		--system-spacing-button: 1ex 1.5ch;
+		--system-dimension-min-width: 320px;
+		--system-dimension-content-width: 85ch;
+		--system-radius: clamp(3px, 0.6666ex, var(--system-spacing-single));
+	}
+
+	/* MODIFIERS ########################################################################## */
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--system-cs-is-light: 0; /* OFF */
 		}
 	}
-	@layer modifiers {
-		@media (prefers-color-scheme: dark) {
-			:root {
-				--system-cs-is-light: 0; /* OFF */
-			}
-		}
-	}
-	@layer selectors {
-		*,
-		*::before,
-		*::after {
-			box-sizing: border-box;
-		}
-		html {
-			font-family: var(--system-font-family-body);
-			line-height: var(--system-line-height);
-			color-scheme: light dark;
-		}
-		body {
-			--viewport-padding: minmax(var(--system-spacing-layout), 1fr);
-			--content-width: minmax(
-				calc(var(--system-dimension-min-width) - (var(--system-spacing-layout) * 2)),
-				var(--system-dimension-content-width)
-			);
 
-			display: grid;
-			grid-template-columns:
-				[--viewport-start] var(--viewport-padding) [--content-start] var(--content-width) [--content-end] var(
-					--viewport-padding
-				)
-				[--viewport-end];
-			margin: unset;
-		}
-		body > :is(header, footer) {
-			display: grid;
-			grid-template-columns: subgrid;
-			grid-column: --viewport-start / --viewport-end;
-			padding-block: var(--system-spacing-content);
-			& > * {
-				grid-column: --content-start / --content-end;
-				margin: 0;
-				padding: 0;
-			}
-		}
-		main {
-			/* Center main in page */
+	/* SELECTORS ########################################################################## */
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+	html {
+		font-family: var(--system-font-family-body);
+		line-height: var(--system-line-height);
+		color-scheme: light dark;
+	}
+	body {
+		--viewport-padding: minmax(var(--system-spacing-layout), 1fr);
+		--content-width: minmax(
+			calc(var(--system-dimension-min-width) - (var(--system-spacing-layout) * 2)),
+			var(--system-dimension-content-width)
+		);
+
+		display: grid;
+		grid-template-columns:
+			[--viewport-start] var(--viewport-padding) [--content-start] var(--content-width) [--content-end] var(
+				--viewport-padding
+			)
+			[--viewport-end];
+		margin: unset;
+	}
+	body > :is(header, footer) {
+		display: grid;
+		grid-template-columns: subgrid;
+		grid-column: --viewport-start / --viewport-end;
+		padding-block: var(--system-spacing-content);
+		& > * {
 			grid-column: --content-start / --content-end;
-			container: --content / inline-size;
-			font-size: var(--system-font-size);
-			padding-block: clamp(
-				var(--system-spacing-content) * 2,
-				var(--system-spacing-layout),
-				var(--system-spacing-content) * 4
-			);
-			/* Waiting on margin-trim */
-			& > *:first-child {
-				margin-block-start: unset;
-			}
-			& > *:last-child {
-				margin-block-end: unset;
-			}
-		}
-
-		body > header {
-			background: var(--system-gray-surface);
-			border-block-end: var(--system-stroke-thin) solid var(--system-gray-stroke);
-			& > :is(h1, h2, h3),
-			& > p:only-child {
-				font-weight: var(--system-font-weight-extralight);
-				font-family: var(--system-font-family-display);
-				font-size: var(--system-font-size-xxl);
-				color: var(--system-gray-type);
-			}
-		}
-		body > :is(header, main, footer):not(:has(*)) {
-			display: none;
-		}
-
-		::selection {
-			background: var(--system-highlight);
-			color: var(--system-highlight-text);
-		}
-
-		:is(h1, h2, h3, h4, h5, h6) {
-			font-family: var(--system-font-family-display);
-			line-height: var(--system-line-height-display);
-			color: var(--system-canvas-text);
-			margin-block-start: var(--system-spacing-heading-block-start);
-			margin-block-end: var(--system-spacing-content);
-		}
-
-		:is(h1, h2, h3) {
-			text-wrap: balance;
-		}
-		:is(h4, h5, h6) {
-			line-height: var(--system-line-height-compact);
-		}
-
-		h1 {
-			font-weight: var(--system-font-weight-extrabold);
-			font-size: var(--system-font-size-xxxl);
-		}
-
-		h2 {
-			font-size: var(--system-font-size-xxl);
-		}
-
-		h3 {
-			font-size: var(--system-font-size-xl);
-		}
-
-		h4 {
-			font-size: var(--system-font-size-l);
-		}
-
-		h5 {
-			font-size: var(--system-font-size-m);
-		}
-
-		h6 {
-			font-size: var(--system-font-size-s);
-			text-transform: uppercase;
-		}
-
-		a {
-			color: var(--system-link-text);
-		}
-		a:hover {
-			color: color-mix(in oklab, var(--system-link-text) 80%, var(--system-canvas-text));
-		}
-		a:active {
-			color: var(--system-active-text);
-		}
-		a:focus {
-			color: var(--system-link-text);
-		}
-		a:visited {
-			color: var(--system-visited-text, VisitedText);
-		}
-
-		abbr:hover {
-			/* Set the '?' cursor while hovering an abbreviation */
-			cursor: help;
-		}
-
-		blockquote {
-			padding: var(--system-spacing-content);
-			background: var(--system-gray-surface);
-			border-inline-start: var(--system-stroke-thick) solid var(--system-gray-stroke);
-			/* Waiting on margin-trim */
-			& > *:first-child {
-				margin-block-start: unset;
-			}
-			& > *:last-child {
-				margin-block-end: unset;
-			}
-		}
-
-		abbr {
-			cursor: help;
-		}
-
-		input,
-		select,
-		button,
-		textarea {
-			font: inherit;
-			font-family: var(--system-font-family-interactive);
-		}
-
-		button {
-			display: inline-block;
-			padding: var(--system-spacing-button);
-			text-align: center;
-			text-decoration: none;
-			background: var(--system-button-face);
-			color: var(--system-button-text);
-			white-space: nowrap;
-			border: 0;
-			border-radius: var(--system-radius);
-			font-weight: var(--system-font-weight-semibold);
-			&:hover {
-				background: color-mix(in oklab, var(--system-button-face) 90%, var(--system-canvas-text));
-			}
-		}
-		button[type='submit'] {
-			background: var(--system-accent-color);
-			color: var(--system-canvas-text-inverted);
-			&:is(:focus, :enabled:hover) {
-				color: var(--system-canvas-text-inverted);
-				background: color-mix(in oklab, var(--system-accent-color) 85%, var(--system-canvas-text));
-			}
-		}
-		button[disabled] {
-			opacity: 0.25;
-			pointer-events: none;
-		}
-
-		a img,
-		a svg {
-			margin-block-end: 0px;
-		}
-
-		code,
-		pre,
-		kbd,
-		samp {
-			/* Set the font family for monospaced elements */
-			font-family: var(--system-font-family-code);
-		}
-
-		code,
-		samp,
-		kbd,
-		pre {
-			background: var(--system-gray-surface);
-			border: var(--system-stroke-thin) solid var(--system-gray-stroke);
-			border-radius: var(--system-radius);
-			padding: var(--system-spacing-element);
-			font-size: var(--system-font-size-s);
-		}
-
-		kbd {
-			/* Makes the kbd element look like a keyboard key */
-			border-block-end: var(--system-stroke-medium) solid var(--system-gray-stroke);
-		}
-
-		pre {
-			padding: var(--system-spacing-content);
-			max-width: 100%;
-			overflow: auto;
-		}
-
-		pre code {
-			/* When <code> is in a <pre>, reset it's formatting to blend in */
-			background: inherit;
-			font-size: inherit;
-			color: inherit;
-			border: unset;
-			padding: unset;
-			margin: unset;
-		}
-
-		code pre {
-			/* When <pre> is in a <code>, reset it's formatting to blend in */
-			display: inline;
-			background: inherit;
-			font-size: inherit;
-			color: inherit;
-			border: unset;
-			padding: unset;
-			margin: unset;
-		}
-
-		details {
-			border: var(--system-stroke-thin) solid var(--system-gray-stroke);
-			border-radius: var(--system-radius);
-			cursor: text;
-			overflow: clip;
-		}
-
-		summary {
-			cursor: pointer;
-			font-family: var(--system-font-family-data);
-			font-weight: var(--system-font-weight-semibold);
-			padding: var(--system-spacing-button);
-			background: var(--system-gray-surface);
-		}
-
-		details[open] {
-			padding-inline: var(--system-spacing-content);
-			padding-block-end: var(--system-spacing-button);
-		}
-
-		details[open] summary {
-			margin-inline: calc(var(--system-spacing-content) * -1);
-		}
-
-		details[open] {
-			/* Waiting on margin-trim */
-			& > *:nth-child(2) {
-				margin-block-start: var(--system-spacing-content);
-			}
-			& > *:last-child {
-				margin-block-end: var(--system-spacing-content);
-			}
-		}
-
-		dt {
-			font-weight: var(--system-font-weight-semibold);
-		}
-
-		hr {
-			/* Reset the border of the <hr> separator, then set a better line */
-			border: 0;
-			border-block-end: var(--system-stroke-medium) solid var(--system-gray-surface);
-			margin-block: var(--system-spacing-section-block);
-			margin-inline: 0;
-		}
-
-		fieldset {
-			display: flex;
-			flex-direction: column;
-			position: relative;
-			border: 0;
-			padding: 0;
 			margin: 0;
-			&:has(legend) {
-				margin-block-start: calc(1ex - 0.5lh);
-				margin-block-end: 1ex;
-				padding-block-start: 0.5lh;
-			}
+			padding: 0;
 		}
-		form > div:has(button) {
+	}
+	main {
+		/* Center main in page */
+		grid-column: --content-start / --content-end;
+		container: --content / inline-size;
+		font-size: var(--system-font-size);
+		padding-block: clamp(
+			var(--system-spacing-content) * 2,
+			var(--system-spacing-layout),
+			var(--system-spacing-content) * 4
+		);
+		/* Waiting on margin-trim */
+		& > *:first-child {
+			margin-block-start: unset;
+		}
+		& > *:last-child {
+			margin-block-end: unset;
+		}
+	}
+
+	body > header {
+		container: --header / inline-size;
+		background: var(--system-gray-surface);
+		border-block-end: var(--system-stroke-thin) solid var(--system-gray-stroke);
+		& > :is(h1, h2, h3),
+		& > p:only-child {
+			font-weight: var(--system-font-weight-extralight);
+			font-family: var(--system-font-family-display);
+			font-size: var(--system-font-size-xxl);
+			color: var(--system-gray-type);
+		}
+	}
+	body > footer {
+		container: --footer / inline-size;
+	}
+
+	body > :is(header, main, footer):not(:has(*)) {
+		display: none;
+	}
+
+	::selection {
+		background: var(--system-highlight);
+		color: var(--system-highlight-text);
+	}
+
+	:is(h1, h2, h3, h4, h5, h6) {
+		font-family: var(--system-font-family-display);
+		line-height: var(--system-line-height-display);
+		color: var(--system-canvas-text);
+		margin-block-start: var(--system-spacing-heading-block-start);
+		margin-block-end: var(--system-spacing-content);
+	}
+
+	:is(h1, h2, h3) {
+		text-wrap: balance;
+	}
+	:is(h4, h5, h6) {
+		line-height: var(--system-line-height-compact);
+	}
+
+	h1 {
+		font-weight: var(--system-font-weight-extrabold);
+		font-size: var(--system-font-size-xxxl);
+	}
+
+	h2 {
+		font-size: var(--system-font-size-xxl);
+	}
+
+	h3 {
+		font-size: var(--system-font-size-xl);
+	}
+
+	h4 {
+		font-size: var(--system-font-size-l);
+	}
+
+	h5 {
+		font-size: var(--system-font-size-m);
+	}
+
+	h6 {
+		font-size: var(--system-font-size-s);
+		text-transform: uppercase;
+	}
+
+	a {
+		color: var(--system-link-text);
+	}
+	a:hover {
+		color: color-mix(in oklab, var(--system-link-text) 80%, var(--system-canvas-text));
+	}
+	a:active {
+		color: var(--system-active-text);
+	}
+	a:focus {
+		color: var(--system-link-text);
+	}
+	a:visited {
+		color: var(--system-visited-text, VisitedText);
+	}
+
+	abbr:hover {
+		/* Set the '?' cursor while hovering an abbreviation */
+		cursor: help;
+	}
+
+	blockquote {
+		padding: var(--system-spacing-content);
+		background: var(--system-gray-surface);
+		border-inline-start: var(--system-stroke-thick) solid var(--system-gray-stroke);
+		/* Waiting on margin-trim */
+		& > *:first-child {
+			margin-block-start: unset;
+		}
+		& > *:last-child {
+			margin-block-end: unset;
+		}
+	}
+
+	abbr {
+		cursor: help;
+	}
+
+	input,
+	select,
+	button,
+	textarea {
+		font: inherit;
+		font-family: var(--system-font-family-interactive);
+	}
+
+	button {
+		display: inline-block;
+		padding: var(--system-spacing-button);
+		text-align: center;
+		text-decoration: none;
+		background: var(--system-button-face);
+		color: var(--system-button-text);
+		white-space: nowrap;
+		border: 0;
+		border-radius: var(--system-radius);
+		font-weight: var(--system-font-weight-semibold);
+		&:hover {
+			background: color-mix(in oklab, var(--system-button-face) 90%, var(--system-canvas-text));
+		}
+	}
+	button[type='submit'] {
+		background: var(--system-accent-color);
+		color: var(--system-canvas-text-inverted);
+		&:is(:focus, :enabled:hover) {
+			color: var(--system-canvas-text-inverted);
+			background: color-mix(in oklab, var(--system-accent-color) 85%, var(--system-canvas-text));
+		}
+	}
+	button[disabled] {
+		opacity: 0.25;
+		pointer-events: none;
+	}
+
+	a img,
+	a svg {
+		margin-block-end: 0px;
+	}
+
+	code,
+	pre,
+	kbd,
+	samp {
+		/* Set the font family for monospaced elements */
+		font-family: var(--system-font-family-code);
+	}
+
+	code,
+	samp,
+	kbd,
+	pre {
+		background: var(--system-gray-surface);
+		border: var(--system-stroke-thin) solid var(--system-gray-stroke);
+		border-radius: var(--system-radius);
+		padding: var(--system-spacing-element);
+		font-size: var(--system-font-size-s);
+	}
+
+	kbd {
+		/* Makes the kbd element look like a keyboard key */
+		border-block-end: var(--system-stroke-medium) solid var(--system-gray-stroke);
+	}
+
+	pre {
+		padding: var(--system-spacing-content);
+		max-width: 100%;
+		overflow: auto;
+	}
+
+	pre code {
+		/* When <code> is in a <pre>, reset it's formatting to blend in */
+		background: inherit;
+		font-size: inherit;
+		color: inherit;
+		border: unset;
+		padding: unset;
+		margin: unset;
+	}
+
+	code pre {
+		/* When <pre> is in a <code>, reset it's formatting to blend in */
+		display: inline;
+		background: inherit;
+		font-size: inherit;
+		color: inherit;
+		border: unset;
+		padding: unset;
+		margin: unset;
+	}
+
+	details {
+		border: var(--system-stroke-thin) solid var(--system-gray-stroke);
+		border-radius: var(--system-radius);
+		cursor: text;
+		overflow: clip;
+	}
+
+	summary {
+		cursor: pointer;
+		font-family: var(--system-font-family-data);
+		font-weight: var(--system-font-weight-semibold);
+		padding: var(--system-spacing-button);
+		background: var(--system-gray-surface);
+	}
+
+	details[open] {
+		padding-inline: var(--system-spacing-content);
+		padding-block-end: var(--system-spacing-button);
+	}
+
+	details[open] summary {
+		margin-inline: calc(var(--system-spacing-content) * -1);
+	}
+
+	details[open] {
+		/* Waiting on margin-trim */
+		& > *:nth-child(2) {
 			margin-block-start: var(--system-spacing-content);
 		}
-		legend {
-			position: relative;
-			inset: 0.5lh 0;
-		}
-		fieldset:has(:user-invalid),
-		form:has(:user-invalid),
-		form :user-invalid:not(:focus-visible) {
-			accent-color: var(--system-error);
-			outline: var(--system-stroke-thin) solid var(--system-error);
-			&:is(fieldset) {
-				outline: 0;
-				box-shadow: -15px 0 0 var(--system-canvas), -18px 0 0 var(--system-error);
-			}
-			&:is(form) {
-				outline: 0;
-				box-shadow: -16px 0 0 var(--system-canvas),
-					-17px 0 0 color-mix(in oklab, var(--system-error) 50%, var(--system-canvas));
-			}
-		}
-
-		fieldset > :is(p, div, fieldset) {
-			display: flex;
-			flex-direction: column;
-			align-items: start;
-			justify-items: start;
-			margin-block: calc((1lh - 1em) / 2);
-			gap: calc((1lh - 1em) / 2);
-			border: 0;
-			padding: 0;
-			&:has([type='checkbox'], [type='radio']) {
-				display: grid;
-				grid-template-columns: min-content 1fr;
-				row-gap: calc(1em - 1ex);
-				column-gap: 1ch;
-				padding-block: calc(1em - 1ex);
-				font-family: var(--system-font-family-data);
-				font-size: var(--system-font-size-m);
-				line-height: var(--system-line-height-compact);
-			}
-			&:is(fieldset):has(:user-valid) {
-				& input {
-					accent-color: initial;
-					outline: 0;
-				}
-			}
-		}
-
-		table {
-			/* border-collapse sets the table's elements to share borders, rather than floating as separate "boxes". */
-			border-collapse: collapse;
-			width: 100%;
-			font-family: var(--system-font-family-data);
-			font-size: var(--system-font-size-m);
-		}
-		td,
-		th {
-			border: var(--system-stroke-thin) solid var(--system-gray-stroke);
-			text-align: left;
-			padding: var(--system-spacing-button);
-		}
-
-		th {
-			background: var(--system-gray-surface);
-		}
-
-		tr:nth-child(even) {
-			/* Set every other cell slightly darker. Improves readability. */
-			background: var(--system-gray-surface);
-		}
-
-		table caption {
-			font-weight: var(--system-font-weight-bold);
+		& > *:last-child {
 			margin-block-end: var(--system-spacing-content);
 		}
+	}
 
-		textarea {
-			/* Don't let the <textarea> extend off the screen naturally or when dragged by the user */
-			max-width: 100%;
-		}
+	dt {
+		font-weight: var(--system-font-weight-semibold);
+	}
 
-		li {
-			margin-block: var(--system-spacing-element);
-		}
+	hr {
+		/* Reset the border of the <hr> separator, then set a better line */
+		border: 0;
+		border-block-end: var(--system-stroke-medium) solid var(--system-gray-surface);
+		margin-block: var(--system-spacing-section-block);
+		margin-inline: 0;
+	}
 
-		mark {
-			padding: var(--system-spacing-element);
-			background: var(--system-mark);
-			color: var(--system-mark-text);
-		}
-
-		textarea,
-		select,
-		input {
-			padding: var(--system-spacing-button);
+	fieldset {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		border: 0;
+		padding: 0;
+		margin: 0;
+		&:has(legend) {
+			margin-block-start: calc(1ex - 0.5lh);
 			margin-block-end: 1ex;
-			background: var(--system-field);
-			color: var(--system-field-text);
-			border: var(--system-stroke-thin) solid var(--system-gray-stroke);
-			border-radius: var(--system-radius);
-			box-shadow: none;
+			padding-block-start: 0.5lh;
+		}
+	}
+	form > div:has(button) {
+		margin-block-start: var(--system-spacing-content);
+	}
+	legend {
+		position: relative;
+		inset: 0.5lh 0;
+	}
+	fieldset:has(:user-invalid),
+	form:has(:user-invalid),
+	form :user-invalid:not(:focus-visible) {
+		accent-color: var(--system-error);
+		outline: var(--system-stroke-thin) solid var(--system-error);
+		&:is(fieldset) {
+			outline: 0;
+			box-shadow: -15px 0 0 var(--system-canvas), -18px 0 0 var(--system-error);
+		}
+		&:is(form) {
+			outline: 0;
+			box-shadow: -16px 0 0 var(--system-canvas),
+				-17px 0 0 color-mix(in oklab, var(--system-error) 50%, var(--system-canvas));
+		}
+	}
+
+	fieldset > :is(p, div, fieldset) {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-items: start;
+		margin-block: calc((1lh - 1em) / 2);
+		gap: calc((1lh - 1em) / 2);
+		border: 0;
+		padding: 0;
+		&:has([type='checkbox'], [type='radio']) {
+			display: grid;
+			grid-template-columns: min-content 1fr;
+			row-gap: calc(1em - 1ex);
+			column-gap: 1ch;
+			padding-block: calc(1em - 1ex);
+			font-family: var(--system-font-family-data);
 			font-size: var(--system-font-size-m);
-			accent-color: var(--system-accent-color);
-			&:is([type='radio']) {
-				border-radius: 50%;
+			line-height: var(--system-line-height-compact);
+		}
+		&:is(fieldset):has(:user-valid) {
+			& input {
+				accent-color: initial;
+				outline: 0;
 			}
 		}
+	}
 
-		figure {
-			margin-block: var(--system-spacing-content);
-			margin-inline: 0;
-		}
-		figcaption {
-			text-align: center;
-			font-style: italic;
-			font-size: var(--system-font-size-s);
-		}
+	table {
+		/* border-collapse sets the table's elements to share borders, rather than floating as separate "boxes". */
+		border-collapse: collapse;
+		width: 100%;
+		font-family: var(--system-font-family-data);
+		font-size: var(--system-font-size-m);
+	}
+	td,
+	th {
+		border: var(--system-stroke-thin) solid var(--system-gray-stroke);
+		text-align: left;
+		padding: var(--system-spacing-button);
+	}
 
-		img,
-		picture,
-		svg,
-		canvas {
-			display: block;
-			max-inline-size: 100%;
-			block-size: auto;
+	th {
+		background: var(--system-gray-surface);
+	}
+
+	tr:nth-child(even) {
+		/* Set every other cell slightly darker. Improves readability. */
+		background: var(--system-gray-surface);
+	}
+
+	table caption {
+		font-weight: var(--system-font-weight-bold);
+		margin-block-end: var(--system-spacing-content);
+	}
+
+	textarea {
+		/* Don't let the <textarea> extend off the screen naturally or when dragged by the user */
+		max-width: 100%;
+	}
+
+	li {
+		margin-block: var(--system-spacing-element);
+	}
+
+	mark {
+		padding: var(--system-spacing-element);
+		background: var(--system-mark);
+		color: var(--system-mark-text);
+	}
+
+	textarea,
+	select,
+	input {
+		padding: var(--system-spacing-button);
+		margin-block-end: 1ex;
+		background: var(--system-field);
+		color: var(--system-field-text);
+		border: var(--system-stroke-thin) solid var(--system-gray-stroke);
+		border-radius: var(--system-radius);
+		box-shadow: none;
+		font-size: var(--system-font-size-m);
+		accent-color: var(--system-accent-color);
+		&:is([type='radio']) {
+			border-radius: 50%;
 		}
+	}
+
+	figure {
+		margin-block: var(--system-spacing-content);
+		margin-inline: 0;
+	}
+	figcaption {
+		text-align: center;
+		font-style: italic;
+		font-size: var(--system-font-size-s);
+	}
+
+	img,
+	picture,
+	svg,
+	canvas {
+		display: block;
+		max-inline-size: 100%;
+		block-size: auto;
 	}
 }

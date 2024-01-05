@@ -20,7 +20,7 @@ Additionally, `system.css` also provides a simple form layout and validation set
 ### Compatibility
 
 This solution uses features that might cause issues. Consider the following:  
-CSS nesting, Sub Grid, `color-mix()`, `:has()`, `@property`, and `@layer`.
+Container Units, CSS nesting, Sub Grid, `color-mix()`, `:has()`, `@property`, and `@layer`.
 
 These features work in following browsers:
 
