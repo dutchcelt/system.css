@@ -81,7 +81,7 @@
 			--system-cs-state: calc(var(--system-cs-is-light, 1 /* fallback to light mode */) * 100%);
 
 			/* System Colors */
-			--system-accent-color: AccentColor;
+			--system-accent-color: dodgerblue; /* AccentColor doesn't work in chrome */
 			--system-accent-color-text: AccentColorText;
 			--system-active-text: ActiveText;
 			--system-button-border: ButtonBorder;
