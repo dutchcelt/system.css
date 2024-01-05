@@ -77,7 +77,7 @@
 			ButtonBorder
 		); /* ButtonBorder is broken in Safari */
 		--system-button-face: transparent; /* ButtonFace is broken in Safari */
-		--system-button-text: CanvasText; /* ButtonText is broken in Safari */
+		--system-button-text: ButtonText; /* ButtonText is broken in Safari */
 		--system-canvas: Canvas;
 		--system-canvas-text: CanvasText;
 		--system-field: Field;
@@ -134,9 +134,16 @@
 
 	/* MODIFIERS ########################################################################## */
 
+	@media (prefers-color-scheme: light) {
+		:root {
+			--system-cs-is-light: 1; /* OFF */
+			color-scheme: light;
+		}
+	}
 	@media (prefers-color-scheme: dark) {
 		:root {
 			--system-cs-is-light: 0; /* OFF */
+			color-scheme: dark;
 		}
 	}
 
@@ -150,7 +157,6 @@
 	html {
 		font-family: var(--system-font-family-body);
 		line-height: var(--system-line-height);
-		color-scheme: light dark;
 	}
 	body {
 		--viewport-padding: minmax(var(--system-spacing-layout), 1fr);
@@ -166,6 +172,7 @@
 			)
 			[--viewport-end];
 		margin: unset;
+		color-scheme: light dark;
 	}
 	body > :is(header, footer) {
 		display: grid;
@@ -313,7 +320,7 @@
 		padding: var(--system-spacing-button);
 		text-align: center;
 		text-decoration: none;
-		background: transparent;
+		background: var(--system-button-face);
 		color: var(--system-button-text);
 		white-space: nowrap;
 		border: var(--system-stroke-thin) solid var(--system-button-border);
