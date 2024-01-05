@@ -68,11 +68,11 @@
 		--system-cs-state: calc(var(--system-cs-is-light, 1 /* fallback to light mode */) * 100%);
 
 		/* System Colors */
-		--system-accent-color: dodgerblue; /* AccentColor doesn't work in chrome */
+		--system-accent-color: color-mix(in oklab, dodgerblue 90%, black); /* AccentColor doesn't work in chrome */
 		--system-accent-color-text: AccentColorText;
 		--system-active-text: ActiveText;
 		--system-button-border: ButtonBorder;
-		--system-button-face: ButtonFace;
+		--system-button-face: transparent; /* ButtonFace is broken in Safari */
 		--system-button-text: ButtonText;
 		--system-canvas: Canvas;
 		--system-canvas-text: CanvasText;
@@ -122,7 +122,7 @@
 		--system-spacing-column-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
 		--system-spacing-row-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
 		--system-spacing-element: 0.5ex 0.5ch;
-		--system-spacing-button: 1ex 1.5ch;
+		--system-spacing-button: 0.8ex 1.5ch;
 		--system-dimension-min-width: 320px;
 		--system-dimension-content-width: 85ch;
 		--system-radius: clamp(3px, 0.6666ex, var(--system-spacing-single));
@@ -309,19 +309,20 @@
 		padding: var(--system-spacing-button);
 		text-align: center;
 		text-decoration: none;
-		background: var(--system-button-face);
+		background: transparent;
 		color: var(--system-button-text);
 		white-space: nowrap;
-		border: 0;
+		border: var(--system-stroke-thin) solid var(--system-button-border);
 		border-radius: var(--system-radius);
 		font-weight: var(--system-font-weight-semibold);
 		&:hover {
-			background: color-mix(in oklab, var(--system-button-face) 90%, var(--system-canvas-text));
+			background: var(--system-gray-surface);
 		}
 	}
 	button[type='submit'] {
 		background: var(--system-accent-color);
 		color: var(--system-canvas-text-inverted);
+		border: var(--system-stroke-thin) solid var(--system-accent-color);
 		&:is(:focus, :focus-visible, :enabled:hover) {
 			color: var(--system-canvas-text-inverted);
 			background: color-mix(in oklab, var(--system-accent-color) 85%, var(--system-canvas-text));
@@ -546,7 +547,7 @@
 		margin-block-end: 1ex;
 		background: var(--system-field);
 		color: var(--system-field-text);
-		border: var(--system-stroke-thin) solid var(--system-gray-stroke);
+		border: var(--system-stroke-thin) solid var(--system-button-border);
 		border-radius: var(--system-radius);
 		box-shadow: none;
 		font-size: var(--system-font-size-m);
@@ -555,7 +556,14 @@
 			border-radius: 50%;
 		}
 	}
-
+	select {
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800px' height='800px' viewBox='0 0 48 48' fill='ButtonBorder'%3E%3Cpath d='M8.36612 16.1161C7.87796 16.6043 7.87796 17.3957 8.36612 17.8839L23.1161 32.6339C23.6043 33.122 24.3957 33.122 24.8839 32.6339L39.6339 17.8839C40.122 17.3957 40.122 16.6043 39.6339 16.1161C39.1457 15.628 38.3543 15.628 37.8661 16.1161L24 29.9822L10.1339 16.1161C9.64573 15.628 8.85427 15.628 8.36612 16.1161Z' fill='ButtonBorder'/%3E%3C/svg%3E");
+		background-size: 15%;
+		background-position: calc(100% - 1ch) 48%;
+		background-repeat: no-repeat;
+		padding-right: 2.8em;
+	}
 	figure {
 		margin-block: var(--system-spacing-content);
 		margin-inline: 0;
