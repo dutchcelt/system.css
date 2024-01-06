@@ -1,0 +1,8 @@
+@layer --system {
+	:root {
+		--system-stroke-thin: thin;
+		--system-stroke-medium: medium;
+		--system-stroke-thick: thick;
+		--system-stroke-offset: calc(1cap - 1ex);
+	}
+}

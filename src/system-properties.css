@@ -1,0 +1,116 @@
+@property --system-accent-color {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: AccentColor;
+}
+
+@property --system-accent-color-text {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: AccentColorText;
+}
+
+@property --system-active-text {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: ActiveText;
+}
+
+@property --system-button-border {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: ButtonBorder;
+}
+
+@property --system-button-face {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: ButtonFace;
+}
+
+@property --system-button-text {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: ButtonText;
+}
+
+@property --system-canvas {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: Canvas;
+}
+
+@property --system-canvas-text {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: CanvasText;
+}
+
+@property --system-field {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: Field;
+}
+
+@property --system-field-text {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: FieldText;
+}
+
+@property --system-gray-text {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: GrayText;
+}
+
+@property --system-highlight {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: Highlight;
+}
+
+@property --system-highlight-text {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: HighlightText;
+}
+
+@property --system-link-text {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: LinkText;
+}
+
+@property --system-mark {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: Mark;
+}
+
+@property --system-mark-text {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: MarkText;
+}
+
+@property --system-selected-item {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: SelectedItem;
+}
+
+@property --system-selected-item-text {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: SelectedItemText;
+}
+
+@property --system-visited-text {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: VisitedText;
+}
+
+
+

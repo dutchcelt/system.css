@@ -1,0 +1,32 @@
+@layer --system {
+	:root{
+		/* UNITS */
+		--system-spacing-single: clamp(8px, 1rem, 16px);
+		--system-spacing-double: clamp(16px, 2rem, 32px);
+
+		/* PAGE */
+		--system-spacing-layout: max(var(--system-spacing-single), 5vw);
+
+		/* MAIN */
+		--system-spacing-content: clamp(var(--system-spacing-single), 1ex, var(--system-spacing-double));
+
+		/* SECTION */
+		--system-spacing-section-block: max(var(--system-spacing-double), 2.5ex);
+
+		/* HEADING */
+		--system-spacing-heading-block-start: max(var(--system-spacing-double), 2.5ex);
+
+		/* GAP */
+		--system-spacing-column-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
+		--system-spacing-row-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
+
+		/* ELEMENTS */
+		--system-spacing-element: 0.5ex 0.5ch;
+		--system-spacing-button: 0.8ex 1.5ch;
+
+		--system-dimension-min-width: 320px;
+		--system-dimension-content-width: 85ch;
+
+		--system-radius: clamp(3px, 0.6666ex, var(--system-spacing-single));
+	}
+}

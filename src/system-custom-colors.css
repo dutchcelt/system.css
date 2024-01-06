@@ -1,0 +1,20 @@
+@layer --system {
+	/* PROPS ############################################################################## */
+	:root{
+
+		/* These are only mixed with system colors */
+		--system-surface-color: color-mix(in oklab, Canvas 95%, CanvasText);
+		--system-stroke-color: color-mix(in oklab, Canvas 55%, CanvasText);
+		--system-invalid-color: color-mix(in oklab, var(--system-active-text) 90%, CanvasText);
+		--system-content-color-light: color-mix(
+				in oklab,
+				Canvas var(--system-cs-state),
+				CanvasText
+		);
+		--system-content-color-dark: color-mix(
+				in oklab,
+				CanvasText var(--system-cs-state),
+				Canvas
+		);
+	}
+}

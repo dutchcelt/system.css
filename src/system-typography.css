@@ -1,0 +1,44 @@
+@layer --system {
+	:root {
+		/* https://modernfontstacks.com */
+		--system-font-family-display: system-ui, sans-serif;
+		--system-font-family-data: system-ui, sans-serif;
+		--system-font-family-interactive: system-ui, sans-serif;
+		--system-font-family-body: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+		--system-font-family-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
+		monospace;
+
+		--system-font-size: 112.5%; /* 112.5% => 18px */
+		--system-line-height: 1.5;
+		--system-line-height-compact: 1.2;
+		--system-line-height-display: 1.1;
+
+		/**
+		 * Font Size keywords
+		 * https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#values
+		 * Note: These are absolute values.
+		 */
+		--system-font-size-xxxl: xxx-large;
+		--system-font-size-xxl: xx-large;
+		--system-font-size-xl: x-large;
+		--system-font-size-l: large;
+		--system-font-size-m: medium;
+		--system-font-size-s: small;
+		--system-font-size-xs: x-small;
+		--system-font-size-xxs: xx-small;
+
+		/**
+		 * OpenType specification for weights
+		 * https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#common_weight_name_mapping
+		 */
+		--system-font-weight-thin: 100;
+		--system-font-weight-extralight: 200;
+		--system-font-weight-light: 300;
+		--system-font-weight-normal: 400;
+		--system-font-weight-medium: 500;
+		--system-font-weight-semibold: 600;
+		--system-font-weight-bold: 700;
+		--system-font-weight-extrabold: 800;
+		--system-font-weight-black: 900;
+	}
+}

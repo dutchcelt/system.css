@@ -1,175 +1,23 @@
-@property --system-cs-is-light {
-	syntax: '<integer>';
-	inherits: true;
-	initial-value: 1; /* ON */
-}
 
 @layer --system {
-	/* PROPS ############################################################################## */
-
-	:root {
-		/* TYPOGRAPHY */
-
-		/* https://modernfontstacks.com */
-		--system-font-family-display: system-ui, sans-serif;
-		--system-font-family-data: system-ui, sans-serif;
-		--system-font-family-interactive: system-ui, sans-serif;
-		--system-font-family-body: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-		--system-font-family-code: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-
-		--system-font-size: 112.5%; /* 112.5% => 18px */
-		--system-line-height: 1.5;
-		--system-line-height-compact: 1.2;
-		--system-line-height-display: 1.1;
-
-		/**
-			 * Font Size keywords
-			 * https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#values
-			 * Note: These are absolute values. 
-			 */
-		--system-font-size-xxxl: xxx-large;
-		--system-font-size-xxl: xx-large;
-		--system-font-size-xl: x-large;
-		--system-font-size-l: large;
-		--system-font-size-m: medium;
-		--system-font-size-s: small;
-		--system-font-size-xs: x-small;
-		--system-font-size-xxs: xx-small;
-
-		/**
-			 * OpenType specification for weights
-			 * https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#common_weight_name_mapping
-			 */
-		--system-font-weight-thin: 100;
-		--system-font-weight-extralight: 200;
-		--system-font-weight-light: 300;
-		--system-font-weight-normal: 400;
-		--system-font-weight-medium: 500;
-		--system-font-weight-semibold: 600;
-		--system-font-weight-bold: 700;
-		--system-font-weight-extrabold: 800;
-		--system-font-weight-black: 900;
-
-		--system-stroke-thin: thin;
-		--system-stroke-medium: medium;
-		--system-stroke-thick: thick;
-		--system-stroke-offset: calc(1cap - 1ex);
-
-		/* COLORS */
-
-		/**
-			 * color-scheme state
-			 *
-			 * Example:
-			 * color-mix(): Light mode is the first color value and dark mode the second.
-			 * color: color-mix(in oklab, black var(--system-cs-state), white);
-			 */
-		--system-cs-state: calc(var(--system-cs-is-light, 1 /* fallback to light mode */) * 100%);
-
-		/* System Colors */
-		--system-accent-color: color-mix(in oklab, dodgerblue 90%, black); /* AccentColor doesn't work in chrome */
-		--system-accent-color-text: AccentColorText;
-		--system-active-text: ActiveText;
-		--system-button-border: color-mix(
-			in oklab,
-			var(--system-gray-stroke) var(--system-cs-state),
-			ButtonBorder
-		); /* ButtonBorder is broken in Safari */
-		--system-button-face: transparent; /* ButtonFace is broken in Safari */
-		--system-button-text: color-mix(
-				in oklab,
-				ButtonText var(--system-cs-state),
-				var(--system-canvas-text)
-		); /* ButtonText is broken in Safari */
-		--system-canvas: Canvas;
-		--system-canvas-text: CanvasText;
-		--system-field: color-mix(
-				in oklab,
-				Field var(--system-cs-state),
-				var(--system-canvas)
-		); /* Field is broken in iOS */
-		--system-field-text: color-mix(
-				in oklab,
-				FieldText var(--system-cs-state),
-				var(--system-canvas-text)
-		); /* FieldText is broken in iOS */
-		--system-gray-text: GrayText;
-		--system-highlight: color-mix(
-			in oklab,
-			Highlight var(--system-cs-state),
-			color-mix(in oklab, steelblue 80%, var(--system-canvas-text))
-		);
-		--system-highlight-text: HighlightText;
-		--system-link-text: color-mix(
-			in oklab,
-			LinkText var(--system-cs-state),
-			color-mix(in oklab, LinkText 60%, var(--system-canvas-text))
-		);
-		--system-mark: Mark;
-		--system-mark-text: MarkText;
-		--system-selected-item: SelectedItem;
-		--system-selected-item-text: SelectedItemText;
-		--system-visited-text: color-mix(
-			in oklab,
-			VisitedText var(--system-cs-state),
-			color-mix(in oklab, VisitedText 60%, var(--system-canvas-text))
-		);
-
-		/* Additional Colors */
-		/* These are only mixed with system colors */
-		--system-gray-surface: color-mix(in oklab, var(--system-canvas) 95%, var(--system-canvas-text));
-		--system-gray-stroke: color-mix(in oklab, var(--system-canvas) 55%, var(--system-canvas-text));
-		--system-gray-type: color-mix(in oklab, var(--system-canvas) 50%, var(--system-canvas-text));
-		--system-error: color-mix(in oklab, var(--system-active-text) 90%, var(--system-canvas-text));
-		--system-canvas-text-inverted: color-mix(
-			in oklab,
-			var(--system-canvas) var(--system-cs-state),
-			var(--system-canvas-text)
-		);
-
-		/* System Spacing */
-		--system-spacing-single: clamp(8px, 1rem, 16px);
-		--system-spacing-double: clamp(16px, 2rem, 32px);
-		--system-spacing-layout: max(var(--system-spacing-single), 5vw);
-		--system-spacing-content: clamp(var(--system-spacing-single), 1ex, var(--system-spacing-double));
-		--system-spacing-section-block: max(var(--system-spacing-double), 2.5ex);
-		--system-spacing-heading-block-start: max(var(--system-spacing-double), 2.5ex);
-		--system-spacing-column-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
-		--system-spacing-row-gap: clamp(var(--system-spacing-single), 5cqw, var(--system-spacing-double));
-		--system-spacing-element: 0.5ex 0.5ch;
-		--system-spacing-button: 0.8ex 1.5ch;
-		--system-dimension-min-width: 320px;
-		--system-dimension-content-width: 85ch;
-		--system-radius: clamp(3px, 0.6666ex, var(--system-spacing-single));
-	}
-
-
-	/* MODIFIERS ########################################################################## */
-
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--system-cs-is-light: 0; /* OFF */
-		}
-	}
-
-	/* SELECTORS ########################################################################## */
 
 	*,
 	*::before,
 	*::after {
 		box-sizing: border-box;
 	}
+
 	html {
 		font-family: var(--system-font-family-body);
 		line-height: var(--system-line-height);
 		color-scheme: light dark;
 	}
+
 	body {
 		--viewport-padding: minmax(var(--system-spacing-layout), 1fr);
 		--content-width: minmax(
-			calc(var(--system-dimension-min-width) - (var(--system-spacing-layout) * 2)),
-			var(--system-dimension-content-width)
+				calc(var(--system-dimension-min-width) - (var(--system-spacing-layout) * 2)),
+				var(--system-dimension-content-width)
 		);
 
 		display: grid;
@@ -181,45 +29,51 @@
 		margin: unset;
 		color-scheme: light dark;
 	}
+
 	body > :is(header, footer) {
 		display: grid;
 		grid-template-columns: subgrid;
 		grid-column: --viewport-start / --viewport-end;
 		padding-block: var(--system-spacing-content);
+
 		& > * {
 			grid-column: --content-start / --content-end;
 			margin: 0;
 			padding: 0;
 		}
 	}
+
 	main {
 		/* Center main in page */
 		grid-column: --content-start / --content-end;
 		container: --content / inline-size;
 		font-size: var(--system-font-size);
 		padding-block: clamp(
-			var(--system-spacing-content) * 2,
-			var(--system-spacing-layout),
-			var(--system-spacing-content) * 4
+				var(--system-spacing-content) * 2,
+				var(--system-spacing-layout),
+				var(--system-spacing-content) * 4
 		);
 		/* Waiting on margin-trim */
+
 		& > *:first-child {
 			margin-block-start: unset;
 		}
+
 		& > *:last-child {
 			margin-block-end: unset;
 		}
 	}
 
 	body > header {
-		background: var(--system-gray-surface);
-		border-block-end: var(--system-stroke-thin) solid var(--system-gray-stroke);
+		background: var(--system-surface-color);
+		border-block-end: var(--system-stroke-thin) solid var(--system-stroke-color);
+
 		& > :is(h1, h2, h3),
 		& > p:only-child {
 			font-weight: var(--system-font-weight-extralight);
 			font-family: var(--system-font-family-display);
 			font-size: var(--system-font-size-xxl);
-			color: var(--system-gray-type);
+			color: var(--system-gray-text);
 		}
 	}
 
@@ -231,14 +85,15 @@
 		background: var(--system-highlight);
 		color: var(--system-highlight-text);
 	}
+
 	:focus-visible {
 		outline: var(--system-stroke-medium) solid var(--system-highlight);
 		outline-offset: var(--system-stroke-offset);
 	}
+
 	:is(h1, h2, h3, h4, h5, h6) {
 		font-family: var(--system-font-family-display);
 		line-height: var(--system-line-height-display);
-		color: var(--system-canvas-text);
 		margin-block-start: var(--system-spacing-heading-block-start);
 		margin-block-end: var(--system-spacing-content);
 	}
@@ -246,6 +101,7 @@
 	:is(h1, h2, h3) {
 		text-wrap: balance;
 	}
+
 	:is(h4, h5, h6) {
 		line-height: var(--system-line-height-compact);
 	}
@@ -279,15 +135,19 @@
 	a:link {
 		color: var(--system-link-text);
 	}
+
 	a:hover {
 		color: color-mix(in oklab, var(--system-link-text) 80%, var(--system-canvas-text));
 	}
+
 	a:active {
 		color: var(--system-active-text);
 	}
+
 	a:focus {
 		color: var(--system-link-text);
 	}
+
 	a:visited {
 		color: var(--system-visited-text, VisitedText);
 	}
@@ -299,12 +159,14 @@
 
 	blockquote {
 		padding: var(--system-spacing-content);
-		background: var(--system-gray-surface);
-		border-inline-start: var(--system-stroke-thick) solid var(--system-gray-stroke);
+		background: var(--system-surface-color);
+		border-inline-start: var(--system-stroke-thick) solid var(--system-stroke-color);
 		/* Waiting on margin-trim */
+
 		& > *:first-child {
 			margin-block-start: unset;
 		}
+
 		& > *:last-child {
 			margin-block-end: unset;
 		}
@@ -333,19 +195,23 @@
 		border: var(--system-stroke-thin) solid var(--system-button-border);
 		border-radius: var(--system-radius);
 		font-weight: var(--system-font-weight-semibold);
+
 		&:hover {
-			background: var(--system-gray-surface);
+			background: var(--system-surface-color);
 		}
 	}
+
 	button[type='submit'] {
 		background: var(--system-accent-color);
-		color: var(--system-canvas-text-inverted);
+		color: var(--system-content-color-light);
 		border: var(--system-stroke-thin) solid var(--system-accent-color);
+
 		&:is(:focus, :focus-visible, :enabled:hover) {
-			color: var(--system-canvas-text-inverted);
+			color: var(--system-content-color-light);
 			background: color-mix(in oklab, var(--system-accent-color) 85%, var(--system-canvas-text));
 		}
 	}
+
 	button[disabled] {
 		opacity: 0.25;
 		pointer-events: none;
@@ -368,8 +234,8 @@
 	samp,
 	kbd,
 	pre {
-		background: var(--system-gray-surface);
-		border: var(--system-stroke-thin) solid var(--system-gray-stroke);
+		background: var(--system-surface-color);
+		border: var(--system-stroke-thin) solid var(--system-stroke-color);
 		border-radius: var(--system-radius);
 		padding: var(--system-spacing-element);
 		font-size: var(--system-font-size-s);
@@ -377,7 +243,7 @@
 
 	kbd {
 		/* Makes the kbd element look like a keyboard key */
-		border-block-end: var(--system-stroke-medium) solid var(--system-gray-stroke);
+		border-block-end: var(--system-stroke-medium) solid var(--system-stroke-color);
 	}
 
 	pre {
@@ -408,7 +274,7 @@
 	}
 
 	details {
-		border: var(--system-stroke-thin) solid var(--system-gray-stroke);
+		border: var(--system-stroke-thin) solid var(--system-stroke-color);
 		border-radius: var(--system-radius);
 		cursor: text;
 		overflow: clip;
@@ -419,7 +285,7 @@
 		font-family: var(--system-font-family-data);
 		font-weight: var(--system-font-weight-semibold);
 		padding: var(--system-spacing-button);
-		background: var(--system-gray-surface);
+		background: var(--system-surface-color);
 	}
 
 	details[open] {
@@ -433,9 +299,11 @@
 
 	details[open] {
 		/* Waiting on margin-trim */
+
 		& > *:nth-child(2) {
 			margin-block-start: var(--system-spacing-content);
 		}
+
 		& > *:last-child {
 			margin-block-end: var(--system-spacing-content);
 		}
@@ -448,7 +316,7 @@
 	hr {
 		/* Reset the border of the <hr> separator, then set a better line */
 		border: 0;
-		border-block-end: var(--system-stroke-medium) solid var(--system-gray-surface);
+		border-block-end: var(--system-stroke-medium) solid var(--system-surface-color);
 		margin-block: var(--system-spacing-section-block);
 		margin-inline: 0;
 	}
@@ -460,31 +328,37 @@
 		border: 0;
 		padding: 0;
 		margin: 0;
+
 		&:has(legend) {
 			margin-block-start: calc(1ex - 0.5lh);
 			margin-block-end: 1ex;
 			padding-block-start: 0.5lh;
 		}
 	}
+
 	form > div:has(button) {
 		margin-block-start: var(--system-spacing-content);
 	}
+
 	legend {
 		position: relative;
 		inset: 0.5lh 0;
 	}
+
 	fieldset:has(:user-invalid),
 	form:has(:user-invalid),
 	form :user-invalid:not(:focus-visible) {
-		outline: var(--system-stroke-thin) solid var(--system-error);
+		outline: var(--system-stroke-thin) solid var(--system-invalid-color);
+
 		&:is(fieldset) {
 			outline: 0;
-			box-shadow: -15px 0 0 var(--system-canvas), -18px 0 0 var(--system-error);
+			box-shadow: -15px 0 0 var(--system-canvas), -18px 0 0 var(--system-invalid-color);
 		}
+
 		&:is(form) {
 			outline: 0;
 			box-shadow: -16px 0 0 var(--system-canvas),
-				-17px 0 0 color-mix(in oklab, var(--system-error) 50%, var(--system-canvas));
+			-17px 0 0 color-mix(in oklab, var(--system-invalid-color) 50%, var(--system-canvas));
 		}
 	}
 
@@ -497,6 +371,7 @@
 		gap: calc((1lh - 1em) / 2);
 		border: 0;
 		padding: 0;
+
 		&:has([type='checkbox'], [type='radio']) {
 			display: grid;
 			grid-template-columns: min-content 1fr;
@@ -507,6 +382,7 @@
 			font-size: var(--system-font-size-m);
 			line-height: var(--system-line-height-compact);
 		}
+
 		&:is(fieldset):has(:user-valid) {
 			& input {
 				accent-color: initial;
@@ -522,20 +398,21 @@
 		font-family: var(--system-font-family-data);
 		font-size: var(--system-font-size-m);
 	}
+
 	td,
 	th {
-		border: var(--system-stroke-thin) solid var(--system-gray-stroke);
+		border: var(--system-stroke-thin) solid var(--system-stroke-color);
 		text-align: start;
 		padding: var(--system-spacing-button);
 	}
 
 	th {
-		background: var(--system-gray-surface);
+		background: var(--system-surface-color);
 	}
 
 	tr:nth-child(even) {
 		/* Set every other cell slightly darker. Improves readability. */
-		background: var(--system-gray-surface);
+		background: var(--system-surface-color);
 	}
 
 	table caption {
@@ -570,11 +447,14 @@
 		box-shadow: none;
 		font-size: var(--system-font-size-m);
 		accent-color: var(--system-accent-color);
+
 		&:is([type='radio']) {
 			border-radius: 50%;
 		}
+
 		color-scheme: light dark;
 	}
+
 	select {
 		appearance: none;
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800px' height='800px' viewBox='0 0 48 48' fill='ButtonBorder'%3E%3Cpath d='M8.36612 16.1161C7.87796 16.6043 7.87796 17.3957 8.36612 17.8839L23.1161 32.6339C23.6043 33.122 24.3957 33.122 24.8839 32.6339L39.6339 17.8839C40.122 17.3957 40.122 16.6043 39.6339 16.1161C39.1457 15.628 38.3543 15.628 37.8661 16.1161L24 29.9822L10.1339 16.1161C9.64573 15.628 8.85427 15.628 8.36612 16.1161Z' fill='ButtonBorder'/%3E%3C/svg%3E");
@@ -583,10 +463,12 @@
 		background-repeat: no-repeat;
 		padding-right: 2.8em;
 	}
+
 	figure {
 		margin-block: var(--system-spacing-content);
 		margin-inline: 0;
 	}
+
 	figcaption {
 		text-align: center;
 		font-style: italic;
