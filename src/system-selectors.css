@@ -349,17 +349,34 @@
 	fieldset:has(:user-invalid),
 	form:has(:user-invalid),
 	form :user-invalid:not(:focus-visible) {
+		position: relative;
 		outline: var(--system-stroke-thin) solid var(--system-invalid-color);
+		&::before{
+			position: absolute;
+			margin-inline-start: max(calc(var(--system-spacing-layout) * -1), calc(var(--system-spacing-double) * -1));
+			content: '';
+			width: 0px;
+			height: 100%;
+			display: block;
+			border-inline-end-width: 0;
+			border-inline-end-style: solid;
+			border-inline-end-color: var(--system-invalid-color);
+		}
 
 		&:is(fieldset) {
 			outline: 0;
-			box-shadow: -15px 0 0 var(--system-canvas), -18px 0 0 var(--system-invalid-color);
+			&::before{
+				border-inline-end-width: var(--system-stroke-thick);
+			}
+
 		}
 
 		&:is(form) {
 			outline: 0;
-			box-shadow: -16px 0 0 var(--system-canvas),
-			-17px 0 0 color-mix(in oklab, var(--system-invalid-color) 50%, var(--system-canvas));
+			&::before{
+				border-inline-end-width: var(--system-stroke-thin);
+			}
+
 		}
 	}
 
