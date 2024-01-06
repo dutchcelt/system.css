@@ -3,7 +3,11 @@
 	:root{
 
 		/* These are only mixed with system colors */
-		--system-surface-color: color-mix(in oklab, Canvas 95%, CanvasText);
+		--system-surface-color: color-mix(
+				in oklab,
+				color-mix(in oklab, Canvas 95%, CanvasText) var(--system-cs-state),
+				color-mix(in oklab, Canvas 85%, CanvasText)
+		);
 		--system-stroke-color: color-mix(in oklab, Canvas 55%, CanvasText);
 		--system-invalid-color: color-mix(in oklab, var(--system-active-text) 90%, CanvasText);
 		--system-content-color-light: color-mix(

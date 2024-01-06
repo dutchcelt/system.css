@@ -208,6 +208,7 @@
 
 		&:is(:focus, :focus-visible, :enabled:hover) {
 			color: var(--system-content-color-light);
+			border-color: color-mix(in oklab, var(--system-accent-color) 85%, var(--system-canvas-text));
 			background: color-mix(in oklab, var(--system-accent-color) 85%, var(--system-canvas-text));
 		}
 	}
