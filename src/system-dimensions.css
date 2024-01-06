@@ -1,0 +1,6 @@
+@layer --system {
+	:root{
+		--system-dimension-min-width: 320px; /* 320px: 16px => 5vw/cqw */
+		--system-dimension-content-width: 85ch; /* Approx. 756px: 16px => 2.12cqw */
+	}
+}
