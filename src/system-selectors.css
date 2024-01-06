@@ -6,17 +6,17 @@
 	*::after {
 		box-sizing: border-box;
 	}
-
 	html {
 		font-family: var(--system-font-family-body);
 		line-height: var(--system-line-height);
 		color-scheme: light dark;
+		hanging-punctuation: first last;
 	}
 
 	body {
-		--viewport-padding: minmax(var(--system-spacing-layout), 1fr);
+		--viewport-padding: minmax(var(--system-spacing-page-inline), 1fr);
 		--content-width: minmax(
-				calc(var(--system-dimension-min-width) - (var(--system-spacing-layout) * 2)),
+				calc(var(--system-dimension-min-width) - (var(--system-spacing-page-inline) * 2)),
 				var(--system-dimension-content-width)
 		);
 
@@ -34,7 +34,7 @@
 		display: grid;
 		grid-template-columns: subgrid;
 		grid-column: --viewport-start / --viewport-end;
-		padding-block: var(--system-spacing-content);
+		padding-block: var(--system-spacing-main);
 
 		& > * {
 			grid-column: --content-start / --content-end;
@@ -49,9 +49,9 @@
 		container: --content / inline-size;
 		font-size: var(--system-font-size);
 		padding-block: clamp(
-				var(--system-spacing-content) * 2,
-				var(--system-spacing-layout),
-				var(--system-spacing-content) * 4
+				var(--system-spacing-main) * 2,
+				var(--system-spacing-page-inline),
+				var(--system-spacing-main) * 4
 		);
 		/* Waiting on margin-trim */
 
@@ -95,7 +95,7 @@
 		font-family: var(--system-font-family-display);
 		line-height: var(--system-line-height-display);
 		margin-block-start: var(--system-spacing-heading-block-start);
-		margin-block-end: var(--system-spacing-content);
+		margin-block-end: var(--system-spacing-main);
 	}
 
 	:is(h1, h2, h3) {
@@ -158,7 +158,7 @@
 	}
 
 	blockquote {
-		padding: var(--system-spacing-content);
+		padding: var(--system-spacing-main);
 		background: var(--system-surface-color);
 		border-inline-start: var(--system-stroke-thick) solid var(--system-stroke-color);
 		/* Waiting on margin-trim */
@@ -248,7 +248,7 @@
 	}
 
 	pre {
-		padding: var(--system-spacing-content);
+		padding: var(--system-spacing-main);
 		max-width: 100%;
 		overflow: auto;
 	}
@@ -290,23 +290,23 @@
 	}
 
 	details[open] {
-		padding-inline: var(--system-spacing-content);
+		padding-inline: var(--system-spacing-main);
 		padding-block-end: var(--system-spacing-button);
 	}
 
 	details[open] summary {
-		margin-inline: calc(var(--system-spacing-content) * -1);
+		margin-inline: calc(var(--system-spacing-main) * -1);
 	}
 
 	details[open] {
 		/* Waiting on margin-trim */
 
 		& > *:nth-child(2) {
-			margin-block-start: var(--system-spacing-content);
+			margin-block-start: var(--system-spacing-main);
 		}
 
 		& > *:last-child {
-			margin-block-end: var(--system-spacing-content);
+			margin-block-end: var(--system-spacing-main);
 		}
 	}
 
@@ -338,7 +338,7 @@
 	}
 
 	form > div:has(button) {
-		margin-block-start: var(--system-spacing-content);
+		margin-block-start: var(--system-spacing-main);
 	}
 
 	legend {
@@ -353,7 +353,7 @@
 		outline: var(--system-stroke-thin) solid var(--system-invalid-color);
 		&::before{
 			position: absolute;
-			margin-inline-start: max(calc(var(--system-spacing-layout) * -1), calc(var(--system-spacing-double) * -1));
+			margin-inline-start: max(calc(var(--system-spacing-page-inline) * -1), calc(var(--system-spacing-double) * -1));
 			content: '';
 			width: 0px;
 			height: 100%;
@@ -362,21 +362,20 @@
 			border-inline-end-style: solid;
 			border-inline-end-color: var(--system-invalid-color);
 		}
-
+		&:is(input) {
+			border-color: var(--system-invalid-color);
+		}
 		&:is(fieldset) {
 			outline: 0;
 			&::before{
 				border-inline-end-width: var(--system-stroke-thick);
 			}
-
 		}
-
 		&:is(form) {
 			outline: 0;
 			&::before{
 				border-inline-end-width: var(--system-stroke-thin);
 			}
-
 		}
 	}
 
@@ -435,7 +434,7 @@
 
 	table caption {
 		font-weight: var(--system-font-weight-bold);
-		margin-block-end: var(--system-spacing-content);
+		margin-block-end: var(--system-spacing-main);
 	}
 
 	textarea {
@@ -483,7 +482,7 @@
 	}
 
 	figure {
-		margin-block: var(--system-spacing-content);
+		margin-block: var(--system-spacing-main);
 		margin-inline: 0;
 	}
 
@@ -493,6 +492,8 @@
 		font-size: var(--system-font-size-s);
 	}
 
+
+	/* https://keithjgrant.com/posts/2024/01/my-css-resets/ */
 	img,
 	picture,
 	svg,
@@ -501,4 +502,16 @@
 		max-inline-size: 100%;
 		block-size: auto;
 	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+
 }
