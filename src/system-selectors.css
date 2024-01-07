@@ -214,12 +214,12 @@
 	}
 
 	button[type='submit'] {
-		background: var(--system-accent-color);
-		color: var(--system-content-color-light);
+		background: var(--system-submit-button);
+		color: var(--system-submit-button-text);
 		border: var(--system-stroke-thin) solid var(--system-accent-color);
 
 		&:is(:focus, :focus-visible, :enabled:hover) {
-			color: var(--system-content-color-light);
+			color: var(--system-submit-button-text);
 			border-color: color-mix(in oklab, var(--system-accent-color) 85%, var(--system-canvas-text));
 			background: color-mix(in oklab, var(--system-accent-color) 85%, var(--system-canvas-text));
 		}
