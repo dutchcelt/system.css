@@ -1,0 +1,37 @@
+:root {
+	--system-font-family-display: var(--font-sans);
+	--system-font-family-data: var(--font-sans);
+	--system-font-family-interactive: var(--font-sans);
+	--system-font-family-body: var(--font-sans);
+	--system-font-family-code: var(--font-mono);
+
+	--system-accent-color: color-mix(in oklab, var(--blue-7) var(--system-cs-state), var(--blue-6));
+	--system-accent-color-text: var(--system-canvas-text);
+	--system-active-text: color-mix(in oklab, var(--red-4) var(--system-cs-state), var(--red-7));
+	--system-button-border: color-mix(in oklab, var(--system-stroke-color) var(--system-cs-state), ButtonBorder);
+	--system-button-face: var(--system-canvas);
+	--system-button-text: var(--system-canvas-text);
+	--system-canvas: color-mix(in oklab, var(--gray-0) var(--system-cs-state), var(--gray-9));
+	--system-canvas-text: color-mix(in oklab, var(--gray-12) var(--system-cs-state), var(--gray-0));
+	--system-field: var(--system-canvas);
+	--system-field-text: var(--system-canvas-text);
+	--system-gray-text: color-mix(in oklab, var(--gray-6) var(--system-cs-state), var(--gray-5));
+	--system-highlight: color-mix(in oklab, var(--indigo-2) var(--system-cs-state), var(--indigo-7));
+	--system-highlight-text: var(--system-canvas-text);
+	--system-link-text: color-mix(in oklab, var(--indigo-7) var(--system-cs-state), var(--indigo-3));
+
+	--system-mark: color-mix(in oklab, var(--yellow-3) var(--system-cs-state), var(--yellow-8));
+	--system-mark-text: color-mix(in oklab, var(--gray-12) var(--system-cs-state), var(--gray-0));
+	--system-selected-item: color-mix(in oklab, var(--indigo-2) var(--system-cs-state), var(--indigo-7));
+	--system-selected-item-text: var(--system-canvas-text) var(--system-canvas-text);
+
+	/* VisitedText is too dark in darkmode */
+	--system-visited-text: color-mix(in oklab, var(--purple-7) var(--system-cs-state), var(--purple-3));
+
+	/* These are only mixed with system colors */
+	--system-surface-color: color-mix(in oklab, var(--gray-3) var(--system-cs-state), var(--gray-8));
+	--system-stroke-color: color-mix(in oklab, var(gray-4) var(--system-cs-state), var(gray-7));
+	--system-invalid-color: color-mix(in oklab, var(--system-active-text) 90%, var(--system-canvas-text));
+	--system-submit-button: var(--system-accent-color);
+	--system-submit-button-text: var(--system-canvas);
+}

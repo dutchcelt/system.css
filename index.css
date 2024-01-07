@@ -1,3 +1,4 @@
+@layer --system, --theme;
 @import url('src/system-properties.css');
 @import url('src/system-colors.css');
 @import url('src/system-typography.css');
@@ -7,4 +8,4 @@
 @import url('src/system-radi.css');
 @import url('src/system-custom-colors.css');
 
-@import url("src/system-selectors.css");
+@import url('src/system-selectors.css');

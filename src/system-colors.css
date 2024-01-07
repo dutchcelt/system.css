@@ -5,7 +5,6 @@
 }
 
 @layer --system {
-
 	:root {
 		/**
 		 * color-scheme state
@@ -14,7 +13,7 @@
 		 * color-mix(): Light mode is the first color value and dark mode the second.
 		 * color: color-mix(in oklab, black var(--system-cs-state), white);
 		 */
-		--system-cs-state: calc(var(--system-cs-is-light, 1/* fallback to light mode */) * 100%);
+		--system-cs-state: calc(var(--system-cs-is-light, 1 /* fallback to light mode */) * 100%);
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -24,7 +23,6 @@
 	}
 
 	:root {
-
 		/* AccentColor doesn't work in chrome */
 		--system-accent-color: color-mix(in oklab, dodgerblue 90%, black);
 
@@ -32,52 +30,38 @@
 		/*--system-active-text: ActiveText;*/
 		/* ButtonBorder is broken in Safari */
 
-		--system-button-border: color-mix(
-				in oklab,
-				var(--system-stroke-color) var(--system-cs-state),
-				ButtonBorder
-		);
+		--system-button-border: color-mix(in oklab, var(--system-stroke-color) var(--system-cs-state), ButtonBorder);
 
 		/* ButtonFace is broken in Safari */
 		--system-button-face: transparent;
 
 		/* ButtonText is broken in Safari */
-		--system-button-text: color-mix(
-				in oklab,
-				ButtonText var(--system-cs-state),
-				CanvasText
-		);
+		--system-button-text: color-mix(in oklab, ButtonText var(--system-cs-state), CanvasText);
 
-		/*--system-canvas: Canvas;*/
-		/*--system-canvas-text: CanvasText;*/
+		/* Canvas & CanvasText must be set as initial values are not always parsed */
+		--system-canvas: Canvas;
+		--system-canvas-text: CanvasText;
 
 		/* Field is broken in iOS */
-		--system-field: color-mix(
-				in oklab,
-				Field var(--system-cs-state),
-				Canvas
-		);
+		--system-field: color-mix(in oklab, Field var(--system-cs-state), Canvas);
 		/* FieldText is broken in iOS */
-		--system-field-text: color-mix(
-				in oklab,
-				FieldText var(--system-cs-state),
-				CanvasText
-		);
+		--system-field-text: color-mix(in oklab, FieldText var(--system-cs-state), CanvasText);
 
-		/*--system-gray-text: GrayText;*/
+		/* ButtonText is broken in Safari */
+		--system-gray-text: color-mix(in oklab, var(--system-canvas) 55%, var(--system-canvas-text));
 
 		--system-highlight: color-mix(
-				in oklab,
-				Highlight var(--system-cs-state),
-				color-mix(in oklab, steelblue 80%, CanvasText)
+			in oklab,
+			Highlight var(--system-cs-state),
+			color-mix(in oklab, steelblue 80%, CanvasText)
 		);
 		--system-highlight-text: HighlightText;
 
 		/* LinkText is too dark in darkmode */
 		--system-link-text: color-mix(
-				in oklab,
-				LinkText var(--system-cs-state),
-				color-mix(in oklab, LinkText 60%, CanvasText)
+			in oklab,
+			LinkText var(--system-cs-state),
+			color-mix(in oklab, LinkText 60%, CanvasText)
 		);
 
 		/*--system-mark: Mark;*/
@@ -87,10 +71,9 @@
 
 		/* VisitedText is too dark in darkmode */
 		--system-visited-text: color-mix(
-				in oklab,
-				VisitedText var(--system-cs-state),
-				color-mix(in oklab, VisitedText 60%, CanvasText)
+			in oklab,
+			VisitedText var(--system-cs-state),
+			color-mix(in oklab, VisitedText 60%, CanvasText)
 		);
 	}
-
 }

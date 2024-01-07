@@ -1,6 +1,4 @@
-
 @layer --system {
-
 	*,
 	*::before,
 	*::after {
@@ -10,14 +8,13 @@
 		font-family: var(--system-font-family-body);
 		line-height: var(--system-line-height);
 		color-scheme: light dark;
-		hanging-punctuation: first last;
 	}
 
 	body {
 		--viewport-padding: minmax(var(--system-spacing-page-inline), 1fr);
 		--content-width: minmax(
-				calc(var(--system-dimension-min-width) - (var(--system-spacing-page-inline) * 2)),
-				var(--system-dimension-content-width)
+			calc(var(--system-dimension-min-width) - (var(--system-spacing-page-inline) * 2)),
+			var(--system-dimension-content-width)
 		);
 
 		display: grid;
@@ -27,7 +24,8 @@
 			)
 			[--viewport-end];
 		margin: unset;
-		color-scheme: light dark;
+		color: var(--system-canvas-text);
+		background-color: var(--system-canvas);
 	}
 
 	body > :is(header, footer) {
@@ -49,9 +47,9 @@
 		container: --content / inline-size;
 		font-size: var(--system-font-size);
 		padding-block: clamp(
-				var(--system-spacing-main) * 2,
-				var(--system-spacing-page-inline),
-				var(--system-spacing-main) * 4
+			var(--system-spacing-main) * 2,
+			var(--system-spacing-page-inline),
+			var(--system-spacing-main) * 4
 		);
 		/* Waiting on margin-trim */
 
@@ -74,6 +72,19 @@
 			font-family: var(--system-font-family-display);
 			font-size: var(--system-font-size-xxl);
 			color: var(--system-gray-text);
+		}
+		& > nav {
+			display: flex;
+			column-gap: var(--system-spacing-column-gap);
+			margin-block-start: var(--system-spacing-single);
+			& [href] {
+				color: var(--system-link-text);
+			}
+			& [aria-current='page'] {
+				pointer-events: none;
+				text-decoration: none;
+				color: currentcolor;
+			}
 		}
 	}
 
@@ -151,7 +162,9 @@
 	a:visited {
 		color: var(--system-visited-text, VisitedText);
 	}
-
+	p {
+		text-wrap: pretty;
+	}
 	abbr:hover {
 		/* Set the '?' cursor while hovering an abbreviation */
 		cursor: help;
@@ -175,7 +188,6 @@
 	abbr {
 		cursor: help;
 	}
-
 	input,
 	select,
 	button,
@@ -351,9 +363,12 @@
 	form :user-invalid:not(:focus-visible) {
 		position: relative;
 		outline: var(--system-stroke-thin) solid var(--system-invalid-color);
-		&::before{
+		&::before {
 			position: absolute;
-			margin-inline-start: max(calc(var(--system-spacing-page-inline) * -1), calc(var(--system-spacing-double) * -1));
+			margin-inline-start: max(
+				calc(var(--system-spacing-page-inline) * -1),
+				calc(var(--system-spacing-double) * -1)
+			);
 			content: '';
 			width: 0px;
 			height: 100%;
@@ -367,13 +382,13 @@
 		}
 		&:is(fieldset) {
 			outline: 0;
-			&::before{
+			&::before {
 				border-inline-end-width: var(--system-stroke-thick);
 			}
 		}
 		&:is(form) {
 			outline: 0;
-			&::before{
+			&::before {
 				border-inline-end-width: var(--system-stroke-thin);
 			}
 		}
@@ -442,10 +457,6 @@
 		max-width: 100%;
 	}
 
-	li {
-		margin-block: var(--system-spacing-element);
-	}
-
 	mark {
 		padding: var(--system-spacing-element);
 		background: var(--system-mark);
@@ -492,7 +503,6 @@
 		font-size: var(--system-font-size-s);
 	}
 
-
 	/* https://keithjgrant.com/posts/2024/01/my-css-resets/ */
 	img,
 	picture,
@@ -513,5 +523,4 @@
 			scroll-behavior: auto !important;
 		}
 	}
-
 }
