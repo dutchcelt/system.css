@@ -34,4 +34,6 @@
 	--system-invalid-color: color-mix(in oklab, var(--system-active-text) 90%, var(--system-canvas-text));
 	--system-submit-button: var(--system-accent-color);
 	--system-submit-button-text: var(--system-canvas);
+
+	--system-dimension-content-width: 80ch;
 }
