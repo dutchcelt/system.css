@@ -10,8 +10,8 @@
 		--system-stroke-color: color-mix(in oklab, var(--system-canvas) 55%, var(--system-canvas-text));
 		--system-invalid-color: color-mix(in oklab, var(--system-active-text) 90%, var(--system-canvas-text));
 
-		--system-submit-button: var(--system-accent-color);
-		--system-submit-button-text: var(--system-content-color-light);
+		--system-interactive-color: var(--system-accent-color);
+		--system-canvas-text-inverted: var(--system-content-color-light);
 
 		--system-content-color-light: color-mix(
 			in oklab,
