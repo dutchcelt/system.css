@@ -1,116 +1,113 @@
 @property --system-accent-color {
-	syntax: '<color>';
+	syntax: '<color>|AccentColor';
 	inherits: true;
 	initial-value: AccentColor;
 }
 
 @property --system-accent-color-text {
-	syntax: '<color>';
+	syntax: '<color>|AccentColorText';
 	inherits: true;
 	initial-value: AccentColorText;
 }
 
 @property --system-active-text {
-	syntax: '<color>';
+	syntax: '<color>|ActiveText';
 	inherits: true;
 	initial-value: ActiveText;
 }
 
 @property --system-button-border {
-	syntax: '<color>';
+	syntax: '<color>|ButtonBorder';
 	inherits: true;
 	initial-value: ButtonBorder;
 }
 
 @property --system-button-face {
-	syntax: '<color>';
+	syntax: '<color>|ButtonFace';
 	inherits: true;
 	initial-value: ButtonFace;
 }
 
 @property --system-button-text {
-	syntax: '<color>';
+	syntax: '<color>|ButtonText';
 	inherits: true;
 	initial-value: ButtonText;
 }
 
 @property --system-canvas {
-	syntax: '<color>';
+	syntax: '<color>|Canvas';
 	inherits: true;
 	initial-value: Canvas;
 }
 
 @property --system-canvas-text {
-	syntax: '<color>';
+	syntax: '<color>|CanvasText';
 	inherits: true;
 	initial-value: CanvasText;
 }
 
 @property --system-field {
-	syntax: '<color>';
+	syntax: '<color>|Field';
 	inherits: true;
 	initial-value: Field;
 }
 
 @property --system-field-text {
-	syntax: '<color>';
+	syntax: '<color>|FieldText';
 	inherits: true;
 	initial-value: FieldText;
 }
 
 @property --system-gray-text {
-	syntax: '<color>';
+	syntax: '<color>|GrayText';
 	inherits: true;
 	initial-value: GrayText;
 }
 
 @property --system-highlight {
-	syntax: '<color>';
+	syntax: '<color>|Highlight';
 	inherits: true;
 	initial-value: Highlight;
 }
 
 @property --system-highlight-text {
-	syntax: '<color>';
+	syntax: '<color>|HighlightText';
 	inherits: true;
 	initial-value: HighlightText;
 }
 
 @property --system-link-text {
-	syntax: '<color>';
+	syntax: '<color>|LinkText';
 	inherits: true;
 	initial-value: LinkText;
 }
 
 @property --system-mark {
-	syntax: '<color>';
+	syntax: '<color>|Mark';
 	inherits: true;
 	initial-value: Mark;
 }
 
 @property --system-mark-text {
-	syntax: '<color>';
+	syntax: '<color>|MarkText';
 	inherits: true;
 	initial-value: MarkText;
 }
 
 @property --system-selected-item {
-	syntax: '<color>';
+	syntax: '<color>|SelectedItem';
 	inherits: true;
 	initial-value: SelectedItem;
 }
 
 @property --system-selected-item-text {
-	syntax: '<color>';
+	syntax: '<color>|SelectedItemText';
 	inherits: true;
 	initial-value: SelectedItemText;
 }
 
 @property --system-visited-text {
-	syntax: '<color>';
+	syntax: '<color>|VisitedText';
 	inherits: true;
 	initial-value: VisitedText;
 }
-
-
-

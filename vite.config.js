@@ -3,6 +3,8 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	build: {
+		base: '/system.css/',
+		minify: false,
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'index.html'),

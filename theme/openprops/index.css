@@ -1,2 +1,2 @@
-@import url('open-props.min.css');
-@import url('system-open-props.css');
+@import url('open-props.min.css') layer(--theme);
+@import url('system-open-props.css') layer(--theme);
