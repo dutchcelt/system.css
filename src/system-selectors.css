@@ -77,6 +77,7 @@
 			display: flex;
 			column-gap: var(--system-spacing-column-gap);
 			margin-block-start: var(--system-spacing-single);
+			font-family: var(--system-font-family-interactive);
 			& [href] {
 				color: var(--system-link-text);
 			}
