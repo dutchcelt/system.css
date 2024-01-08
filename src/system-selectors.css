@@ -11,55 +11,13 @@
 	}
 
 	body {
-		--viewport-padding: minmax(var(--system-spacing-page-inline), 1fr);
-		--content-width: minmax(
-			calc(var(--system-dimension-min-width) - (var(--system-spacing-page-inline) * 2)),
-			var(--system-dimension-content-width)
-		);
-
-		display: grid;
-		grid-template-columns:
-			[--viewport-start] var(--viewport-padding) [--content-start] var(--content-width) [--content-end] var(
-				--viewport-padding
-			)
-			[--viewport-end];
 		margin: unset;
 		color: var(--system-canvas-text);
 		background-color: var(--system-canvas);
 	}
 
-	body > :is(header, footer) {
-		display: grid;
-		grid-template-columns: subgrid;
-		grid-column: --viewport-start / --viewport-end;
-		padding-block: var(--system-spacing-main);
-
-		& > * {
-			grid-column: --content-start / --content-end;
-			margin: 0;
-			padding: 0;
-		}
-	}
-
 	main {
-		/* Center main in page */
-		grid-column: --content-start / --content-end;
-		container: --content / inline-size;
 		font-size: var(--system-font-size);
-		padding-block: clamp(
-			var(--system-spacing-main) * 2,
-			var(--system-spacing-page-inline),
-			var(--system-spacing-main) * 4
-		);
-		/* Waiting on margin-trim */
-
-		& > *:first-child {
-			margin-block-start: unset;
-		}
-
-		& > *:last-child {
-			margin-block-end: unset;
-		}
 	}
 
 	body > header {
@@ -74,9 +32,6 @@
 			color: var(--system-gray-text);
 		}
 		& > nav {
-			display: flex;
-			column-gap: var(--system-spacing-column-gap);
-			margin-block-start: var(--system-spacing-single);
 			font-family: var(--system-font-family-interactive);
 			& [href] {
 				color: var(--system-link-text);
@@ -97,7 +52,9 @@
 		background: var(--system-highlight);
 		color: var(--system-highlight-text);
 	}
-
+	:is([type='checkbox'], [type='radio']):is(:checked, :focus-visible) + label {
+		font-weight: bolder;
+	}
 	:focus-visible {
 		outline: var(--system-stroke-medium) solid var(--system-highlight);
 		outline-offset: var(--system-stroke-offset);
@@ -198,8 +155,8 @@
 	}
 
 	button {
-		display: inline-block;
-		padding: var(--system-spacing-button);
+		display: inline-flex;
+		padding: var(--system-spacing-interactive);
 		text-align: center;
 		text-decoration: none;
 		background: var(--system-button-face);
@@ -298,13 +255,13 @@
 		cursor: pointer;
 		font-family: var(--system-font-family-data);
 		font-weight: var(--system-font-weight-semibold);
-		padding: var(--system-spacing-button);
+		padding: var(--system-spacing-interactive);
 		background: var(--system-surface-color);
 	}
 
 	details[open] {
 		padding-inline: var(--system-spacing-main);
-		padding-block-end: var(--system-spacing-button);
+		padding-block-end: var(--system-spacing-interactive);
 	}
 
 	details[open] summary {
@@ -323,6 +280,10 @@
 		}
 	}
 
+	li,
+	li > :is(ul, ol) {
+		padding-block: var(--system-spacing-element-block);
+	}
 	dt {
 		font-weight: var(--system-font-weight-semibold);
 	}
@@ -335,108 +296,18 @@
 		margin-inline: 0;
 	}
 
-	fieldset {
-		display: flex;
-		flex-direction: column;
-		position: relative;
-		border: 0;
-		padding: 0;
-		margin: 0;
-
-		&:has(legend) {
-			margin-block-start: calc(1ex - 0.5lh);
-			margin-block-end: 1ex;
-			padding-block-start: 0.5lh;
-		}
-	}
-
-	form > div:has(button) {
-		margin-block-start: var(--system-spacing-main);
-	}
-
-	legend {
-		position: relative;
-		inset: 0.5lh 0;
-	}
-
-	fieldset:has(:user-invalid),
-	form:has(:user-invalid),
-	form :user-invalid:not(:focus-visible) {
-		position: relative;
-		outline: var(--system-stroke-thin) solid var(--system-invalid-color);
-		&::before {
-			position: absolute;
-			margin-inline-start: max(
-				calc(var(--system-spacing-page-inline) * -1),
-				calc(var(--system-spacing-double) * -1)
-			);
-			content: '';
-			width: 0px;
-			height: 100%;
-			display: block;
-			border-inline-end-width: 0;
-			border-inline-end-style: solid;
-			border-inline-end-color: var(--system-invalid-color);
-		}
-		&:is(input) {
-			border-color: var(--system-invalid-color);
-		}
-		&:is(fieldset) {
-			outline: 0;
-			&::before {
-				border-inline-end-width: var(--system-stroke-thick);
-			}
-		}
-		&:is(form) {
-			outline: 0;
-			&::before {
-				border-inline-end-width: var(--system-stroke-thin);
-			}
-		}
-	}
-
-	fieldset > :is(p, div, fieldset) {
-		display: flex;
-		flex-direction: column;
-		align-items: start;
-		justify-items: start;
-		margin-block: calc((1lh - 1em) / 2);
-		gap: calc((1lh - 1em) / 2);
-		border: 0;
-		padding: 0;
-
-		&:has([type='checkbox'], [type='radio']) {
-			display: grid;
-			grid-template-columns: min-content 1fr;
-			row-gap: calc(1em - 1ex);
-			column-gap: 1ch;
-			padding-block: calc(1em - 1ex);
-			font-family: var(--system-font-family-data);
-			font-size: var(--system-font-size-m);
-			line-height: var(--system-line-height-compact);
-		}
-
-		&:is(fieldset):has(:user-valid) {
-			& input {
-				accent-color: initial;
-				outline: 0;
-			}
-		}
-	}
-
 	table {
-		/* border-collapse sets the table's elements to share borders, rather than floating as separate "boxes". */
 		border-collapse: collapse;
 		width: 100%;
 		font-family: var(--system-font-family-data);
-		font-size: var(--system-font-size-m);
+		font-size: smaller;
 	}
 
 	td,
 	th {
 		border: var(--system-stroke-thin) solid var(--system-stroke-color);
 		text-align: start;
-		padding: var(--system-spacing-button);
+		padding: var(--system-spacing-interactive);
 	}
 
 	th {
@@ -444,7 +315,6 @@
 	}
 
 	tr:nth-child(even) {
-		/* Set every other cell slightly darker. Improves readability. */
 		background: var(--system-surface-color);
 	}
 
@@ -467,7 +337,7 @@
 	textarea,
 	select,
 	input {
-		padding: var(--system-spacing-button);
+		padding: var(--system-spacing-interactive);
 		margin-block-end: 1ex;
 		background: var(--system-field);
 		color: var(--system-field-text);
@@ -480,8 +350,6 @@
 		&:is([type='radio']) {
 			border-radius: 50%;
 		}
-
-		color-scheme: light dark;
 	}
 
 	select {

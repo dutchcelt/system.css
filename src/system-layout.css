@@ -1,0 +1,60 @@
+@layer --system {
+	:root {
+		body {
+			--viewport-padding: minmax(var(--system-spacing-page-inline), 1fr);
+			--content-width: minmax(
+				calc(var(--system-dimension-min-width) - (var(--system-spacing-page-inline) * 2)),
+				var(--system-dimension-content-width)
+			);
+
+			display: grid;
+			grid-template-columns:
+				[--viewport-start] var(--viewport-padding) [--content-start] var(--content-width) [--content-end] var(
+					--viewport-padding
+				)
+				[--viewport-end];
+		}
+		body > :is(header, footer) {
+			display: grid;
+			grid-template-columns: subgrid;
+			grid-column: --viewport-start / --viewport-end;
+			padding-block: var(--system-spacing-main);
+
+			& > * {
+				grid-column: --content-start / --content-end;
+				margin: 0;
+				padding: 0;
+			}
+		}
+
+		main {
+			/* Center main in page */
+			grid-column: --content-start / --content-end;
+			container: --content / inline-size;
+			padding-block: clamp(
+				var(--system-spacing-main) * 2,
+				var(--system-spacing-page-inline),
+				var(--system-spacing-main) * 4
+			);
+			/* Waiting on margin-trim */
+
+			& > *:first-child {
+				margin-block-start: unset;
+			}
+
+			& > *:last-child {
+				margin-block-end: unset;
+			}
+		}
+
+		body > header > nav {
+			display: flex;
+			column-gap: var(--system-spacing-column-gap);
+			margin-block-start: var(--system-spacing-single);
+		}
+
+		body > :is(header, main, footer):not(:has(*)) {
+			display: none;
+		}
+	}
+}

@@ -1,5 +1,5 @@
 @layer --system {
-	:root{
+	:root {
 		/* UNITS */
 		--system-spacing-single: clamp(8px, 1rem, 24px);
 		--system-spacing-double: clamp(16px, 2rem, 48px);
@@ -26,8 +26,12 @@
 		--system-spacing-row-gap: clamp(var(--system-spacing-single), 3cqw, var(--system-spacing-double));
 
 		/* ELEMENTS */
-		--system-spacing-element: 0.5ex 0.5ch;
-		--system-spacing-button: 0.8ex 1.5ch;
+		--system-spacing-element-block: 0.5ex;
+		--system-spacing-element-inline: 0.5ch;
+		--system-spacing-element: var(--system-spacing-element-block) var(--system-spacing-element-inline);
 
+		--system-spacing-interactive-block: 0.8ex;
+		--system-spacing-interactive-inline: 1.5ch;
+		--system-spacing-interactive: var(--system-spacing-interactive-block) var(--system-spacing-interactive-inline);
 	}
 }
