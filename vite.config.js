@@ -2,8 +2,8 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+	base: '/system.css/',
 	build: {
-		base: '/system.css/',
 		minify: false,
 		rollupOptions: {
 			input: {
