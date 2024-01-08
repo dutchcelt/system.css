@@ -9,7 +9,9 @@ export default defineConfig({
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'index.html'),
+				forms: resolve(__dirname, 'forms.html'),
 				theme: resolve(__dirname, 'openprops.html'),
+				api: resolve(__dirname, 'style-api.html'),
 			},
 		},
 	},
