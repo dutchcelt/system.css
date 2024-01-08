@@ -5,6 +5,7 @@ export default defineConfig({
 	base: '/system.css/',
 	build: {
 		minify: false,
+		target: ['esnext', 'safari17', 'firefox124', 'chrome117'],
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'index.html'),
