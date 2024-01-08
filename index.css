@@ -1,14 +1,18 @@
 @layer --system, --theme;
 
+/* Tokens */
 @import url('src/system-properties.css');
+
+/* Foundation */
 @import url('src/system-colors.css');
+@import url('src/system-custom-colors.css');
 @import url('src/system-typography.css');
 @import url('src/system-stroke.css');
 @import url('src/system-spacing.css');
 @import url('src/system-dimensions.css');
 @import url('src/system-radi.css');
-@import url('src/system-custom-colors.css');
+
+/* Markup and prefab patterns */
+@import url('src/system-selectors.css');
 @import url('src/system-layout.css');
 @import url('src/system-forms.css');
-
-@import url('src/system-selectors.css');
