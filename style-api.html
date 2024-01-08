@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>system.css</title>
+		<meta name="description" content="A classless CSS base stylesheet to write modern websites using only HTML." />
+		<meta name="keywords" content="system, css, framework,classless css" />
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<header>
+			<h3>system.css</h3>
+			<nav>
+				<a href="index.html">Home</a>
+				<a href="forms.html">Forms</a>
+				<a href="openprops.html">Themed</a>
+				<a href="style-api.html" aria-current="page">Style API</a>
+			</nav>
+		</header>
+		<main>
+			<h1>A style api to make system.css your own</h1>
+			<p>Todo</p>
+			<!-- <pre><code>--system-cs-state</code></pre> -->
+			<details>
+				<summary>System Colors</summary>
+				<h3>heading</h3>
+				<p>
+					A number of system values don't work well in dark mode. With <code>color-mix()</code> we create
+					overrides that are easy to maintain.
+				</p>
+
+				<pre><code>--system-canvas: color-mix(
+  in oklab, 
+  var(--gray-0) var(--system-cs-state), 
+  var(--gray-9)
+);</code></pre>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Initial value (default)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>--system-accent-color</td>
+							<td>AccentColor</td>
+						</tr>
+						<tr>
+							<td>--system-accent-color-text</td>
+							<td>AccentColorText</td>
+						</tr>
+						<tr>
+							<td>--system-active-text</td>
+							<td>ActiveText</td>
+						</tr>
+						<tr>
+							<td>--system-button-border</td>
+							<td>ButtonBorder</td>
+						</tr>
+						<tr>
+							<td>--system-button-face</td>
+							<td>ButtonFace</td>
+						</tr>
+						<tr>
+							<td>--system-button-text</td>
+							<td>ButtonText</td>
+						</tr>
+						<tr>
+							<td>--system-canvas</td>
+							<td>Canvas</td>
+						</tr>
+						<tr>
+							<td>--system-canvas-text</td>
+							<td>--system-field</td>
+						</tr>
+						<tr>
+							<td>--system-field</td>
+							<td>Field</td>
+						</tr>
+						<tr>
+							<td>--system-field-text</td>
+							<td>FieldText</td>
+						</tr>
+						<tr>
+							<td>--system-gray-text</td>
+							<td>GrayText</td>
+						</tr>
+						<tr>
+							<td>--system-highlight</td>
+							<td>Highlight</td>
+						</tr>
+						<tr>
+							<td>--system-highlight-text</td>
+							<td>HighlightText</td>
+						</tr>
+						<tr>
+							<td>--system-link-text</td>
+							<td>LinkText</td>
+						</tr>
+						<tr>
+							<td>--system-mark</td>
+							<td>Mark</td>
+						</tr>
+						<tr>
+							<td>--system-mark-text</td>
+							<td>MarkText</td>
+						</tr>
+						<tr>
+							<td>--system-selected-item</td>
+							<td>SelectedItem</td>
+						</tr>
+						<tr>
+							<td>--system-selected-item-text</td>
+							<td>SelectedItemText</td>
+						</tr>
+						<tr>
+							<td>--system-visited-text</td>
+							<td>VisitedText</td>
+						</tr>
+					</tbody>
+				</table>
+			</details>
+			<!--
+			<details>
+				<summary>Xxxx</summary>
+				<h3>heading</h3>
+				<p>Todo</p>
+				<table>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Initial value (default)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>--system-xxx</td>
+							<td>xxx</td>
+						</tr>
+						<tr>
+							<td>--system-accent-xxx</td>
+							<td>xx</td>
+						</tr>
+					</tbody>
+				</table>
+			</details>
+			-->
+		</main>
+		<footer></footer>
+	</body>
+</html>

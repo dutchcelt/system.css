@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>system.css</title>
+		<meta name="description" content="A classless CSS base stylesheet to write modern websites using only HTML." />
+		<meta name="keywords" content="system, css, framework,classless css" />
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<header>
+			<h3>system.css</h3>
+			<nav>
+				<a href="index.html">Home</a>
+				<a href="forms.html" aria-current="page">Forms</a>
+				<a href="openprops.html">Themed</a>
+				<a href="style-api.html">Style API</a>
+			</nav>
+		</header>
+		<main>
+			<h1>A form with opinionated style and user validation</h1>
+			<p>Todo</p>
+
+			<form id="form" action="/">
+				<fieldset title="Full Name">
+					<div>
+						<label for="firstname">First name</label>
+						<input id="firstname" type="text" placeholder="First name" name="firstname" required="true" />
+					</div>
+					<div>
+						<label for="lastname">Last name</label>
+						<input id="lastname" type="text" placeholder="Last name" name="lastname" required="true" />
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Gender (optional)</legend>
+					<fieldset>
+						<input type="radio" name="gender" id="gender_male" value="Male" />
+						<label for="gender_male">Male</label>
+						<input type="radio" name="gender" id="gender_female" value="Female" />
+						<label for="gender_female">Female</label>
+						<input type="radio" name="gender" id="gender_other" value="other-none-na" />
+						<label for="gender_other">Non-binary</label>
+						<input type="radio" name="gender" id="gender_unknown" value="unknown" />
+						<label for="gender_unknown">None of your business</label>
+					</fieldset>
+				</fieldset>
+				<fieldset title="Contact information">
+					<div>
+						<label for="email">E-mail</label>
+						<input type="email" id="email" required />
+					</div>
+					<div>
+						<label for="tel">Phone number</label>
+						<input type="tel" id="tel" required />
+					</div>
+					<div>
+						<label for="select">Country</label>
+						<select id="select" required="required">
+							<option>China</option>
+							<option>India</option>
+							<option>United States</option>
+							<option>Indonesia</option>
+							<option>Brazil</option>
+						</select>
+					</div>
+				</fieldset>
+				<fieldset>
+					<div>
+						<label for="password">password</label>
+						<input
+							type="password"
+							id="password"
+							pattern=".{8,24}"
+							required="required"
+							autocomplete="current-password"
+							title="This must be a valid password. Minimum of 8 characters with a max of 24."
+						/>
+					</div>
+				</fieldset>
+				<fieldset>
+					<div>
+						<label for="textarea">Comments (optional)</label>
+						<textarea id="textarea"></textarea>
+					</div>
+				</fieldset>
+				<fieldset>
+					<div>
+						<input type="checkbox" name="terms" id="terms" required />
+						<label for="terms">
+							I agree to the
+							<a href="https://dutchcelt.github.io/system.css/">terms and conditions</a></label
+						>
+					</div>
+				</fieldset>
+				<div>
+					<button disabled="disabled">Disabled</button>
+					<button type="button">Cancel</button>
+					<button type="submit">Submit</button>
+				</div>
+				<p>
+					<small
+						><em><strong>Note</strong>: Try to avoid the use of disabled items.</em></small
+					>
+				</p>
+			</form>
+		</main>
+		<footer></footer>
+	</body>
+</html>

@@ -218,6 +218,7 @@
 	}
 
 	pre {
+		margin-block: var(--system-spacing-main);
 		padding: var(--system-spacing-main);
 		max-width: 100%;
 		overflow: auto;
@@ -245,6 +246,7 @@
 	}
 
 	details {
+		margin-block: var(--system-spacing-main);
 		border: var(--system-stroke-thin) solid var(--system-stroke-color);
 		border-radius: var(--system-radius);
 		cursor: text;
