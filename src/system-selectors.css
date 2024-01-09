@@ -390,14 +390,14 @@
 		max-inline-size: 100%;
 		block-size: auto;
 	}
-	:is(p, li, td, dd) > :is(img, picture, svg) {
+	:is(p, li, td, dd, detail) > :is(img, picture, svg) {
 		float: inline-end;
 		margin-inline-start: var(--system-spacing-column-gap);
 		margin-block-end: var(--system-spacing-element-block);
 		max-inline-size: 36cqw;
 	}
 	@container --content (width < 42ch) {
-		:is(p, li, dd, td) > :is(img, picture, svg) {
+		:is(p, li, dd, td, detail) > :is(img, picture, svg) {
 			width: 100%;
 			max-inline-size: unset;
 		}
