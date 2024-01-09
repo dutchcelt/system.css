@@ -48,7 +48,7 @@
 		--system-field-text: color-mix(in oklab, FieldText var(--system-cs-state), CanvasText);
 
 		/* ButtonText is broken in Safari */
-		--system-gray-text: color-mix(in oklab, var(--system-canvas) 55%, var(--system-canvas-text));
+		--system-gray-text: color-mix(in oklab, var(--system-canvas) 50%, var(--system-canvas-text));
 
 		--system-highlight: color-mix(
 			in oklab,

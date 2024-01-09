@@ -11,7 +11,7 @@
 		--system-invalid-color: color-mix(in oklab, var(--system-active-text) 90%, var(--system-canvas-text));
 
 		--system-interactive-color: var(--system-accent-color);
-		--system-canvas-text-inverted: var(--system-content-color-light);
+		--system-canvas-text-inverted: var(--system-canvas);
 
 		--system-content-color-light: color-mix(
 			in oklab,

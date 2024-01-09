@@ -12,22 +12,22 @@
 		--system-button-border: color-mix(in oklab, var(--system-stroke-color) var(--system-cs-state), ButtonBorder);
 		--system-button-face: var(--system-canvas);
 		--system-button-text: var(--system-canvas-text);
-		--system-canvas: color-mix(in oklab, var(--blue-1) var(--system-cs-state), var(--blue-12));
-		--system-canvas-text: color-mix(in oklab, var(--blue-12) var(--system-cs-state), var(--blue-2));
+		--system-canvas: color-mix(in oklab, var(--blue-1) var(--system-cs-state), var(--blue-11));
+		--system-canvas-text: color-mix(in oklab, var(--blue-12) var(--system-cs-state), var(--blue-1));
 		--system-field: var(--system-canvas);
 		--system-field-text: var(--system-canvas-text);
-		--system-gray-text: color-mix(in oklab, var(--blue-6) var(--system-cs-state), var(--blue-5));
+		--system-gray-text: color-mix(in oklab, var(--blue-7) 80%, CanvasText);
 		--system-highlight: color-mix(in oklab, var(--blue-2) var(--system-cs-state), var(--blue-3));
 		--system-highlight-text: var(--system-canvas-text);
-		--system-link-text: color-mix(in oklab, var(--indigo-10) var(--system-cs-state), var(--indigo-1));
-		--system-mark: color-mix(in oklab, var(--yellow-3) var(--system-cs-state), var(--yellow-8));
-		--system-mark-text: color-mix(in oklab, var(--blue-12) var(--system-cs-state), var(--blue-2));
+		--system-link-text: color-mix(in oklab, var(--indigo-10) var(--system-cs-state), var(--orange-4));
+		--system-mark: color-mix(in oklab, var(--teal-3) var(--system-cs-state), var(--teal-8));
+		--system-mark-text: color-mix(in oklab, var(--blue-12) var(--system-cs-state), var(--blue-12));
 		--system-selected-item: color-mix(in oklab, var(--indigo-2) var(--system-cs-state), var(--indigo-7));
 		--system-selected-item-text: var(--system-canvas-text) var(--system-canvas-text);
 		--system-visited-text: color-mix(in oklab, var(--purple-10) var(--system-cs-state), var(--purple-2));
 
 		/* These are only mixed with system colors */
-		--system-surface-color: color-mix(in oklab, var(--blue-2) var(--system-cs-state), var(--blue-10));
+		--system-surface-color: color-mix(in oklab, var(--blue-2) var(--system-cs-state), var(--blue-12));
 		--system-stroke-color: color-mix(in oklab, var(--blue-4) var(--system-cs-state), var(--blue-7));
 		--system-invalid-color: color-mix(in oklab, var(--system-active-text) 90%, var(--system-canvas-text));
 
