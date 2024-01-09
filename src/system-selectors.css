@@ -318,9 +318,13 @@
 	}
 	td,
 	th {
+		vertical-align: top;
 		border: var(--system-stroke-thin) solid var(--system-stroke-color);
 		text-align: start;
 		padding: var(--system-spacing-interactive);
+		& code {
+			white-space: nowrap;
+		}
 	}
 
 	th {

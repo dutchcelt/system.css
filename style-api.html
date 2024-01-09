@@ -9,9 +9,6 @@
 		<link rel="stylesheet" href="index.css" />
 		<style>
 			details td {
-				min-width: 25cqw;
-			}
-			td code {
 				white-space: nowrap;
 			}
 		</style>
@@ -167,31 +164,65 @@
 					<tbody>
 						<tr>
 							<td>--system-surface-color</td>
-							<td>-</td>
+							<td>
+								<pre>
+color-mix(
+  in oklab,
+  /* light mode */
+  color-mix(
+    in oklab, 
+    var(--system-canvas) 95%, 
+    var(--system-canvas-text)
+  ) var(--system-cs-state), /* <-- toggle dark mode */
+  /* dark mode */
+  color-mix(
+    in oklab, 
+    var(--system-canvas) 85%, 
+    var(--system-canvas-text)
+  )
+)</pre
+								>
+							</td>
 						</tr>
 						<tr>
 							<td>--system-stroke-color</td>
-							<td>-</td>
+							<td>
+								<code>color-mix(in oklab, var(--system-canvas) 55%, var(--system-canvas-text))</code>
+							</td>
 						</tr>
 						<tr>
 							<td>--system-invalid-color</td>
-							<td>-</td>
+							<td>
+								<code
+									>color-mix(in oklab, var(--system-active-text) 90%, var(--system-canvas-text))</code
+								>
+							</td>
 						</tr>
 						<tr>
 							<td>--system-interactive-color</td>
-							<td>-</td>
+							<td><code>var(--system-accent-color)</code></td>
 						</tr>
 						<tr>
 							<td>--system-canvas-text-inverted</td>
-							<td>-</td>
+							<td><code>var(--system-canvas)</code></td>
 						</tr>
 						<tr>
 							<td>--system-content-color-light</td>
-							<td>-</td>
+							<td>
+								<code
+									>color-mix( in oklab, var(--system-canvas) var(--system-cs-state),
+									var(--system-canvas-text) )</code
+								>
+							</td>
 						</tr>
 						<tr>
 							<td>--system-content-color-dark</td>
-							<td>-</td>
+							<td>
+								<code
+									>color-mix( in oklab, var(--system-canvas-text) var(--system-cs-state),
+									var(--system-canvas) )</code
+								>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -220,7 +251,7 @@
 						</tr>
 						<tr>
 							<td>--system-font-family-body</td>
-							<td>Charter, ... , serif</td>
+							<td><code>Charter, ... , serif</code></td>
 						</tr>
 						<tr>
 							<td>--system-font-family-code</td>
@@ -228,19 +259,19 @@
 						</tr>
 						<tr>
 							<td>--system-font-size</td>
-							<td>112.5% => 18px</td>
+							<td><code>112.5%</code> => 18px</td>
 						</tr>
 						<tr>
 							<td>--system-line-height</td>
-							<td>1.5</td>
+							<td><code>1.5</code></td>
 						</tr>
 						<tr>
 							<td>--system-line-height-compact</td>
-							<td>1.2</td>
+							<td><code>1.2</code></td>
 						</tr>
 						<tr>
 							<td>--system-line-height-display</td>
-							<td>1.1</td>
+							<td><code>1.1</code></td>
 						</tr>
 						<tr>
 							<td>--system-font-size-xxxl</td>
@@ -276,39 +307,39 @@
 						</tr>
 						<tr>
 							<td>--system-font-weight-thin</td>
-							<td>100</td>
+							<td><code>100</code></td>
 						</tr>
 						<tr>
 							<td>--system-font-weight-extralight</td>
-							<td>200</td>
+							<td><code>200</code></td>
 						</tr>
 						<tr>
 							<td>--system-font-weight-light</td>
-							<td>300</td>
+							<td><code>300</code></td>
 						</tr>
 						<tr>
 							<td>--system-font-weight-normal</td>
-							<td>400</td>
+							<td><code>400</code></td>
 						</tr>
 						<tr>
 							<td>--system-font-weight-medium</td>
-							<td>500</td>
+							<td><code>500</code></td>
 						</tr>
 						<tr>
 							<td>--system-font-weight-semibold</td>
-							<td>600</td>
+							<td><code>600</code></td>
 						</tr>
 						<tr>
 							<td>--system-font-weight-bold</td>
-							<td>700</td>
+							<td><code>700</code></td>
 						</tr>
 						<tr>
 							<td>--system-font-weight-extrabold</td>
-							<td>800</td>
+							<td><code>800</code></td>
 						</tr>
 						<tr>
 							<td>--system-font-weight-black</td>
-							<td>900</td>
+							<td><code>900</code></td>
 						</tr>
 					</tbody>
 				</table>
@@ -459,11 +490,11 @@
 					<tbody>
 						<tr>
 							<td>--system-dimension-min-width</td>
-							<td>320px</td>
+							<td><code>320px</code></td>
 						</tr>
 						<tr>
 							<td>--system-dimension-content-width</td>
-							<td>85ch</td>
+							<td><code>85ch</code></td>
 						</tr>
 					</tbody>
 				</table>
