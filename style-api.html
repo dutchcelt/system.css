@@ -7,6 +7,14 @@
 		<meta name="description" content="A classless CSS base stylesheet to write modern websites using only HTML." />
 		<meta name="keywords" content="system, css, framework,classless css" />
 		<link rel="stylesheet" href="index.css" />
+		<style>
+			details td {
+				min-width: 25cqw;
+			}
+			td code {
+				white-space: nowrap;
+			}
+		</style>
 	</head>
 	<body>
 		<header>
@@ -21,8 +29,31 @@
 		</header>
 		<main>
 			<h1>A style api to make system.css your own</h1>
-			<p>Todo</p>
-			<!-- <pre><code>--system-cs-state</code></pre> -->
+			<details>
+				<summary>Color scheme toggle</summary>
+				<p>
+					system.css uses the custom property <code>--system-cs-is-light</code> to toggle the state of the
+					color mode. Light or dark.
+				</p>
+				<pre>
+:root {
+  /**
+   * color-scheme state
+   *
+   * Example:
+   * color-mix(): Light mode is the first color value and dark mode the second.
+   * color: color-mix(in oklab, black var(--system-cs-state), white);
+   */
+  --system-cs-state: calc(var(--system-cs-is-light, 1 /* fallback to light mode */) * 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --system-cs-is-light: 0; /* OFF */
+  }
+}</pre
+				>
+			</details>
 			<details>
 				<summary>System Colors</summary>
 				<h3>Colour mixing</h3>
@@ -123,31 +154,337 @@
 				<h3>Browser Bugs</h3>
 				<p>A number of system values don't work well in dark mode.</p>
 			</details>
-			<!--
+
 			<details>
-				<summary>Xxxx</summary>
-				<h3>heading</h3>
-				<p>Todo</p>
+				<summary>Custom colors</summary>
 				<table>
 					<thead>
 						<tr>
 							<th>Property</th>
-							<th>Initial value (default)</th>
+							<th>color-mix properties (default)</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>--system-xxx</td>
-							<td>xxx</td>
+							<td>--system-surface-color</td>
+							<td>-</td>
 						</tr>
 						<tr>
-							<td>--system-accent-xxx</td>
-							<td>xx</td>
+							<td>--system-stroke-color</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>--system-invalid-color</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>--system-interactive-color</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>--system-canvas-text-inverted</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>--system-content-color-light</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td>--system-content-color-dark</td>
+							<td>-</td>
 						</tr>
 					</tbody>
 				</table>
 			</details>
-			-->
+			<details>
+				<summary>Typography</summary>
+				<table>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Initial values (default)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>--system-font-family-display</td>
+							<td>system-ui</td>
+						</tr>
+						<tr>
+							<td>--system-font-family-data</td>
+							<td>system-ui</td>
+						</tr>
+						<tr>
+							<td>--system-font-family-interactive</td>
+							<td>system-ui</td>
+						</tr>
+						<tr>
+							<td>--system-font-family-body</td>
+							<td>Charter, ... , serif</td>
+						</tr>
+						<tr>
+							<td>--system-font-family-code</td>
+							<td>ui-monospace</td>
+						</tr>
+						<tr>
+							<td>--system-font-size</td>
+							<td>112.5% => 18px</td>
+						</tr>
+						<tr>
+							<td>--system-line-height</td>
+							<td>1.5</td>
+						</tr>
+						<tr>
+							<td>--system-line-height-compact</td>
+							<td>1.2</td>
+						</tr>
+						<tr>
+							<td>--system-line-height-display</td>
+							<td>1.1</td>
+						</tr>
+						<tr>
+							<td>--system-font-size-xxxl</td>
+							<td>xxx-large</td>
+						</tr>
+						<tr>
+							<td>--system-font-size-xxl</td>
+							<td>xx-large</td>
+						</tr>
+						<tr>
+							<td>--system-font-size-xl</td>
+							<td>x-large</td>
+						</tr>
+						<tr>
+							<td>--system-font-size-l</td>
+							<td>large</td>
+						</tr>
+						<tr>
+							<td>--system-font-size-m</td>
+							<td>medium</td>
+						</tr>
+						<tr>
+							<td>--system-font-size-s</td>
+							<td>small</td>
+						</tr>
+						<tr>
+							<td>--system-font-size-xs</td>
+							<td>x-small</td>
+						</tr>
+						<tr>
+							<td>--system-font-size-xxs</td>
+							<td>xx-small</td>
+						</tr>
+						<tr>
+							<td>--system-font-weight-thin</td>
+							<td>100</td>
+						</tr>
+						<tr>
+							<td>--system-font-weight-extralight</td>
+							<td>200</td>
+						</tr>
+						<tr>
+							<td>--system-font-weight-light</td>
+							<td>300</td>
+						</tr>
+						<tr>
+							<td>--system-font-weight-normal</td>
+							<td>400</td>
+						</tr>
+						<tr>
+							<td>--system-font-weight-medium</td>
+							<td>500</td>
+						</tr>
+						<tr>
+							<td>--system-font-weight-semibold</td>
+							<td>600</td>
+						</tr>
+						<tr>
+							<td>--system-font-weight-bold</td>
+							<td>700</td>
+						</tr>
+						<tr>
+							<td>--system-font-weight-extrabold</td>
+							<td>800</td>
+						</tr>
+						<tr>
+							<td>--system-font-weight-black</td>
+							<td>900</td>
+						</tr>
+					</tbody>
+				</table>
+			</details>
+			<details>
+				<summary>Stroke</summary>
+				<table>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Initial values (default)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>--system-stroke-thin</td>
+							<td>thin</td>
+						</tr>
+						<tr>
+							<td>--system-stroke-medium</td>
+							<td>medium</td>
+						</tr>
+						<tr>
+							<td>--system-stroke-thick</td>
+							<td>thick</td>
+						</tr>
+						<tr>
+							<td>--system-stroke-offset</td>
+							<td><code>calc(1cap - 1ex)</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</details>
+			<details>
+				<summary>Spacing</summary>
+				<table>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Initial values (default)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>--system-spacing-single</td>
+							<td><code>clamp(8px, 1rem, 24px)</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-double</td>
+							<td><code>clamp(16px, 2rem, 48px)</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-page-block</td>
+							<td><code>0</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-page-inline</td>
+							<td><code>max(var(--system-spacing-single), 5vw)</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-heading-block-start</td>
+							<td><code>max(var(--system-spacing-double), 2.5ex)</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-heading-block-end</td>
+							<td><code>var(--system-spacing-main)</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-main</td>
+							<td><code>clamp(var(--system-spacing-single), 1ex, var(--system-spacing-double))</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-main-block</td>
+							<td><code>clamp(var(--system-spacing-single), 1ex, var(--system-spacing-double))</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-main-inline</td>
+							<td><code>clamp(var(--system-spacing-single), 1ex, var(--system-spacing-double))</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-section-block</td>
+							<td><code>max(var(--system-spacing-double), 2.5ex)</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-section-inline</td>
+							<td><code>0</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-column-gap</td>
+							<td>
+								<code>clamp(var(--system-spacing-single), 3cqw, var(--system-spacing-double))</code>
+							</td>
+						</tr>
+						<tr>
+							<td>--system-spacing-row-gap</td>
+							<td>
+								<code>clamp(var(--system-spacing-single), 3cqw, var(--system-spacing-double))</code>
+							</td>
+						</tr>
+
+						<tr>
+							<td>--system-spacing-element-block</td>
+							<td><code>0.5ex</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-element-inline</td>
+							<td><code>0.5ch</code></td>
+						</tr>
+						<tr>
+							<td>--system-spacing-element</td>
+							<td>
+								<code>var(--system-spacing-element-block) var(--system-spacing-element-inline)</code>
+							</td>
+						</tr>
+						<tr>
+							<td>--system-interactive-block</td>
+							<td>
+								<code>0.8ex</code>
+							</td>
+						</tr>
+						<tr>
+							<td>--system-interactive-inline</td>
+							<td>
+								<code>1.5ch</code>
+							</td>
+						</tr>
+						<tr>
+							<td>--system-interactive</td>
+							<td>
+								<code
+									>var(--system-spacing-interactive-block)
+									var(--system-spacing-interactive-inline)</code
+								>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</details>
+			<details>
+				<summary>Dimensions</summary>
+				<table>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Initial values (default)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>--system-dimension-min-width</td>
+							<td>320px</td>
+						</tr>
+						<tr>
+							<td>--system-dimension-content-width</td>
+							<td>85ch</td>
+						</tr>
+					</tbody>
+				</table>
+			</details>
+			<details>
+				<summary>Radii</summary>
+				<table>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Initial values (default)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>--system-radius</td>
+							<td><code>clamp(3px, 0.6666ex, var(--system-spacing-single))</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</details>
 		</main>
 		<footer></footer>
 	</body>
