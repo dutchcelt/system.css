@@ -12,6 +12,7 @@ export default defineConfig({
 				forms: resolve(__dirname, 'forms.html'),
 				theme: resolve(__dirname, 'openprops.html'),
 				api: resolve(__dirname, 'style-api.html'),
+				example: resolve(__dirname, 'example.html'),
 			},
 		},
 	},
