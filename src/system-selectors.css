@@ -43,6 +43,9 @@
 			}
 		}
 	}
+	body > footer {
+		border-block-start: thin solid currentcolor;
+	}
 
 	body > :is(header, main, footer):not(:has(*)) {
 		display: none;
@@ -302,12 +305,13 @@
 	}
 
 	table {
+		display: block;
+		overflow-x: auto;
 		border-collapse: collapse;
 		width: 100%;
 		font-family: var(--system-font-family-data);
 		font-size: smaller;
 	}
-
 	td,
 	th {
 		border: var(--system-stroke-thin) solid var(--system-stroke-color);
@@ -386,7 +390,17 @@
 		max-inline-size: 100%;
 		block-size: auto;
 	}
-
+	main :is(img, picture, svg) {
+		float: inline-end;
+		margin-inline-start: var(--system-spacing-main-inline);
+		max-inline-size: 30cqw;
+	}
+	@container --content (width < 42ch) {
+		main :is(img, picture, svg) {
+			width: 100%;
+			max-inline-size: unset;
+		}
+	}
 	@media (prefers-reduced-motion: reduce) {
 		*,
 		*::before,
