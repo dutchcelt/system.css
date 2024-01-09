@@ -6,6 +6,11 @@
 		--system-font-family-body: var(--font-sans);
 		--system-font-family-code: var(--font-mono);
 
+		--system-font-size: 125%;
+		--system-line-height: 1.6;
+		--system-line-height-compact: 1.2;
+		--system-line-height-display: 1.1;
+
 		--system-accent-color: color-mix(in oklab, var(--blue-7) var(--system-cs-state), var(--blue-6));
 		--system-accent-color-text: var(--system-canvas-text);
 		--system-active-text: color-mix(in oklab, var(--red-4) var(--system-cs-state), var(--red-7));
@@ -34,6 +39,6 @@
 		--system-interactive-color: var(--system-accent-color);
 		--system-canvas-text-inverted: var(--system-canvas);
 
-		--system-dimension-content-width: 80ch;
+		/* --system-dimension-content-width: 80ch; */
 	}
 }
