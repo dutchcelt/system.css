@@ -23,16 +23,52 @@
 			<h1>Browsers have a mini design system</h1>
 			<p>
 				<strong
-					>With this base stylesheet we can utilise a browsers system color and css keywords
-					implementation.</strong
+					>With this base stylesheet we can utilise a browsers system color and css keywords implementation.
+					Let's build on top of that.</strong
 				>
 			</p>
-			<h2>Let's build on top of that</h2>
+			<h3>This project has a number of goals</h3>
+			<ol>
+				<li>
+					Provide a default style via
+					<a href="https://github.com/dutchcelt/system.css">system.css</a> for basic html pages
+				</li>
+				<li>Provide the means to style the default using custom properties</li>
+				<li>No dependencies</li>
+				<li>Based on system colors and CSS keywords <em>(The browser has defaults, so lets use those)</em></li>
+			</ol>
+
+			<p>Additionally, system.css also provides a simple form layout and validation setup.</p>
+
+			<h3>Compatibility</h3>
+
 			<p>
-				This paragraph text is using
-				<a href="https://github.com/dutchcelt/system.css/blob/main/system.css">system.css</a>. Lorem ipsum dolor
-				sit amet consectetur adipisicing elit.
+				This solution uses features that might cause issues. Consider the following: Container Units, CSS
+				nesting, Sub Grid, <code>color-mix()</code>, <code>:has()</code>, <code>@property</code>, and
+				<code>@layer</code>.
 			</p>
+
+			<p>These features work in following browsers:</p>
+			<p></p>
+			<ul>
+				<li>Chrome 117+</li>
+				<li>Safari 16.5</li>
+				<li>Firefox 124+</li>
+			</ul>
+
+			<h3>Acknowledgments</h3>
+			<p>
+				This is a heavily modified version of [new.css](https://newcss.net) For fonts we use what we are given
+				by the OS. My thanks to <a href="https://modernfontstacks.com">Modern Font Stacks</a>.
+			</p>
+
+			<h3>Inspiration</h3>
+			<p>My admiration and recommendations to consider are:</p>
+			<ul>
+				<li><a href="https://watercss.kognise.dev">water.css</a></li>
+				<li><a href="https://picocss.com">pico.css</a></li>
+				<li><a href="https://simplecss.org">simple.css</a></li>
+			</ul>
 		</main>
 		<footer></footer>
 	</body>
