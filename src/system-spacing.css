@@ -25,13 +25,18 @@
 		--system-spacing-column-gap: clamp(var(--system-spacing-single), 3cqw, var(--system-spacing-double));
 		--system-spacing-row-gap: clamp(var(--system-spacing-single), 3cqw, var(--system-spacing-double));
 
-		/* ELEMENTS */
-		--system-spacing-element-block: 0.5ex;
-		--system-spacing-element-inline: 0.5ch;
+		/* ELEMENTS (Flow: inline) */
+		--_elememt-block-size: calc(1em - 1cap);
+		--_elememt-inline-size: calc(1em - 1ch);
+		--system-spacing-element-block: var(--_elememt-block-size, 0.4ex);
+		--system-spacing-element-inline: var(--_elememt-inline-size, 0.5ch);
 		--system-spacing-element: var(--system-spacing-element-block) var(--system-spacing-element-inline);
 
-		--system-spacing-interactive-block: 0.8ex;
-		--system-spacing-interactive-inline: 1.5ch;
+		/* ELEMENTS (Flow: inline / block) */
+		--_interactive-block-size: calc(1em - 1cap);
+		--_interactive-inline-size: calc(1em - 1ch);
+		--system-spacing-interactive-block: calc(var(--system-spacing-element-block) * 1.5);
+		--system-spacing-interactive-inline: calc(var(--system-spacing-element-inline) * 2.75);
 		--system-spacing-interactive: var(--system-spacing-interactive-block) var(--system-spacing-interactive-inline);
 	}
 }
