@@ -271,8 +271,8 @@
 	}
 
 	details[open] {
-		padding-inline: var(--system-spacing-main);
-		padding-block-end: var(--system-spacing-interactive);
+		padding-inline: var(--system-spacing-main-inline);
+		padding-block-end: var(--system-spacing-main-block);
 	}
 
 	details[open] > summary {
@@ -280,14 +280,14 @@
 	}
 
 	details[open] {
-		/* Waiting on margin-trim */
-
-		& > *:nth-child(2) {
-			margin-block-start: var(--system-spacing-main);
-		}
-
-		& > *:last-child {
+		& > summary {
 			margin-block-end: var(--system-spacing-main);
+		}
+		& > summary + * {
+			margin-block-start: unset;
+		}
+		& > *:last-child {
+			margin-block-end: unset;
 		}
 	}
 
