@@ -11,7 +11,6 @@
 	"license": "AGPLv3",
 	"repository": "https://github.com/dutchcelt/system.css/",
 	"devDependencies": {
-		"postcss-nesting": "^12.0.2",
 		"vite": "^5.0.11"
 	}
 }
