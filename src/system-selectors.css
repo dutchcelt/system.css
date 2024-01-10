@@ -156,6 +156,12 @@
 		font: inherit;
 		font-size: var(--system-font-size-m);
 		font-family: var(--system-font-family-interactive);
+		&:not([type='checkbox'], [type='radio']) {
+			min-block-size: max(40px, 2.5rem);
+		}
+		&:is([type='checkbox'], [type='radio']) {
+			scale: 125%;
+		}
 	}
 
 	button {
