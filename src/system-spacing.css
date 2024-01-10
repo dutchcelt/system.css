@@ -26,10 +26,10 @@
 		--system-spacing-row-gap: clamp(var(--system-spacing-single), 3cqw, var(--system-spacing-double));
 
 		/* ELEMENTS (Flow: inline) */
-		--_elememt-block-size: calc(1em - 1cap);
-		--_elememt-inline-size: calc(1em - 1ch);
-		--system-spacing-element-block: var(--_elememt-block-size, 0.4ex);
-		--system-spacing-element-inline: var(--_elememt-inline-size, 0.5ch);
+		--_elememt-block-size: 0.4ex;
+		--_elememt-inline-size: 0.5ch;
+		--system-spacing-element-block: var(--_elememt-block-size);
+		--system-spacing-element-inline: var(--_elememt-inline-size);
 		--system-spacing-element: var(--system-spacing-element-block) var(--system-spacing-element-inline);
 
 		/* ELEMENTS (Flow: inline / block) */
