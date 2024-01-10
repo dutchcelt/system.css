@@ -154,6 +154,7 @@
 	button,
 	textarea {
 		font: inherit;
+		font-size: var(--system-font-size-m);
 		font-family: var(--system-font-family-interactive);
 	}
 
@@ -361,9 +362,7 @@
 		border: var(--system-stroke-thin) solid var(--system-button-border);
 		border-radius: var(--system-radius);
 		box-shadow: none;
-		font-size: var(--system-font-size-m);
 		accent-color: var(--system-accent-color);
-
 		&:is([type='radio']) {
 			border-radius: 50%;
 		}
