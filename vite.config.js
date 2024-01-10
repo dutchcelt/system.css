@@ -1,8 +1,15 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import postcssNesting from 'postcss-nesting';
 
 export default defineConfig({
 	base: '/system.css/',
+	css: {
+		postcss: {
+			plugins: [postcssNesting],
+		},
+	},
+
 	build: {
 		minify: true,
 		rollupOptions: {
