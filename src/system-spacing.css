@@ -3,8 +3,8 @@
 		:root {
 			--_elememt-spacing-block-size: calc(1em - 1cap);
 			--_elememt-spacing-inline-size: calc(1em - 1ch);
-			--_interactive-spacing-block-size: calc(var(--_elememt-block-size) * 1.5);
-			--_interactive-spacing-inline-size: calc(var(--_elememt-inline-size) * 2.75);
+			--_interactive-spacing-block-size: calc(var(--_elememt-spacing-block-size) * 1.5);
+			--_interactive-spacing-inline-size: calc(var(--_elememt-spacing-inline-size) * 2.75);
 		}
 	}
 	@supports not (margin: 1cap) {
