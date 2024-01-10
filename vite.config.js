@@ -9,7 +9,6 @@ export default defineConfig({
 			plugins: [postcssNesting],
 		},
 	},
-
 	build: {
 		minify: true,
 		rollupOptions: {
