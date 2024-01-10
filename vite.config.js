@@ -4,8 +4,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	base: '/system.css/',
 	build: {
-		minify: false,
-		target: ['es2020', 'safari16', 'firefox124', 'chrome117'],
+		minify: true,
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'index.html'),
