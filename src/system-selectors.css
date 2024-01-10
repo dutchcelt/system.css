@@ -361,8 +361,9 @@
 	textarea,
 	select,
 	input {
-		padding: var(--system-spacing-interactive);
-		margin-block-end: 1ex;
+		padding-block: var(--system-spacing-interactive-block);
+		padding-inline: var(--system-spacing-interactive-inline);
+		margin-block-end: var(--system-spacing-interactive-block);
 		background: var(--system-field);
 		color: var(--system-field-text);
 		border: var(--system-stroke-thin) solid var(--system-button-border);
