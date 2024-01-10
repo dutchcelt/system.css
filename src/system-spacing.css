@@ -33,10 +33,10 @@
 		--system-spacing-element: var(--system-spacing-element-block) var(--system-spacing-element-inline);
 
 		/* ELEMENTS (Flow: inline / block) */
-		--_interactive-block-size: calc(var(--system-spacing-element-block) * 1.5);
-		--_interactive-inline-size: calc(var(--system-spacing-element-inline) * 2.75);
-		--system-spacing-interactive-block: var(--_interactive-block-size, 0.8ex);
-		--system-spacing-interactive-inline: var(--_interactive-inline-size, 1.5ch);
+		--_interactive-block-size: 0.8ex;
+		--_interactive-inline-size: 1.5ch;
+		--system-spacing-interactive-block: var(--_interactive-block-size);
+		--system-spacing-interactive-inline: var(--_interactive-inline-size);
 		--system-spacing-interactive: var(--system-spacing-interactive-block) var(--system-spacing-interactive-inline);
 	}
 }
