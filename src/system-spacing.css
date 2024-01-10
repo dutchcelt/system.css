@@ -1,18 +1,18 @@
 @layer --system {
 	@supports (margin: 1cap) {
 		:root {
-			--_elememt-block-size: calc(1em - 1cap);
-			--_elememt-inline-size: calc(1em - 1ch);
-			--_interactive-block-size: calc(var(--_elememt-block-size) * 1.5);
-			--_interactive-inline-size: calc(var(--_elememt-inline-size) * 2.75);
+			--_elememt-spacing-block-size: calc(1em - 1cap);
+			--_elememt-spacing-inline-size: calc(1em - 1ch);
+			--_interactive-spacing-block-size: calc(var(--_elememt-block-size) * 1.5);
+			--_interactive-spacing-inline-size: calc(var(--_elememt-inline-size) * 2.75);
 		}
 	}
 	@supports not (margin: 1cap) {
 		:root {
-			--_elememt-block-size: 0.4ex;
-			--_elememt-inline-size: 0.5ch;
-			--_interactive-block-size: 0.8ex;
-			--_interactive-inline-size: 1.5ch;
+			--_elememt-spacing-block-size: 0.4ex;
+			--_elememt-spacing-inline-size: 0.5ch;
+			--_interactive-spacing-block-size: 0.8ex;
+			--_interactive-spacing-inline-size: 1.5ch;
 		}
 	}
 	:root {
@@ -42,13 +42,13 @@
 		--system-spacing-row-gap: clamp(var(--system-spacing-single), 3cqw, var(--system-spacing-double));
 
 		/* ELEMENTS (Flow: inline) */
-		--system-spacing-element-block: var(--_elememt-block-size);
-		--system-spacing-element-inline: var(--_elememt-inline-size);
+		--system-spacing-element-block: var(--_elememt-spacing-block-size);
+		--system-spacing-element-inline: var(--_elememt-spacing-inline-size);
 		--system-spacing-element: var(--system-spacing-element-block) var(--system-spacing-element-inline);
 
 		/* ELEMENTS (Flow: inline / block) */
-		--system-spacing-interactive-block: var(--_interactive-block-size);
-		--system-spacing-interactive-inline: var(--_interactive-inline-size);
+		--system-spacing-interactive-block: var(--_interactive-spacing-block-size);
+		--system-spacing-interactive-inline: var(--_interactive-spacing-inline-size);
 		--system-spacing-interactive: var(--system-spacing-interactive-block) var(--system-spacing-interactive-inline);
 	}
 }
