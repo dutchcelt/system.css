@@ -354,7 +354,7 @@
 
 	mark {
 		padding: var(--system-spacing-element);
-		background: var(--system-mark);
+		background-color: var(--system-mark);
 		color: var(--system-mark-text);
 	}
 
