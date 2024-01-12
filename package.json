@@ -1,9 +1,10 @@
 {
 	"name": "@dutchcelt/system.css",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"type": "module",
 	"main": "index.css",
 	"files": [
+		"*.html",
 		"build/*.css",
 		"src/*.css"
 	],
@@ -16,7 +17,7 @@
 		"defaults"
 	],
 	"scripts": {
-		"build": "vite build && npm run lib",
+		"build": "vite build",
 		"lib": "vite build -c vite.lib.config.js"
 	},
 	"author": "C. Egor Kloos",
