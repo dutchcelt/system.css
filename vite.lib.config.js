@@ -4,7 +4,6 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	base: '/system.css/',
 	build: {
-		outDir: 'build',
 		minify: true,
 		target: ['esnext', 'safari17', 'firefox124', 'chrome117'],
 		rollupOptions: {
@@ -12,7 +11,7 @@ export default defineConfig({
 				system: resolve(__dirname, 'index.css'),
 			},
 			output: {
-				assetFileNames: `[name].min.[ext]`,
+				assetFileNames: `build/[name].min.[ext]`,
 			},
 		},
 	},
