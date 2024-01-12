@@ -8,6 +8,13 @@
 		"src/*.css"
 	],
 	"description": "A base stylesheet using system colors and css keywords.",
+	"keywords": [
+		"css",
+		"html",
+		"browser",
+		"system",
+		"defaults"
+	],
 	"scripts": {
 		"build": "vite build && npm run lib",
 		"lib": "vite build -c vite.lib.config.js"
