@@ -403,15 +403,20 @@
 		display: block;
 		max-inline-size: 100%;
 		block-size: auto;
+		/* explicit small widths are usually icons and shouldn't scale */
+		&:is([width='32'], [width='24'], [width='16']) {
+			display: inline-block;
+			vertical-align: middle;
+		}
 	}
-	:is(p, li, td, dd) > :is(img, picture, svg, figure) {
+	:is(p, li, td, dd) > :is(img, picture, svg, figure):not([width='32'], [width='24'], [width='16']) {
 		float: inline-end;
 		margin-inline-start: var(--system-spacing-column-gap);
 		margin-block: var(--system-spacing-element-block);
 		max-inline-size: 42cqw;
 	}
 	@container --content (width < 42ch) {
-		:is(p, li, dd, td) > :is(img, picture, svg, figure) {
+		:is(p, li, dd, td) > :is(img, picture, svg, figure):not([width='32'], [width='24'], [width='16']) {
 			width: 100%;
 			max-inline-size: unset;
 		}
