@@ -1,8 +1,12 @@
 {
-	"name": "system.css",
-	"version": "1.0.1",
-	"private": true,
+	"name": "@dutchcelt/system.css",
+	"version": "1.0.2",
 	"type": "module",
+	"main": "index.css",
+	"files": [
+		"build/*.css",
+		"src/*.css"
+	],
 	"description": "A base stylesheet using system colors and css keywords.",
 	"scripts": {
 		"build": "vite build && npm run lib",
@@ -10,7 +14,11 @@
 	},
 	"author": "C. Egor Kloos",
 	"license": "AGPLv3",
-	"repository": "https://github.com/dutchcelt/system.css/",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/dutchcelt/system.css.git"
+	},
+	"homepage": "https://dutchcelt.github.io/system.css/",
 	"devDependencies": {
 		"vite": "^5.0.11"
 	}

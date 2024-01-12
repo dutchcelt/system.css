@@ -2,10 +2,6 @@
 
 A base stylesheet using system colors and css keywords.
 
-## Demo
-
-https://dutchcelt.github.io/system.css/
-
 ## Goals
 
 System.css has a number of goals:
@@ -14,6 +10,23 @@ System.css has a number of goals:
 2. Provide the means to style the default using custom properties
 3. No dependencies
 4. Based on system colors and CSS keywords. The browser has defaults, so lets use those.
+
+## Demo
+
+https://dutchcelt.github.io/system.css/
+
+## Usage
+
+Import via NPM:
+
+```
+npm i @dutchcelt/system.css
+```
+
+### Style API
+
+System.css has a number of custom properties for you to use.  
+https://dutchcelt.github.io/system.css/style-api.html
 
 Additionally, `system.css` also provides a simple form layout and validation setup.
 
