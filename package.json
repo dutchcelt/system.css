@@ -5,7 +5,8 @@
 	"type": "module",
 	"description": "A base stylesheet using system colors and css keywords.",
 	"scripts": {
-		"build": "vite build"
+		"build": "vite build && npm run lib",
+		"lib": "vite build -c vite.lib.config.js"
 	},
 	"author": "C. Egor Kloos",
 	"license": "AGPLv3",
