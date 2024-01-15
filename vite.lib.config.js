@@ -6,12 +6,13 @@ export default defineConfig({
 	build: {
 		minify: true,
 		target: ['esnext', 'safari17', 'firefox124', 'chrome117'],
+		outDir: 'build',
 		rollupOptions: {
 			input: {
 				system: resolve(__dirname, 'index.css'),
 			},
 			output: {
-				assetFileNames: `build/[name].min.[ext]`,
+				assetFileNames: `[name].min.[ext]`,
 			},
 		},
 	},
