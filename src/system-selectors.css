@@ -22,7 +22,6 @@
 
 	body > header {
 		background: var(--system-surface-color);
-		border-block-end: var(--system-stroke-thin) solid var(--system-stroke-color);
 
 		& > :is(h1, h2, h3),
 		& > p:only-child {
@@ -42,9 +41,6 @@
 				color: currentcolor;
 			}
 		}
-	}
-	body > footer {
-		border-block-start: var(--system-stroke-thin) solid var(--system-stroke-color);
 	}
 
 	body > :is(header, main, footer):not(:has(*)) {
