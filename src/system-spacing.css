@@ -25,7 +25,7 @@
 		--system-spacing-page-inline: max(var(--system-spacing-single), 5vw);
 
 		/* HEADING */
-		--system-spacing-heading-block-start: max(var(--system-spacing-double), 2.5ex);
+		--system-spacing-heading-block-start: max(var(--system-spacing-double), 3ex);
 		--system-spacing-heading-block-end: var(--system-spacing-main);
 
 		/* MAIN */
