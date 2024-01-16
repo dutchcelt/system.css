@@ -287,13 +287,6 @@
 		}
 	}
 
-	li,
-	li > :is(ul, ol) {
-		padding-block: var(--system-spacing-element-block);
-		&:last-child {
-			padding-block-end: unset;
-		}
-	}
 	dt {
 		font-weight: var(--system-font-weight-semibold);
 	}
