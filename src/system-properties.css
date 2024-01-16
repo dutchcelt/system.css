@@ -111,3 +111,11 @@
 	inherits: true;
 	initial-value: VisitedText;
 }
+
+@layer --system {
+	:root {
+		--OFF: ;
+		--ON: initial;
+		--system-enhanced: var(--OFF);
+	}
+}

@@ -1,89 +1,91 @@
 @layer --system {
-	fieldset {
-		display: flex;
-		flex-direction: column;
-		position: relative;
-		border: 0;
-		padding: 0;
-		margin: 0;
+	@container --system (width > 1rem) {
+		form fieldset {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			border: 0;
+			padding: 0;
+			margin: 0;
 
-		&:has(legend) {
-			margin-block-start: calc(1ex - 0.5lh);
-			margin-block-end: 1ex;
-			padding-block-start: 0.5lh;
-		}
-	}
-
-	form > div:has(button) {
-		margin-block-start: var(--system-spacing-main);
-	}
-
-	legend {
-		position: relative;
-		inset: 0.5lh 0;
-	}
-
-	fieldset:has(:user-invalid),
-	form:has(:user-invalid),
-	form :user-invalid:not(:focus-visible) {
-		position: relative;
-		outline: var(--system-stroke-thin) solid var(--system-invalid-color);
-		&::before {
-			position: absolute;
-			margin-inline-start: max(
-				calc(var(--system-spacing-page-inline) * -1),
-				calc(var(--system-spacing-double) * -1)
-			);
-			content: '';
-			width: 0px;
-			height: 100%;
-			display: block;
-			border-inline-end-width: 0;
-			border-inline-end-style: solid;
-			border-inline-end-color: var(--system-invalid-color);
-		}
-		&:is(input) {
-			border-color: var(--system-invalid-color);
-		}
-		&:is(fieldset) {
-			outline: 0;
-			&::before {
-				border-inline-end-width: var(--system-stroke-thick);
+			&:has(legend) {
+				margin-block-start: calc(1ex - 0.5lh);
+				margin-block-end: 1ex;
+				padding-block-start: 0.5lh;
 			}
 		}
-		&:is(form) {
-			outline: 0;
+
+		form > div:has(button) {
+			margin-block-start: var(--system-spacing-main);
+		}
+
+		form legend {
+			position: relative;
+			inset: 0.5lh 0;
+		}
+
+		form fieldset:has(:user-invalid),
+		form:has(:user-invalid),
+		form :user-invalid:not(:focus-visible) {
+			position: relative;
+			outline: var(--system-stroke-thin) solid var(--system-invalid-color);
 			&::before {
-				border-inline-end-width: var(--system-stroke-thin);
+				position: absolute;
+				margin-inline-start: max(
+					calc(var(--system-spacing-page-inline) * -1),
+					calc(var(--system-spacing-double) * -1)
+				);
+				content: '';
+				width: 0px;
+				height: 100%;
+				display: block;
+				border-inline-end-width: 0;
+				border-inline-end-style: solid;
+				border-inline-end-color: var(--system-invalid-color);
 			}
-		}
-	}
-
-	fieldset > :is(p, div, fieldset) {
-		display: flex;
-		flex-direction: column;
-		align-items: start;
-		justify-items: start;
-		margin-block: calc((1lh - 1em) / 2);
-		gap: calc((1lh - 1em) / 2);
-		border: 0;
-		padding: 0;
-
-		&:has([type='checkbox'], [type='radio']) {
-			display: grid;
-			grid-template-columns: min-content 1fr;
-			row-gap: calc(1em - 1ex);
-			column-gap: 1ch;
-			padding-block: calc(1em - 1ex);
-			font-family: var(--system-font-family-data);
-			font-size: var(--system-font-size-m);
-			line-height: var(--system-line-height-compact);
-		}
-
-		&:is(fieldset):has(:user-valid) {
-			& input {
-				accent-color: initial;
+			&:is(input) {
+				border-color: var(--system-invalid-color);
+			}
+			&:is(fieldset) {
 				outline: 0;
+				&::before {
+					border-inline-end-width: var(--system-stroke-thick);
+				}
+			}
+			&:is(form) {
+				outline: 0;
+				&::before {
+					border-inline-end-width: var(--system-stroke-thin);
+				}
+			}
+		}
+
+		form fieldset > :is(p, div, fieldset) {
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			justify-items: start;
+			margin-block: calc((1lh - 1em) / 2);
+			gap: calc((1lh - 1em) / 2);
+			border: 0;
+			padding: 0;
+
+			&:has([type='checkbox'], [type='radio']) {
+				display: grid;
+				grid-template-columns: min-content 1fr;
+				row-gap: calc(1em - 1ex);
+				column-gap: 1ch;
+				padding-block: calc(1em - 1ex);
+				font-family: var(--system-font-family-data);
+				font-size: var(--system-font-size-m);
+				line-height: var(--system-line-height-compact);
+			}
+
+			&:is(fieldset):has(:user-valid) {
+				& input {
+					accent-color: initial;
+					outline: 0;
+				}
 			}
 		}
 	}

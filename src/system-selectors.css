@@ -5,46 +5,20 @@
 		box-sizing: border-box;
 	}
 	html {
+		container-name: var(--system-enhanced, --system);
+		container-type: var(--system-enhanced, inline-size);
 		font-family: var(--system-font-family-body);
 		line-height: var(--system-line-height);
 		color-scheme: light dark;
 	}
 
 	body {
-		margin: unset;
 		color: var(--system-canvas-text);
 		background-color: var(--system-canvas);
 	}
 
 	main {
 		font-size: var(--system-font-size);
-	}
-
-	body > header {
-		background: var(--system-surface-color);
-
-		& > :is(h1, h2, h3),
-		& > p:only-child {
-			font-weight: var(--system-font-weight-extralight);
-			font-family: var(--system-font-family-display);
-			font-size: var(--system-font-size-xxl);
-			color: var(--system-gray-text);
-		}
-		& > nav {
-			font-family: var(--system-font-family-interactive);
-			& [href] {
-				color: var(--system-link-text);
-			}
-			& [aria-current='page'] {
-				pointer-events: none;
-				text-decoration: none;
-				color: currentcolor;
-			}
-		}
-	}
-
-	body > :is(header, main, footer):not(:has(*)) {
-		display: none;
 	}
 
 	::selection {

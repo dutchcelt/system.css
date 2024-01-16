@@ -23,6 +23,12 @@ Import via NPM:
 npm i @dutchcelt/system.css
 ```
 
+If you wish to use the layout and form validations you will need to switch the 'system enhancement' on:
+
+```
+<html lang="en" style="--system-enhanced: var(--ON)">
+```
+
 ### Style API
 
 System.css has a number of custom properties for you to use.  
