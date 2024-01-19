@@ -8,6 +8,7 @@
 		container-name: var(--system-enhanced, --system);
 		container-type: var(--system-enhanced, inline-size);
 		font-family: var(--system-font-family-body);
+		font-size: inherit;
 		line-height: var(--system-line-height);
 		color-scheme: light dark;
 	}
