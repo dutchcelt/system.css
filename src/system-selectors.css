@@ -125,6 +125,7 @@
 	button,
 	textarea {
 		font: inherit;
+		color: inherit;
 		font-size: var(--system-font-size-m);
 		font-family: var(--system-font-family-interactive);
 		&:not([type='checkbox'], [type='radio']) {

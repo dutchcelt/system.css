@@ -43,9 +43,9 @@
 		--system-canvas-text: CanvasText;
 
 		/* Field is broken in iOS */
-		--system-field: color-mix(in oklab, Field var(--system-cs-state), Canvas);
+		--system-field: color-mix(in oklab, Field var(--system-cs-state), var(--system-canvas));
 		/* FieldText is broken in iOS */
-		--system-field-text: color-mix(in oklab, FieldText var(--system-cs-state), CanvasText);
+		--system-field-text: color-mix(in oklab, FieldText var(--system-cs-state), var(--system-canvas-text));
 
 		/* ButtonText is broken in Safari */
 		--system-gray-text: color-mix(in oklab, var(--system-canvas) 50%, var(--system-canvas-text));
