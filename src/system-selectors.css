@@ -8,7 +8,11 @@
 		container-name: var(--system-enhanced, --system);
 		container-type: var(--system-enhanced, inline-size);
 		font-family: var(--system-font-family-body);
-		font-size: inherit;
+		/**
+		 * DO NOT EDIT! 
+		 * This allows elements to resize in a predictable way when using root based units. 
+		 */
+		font-size: 100% !important;
 		line-height: var(--system-line-height);
 		color-scheme: light dark;
 	}
