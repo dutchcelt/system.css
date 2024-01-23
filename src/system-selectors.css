@@ -5,8 +5,6 @@
 		box-sizing: border-box;
 	}
 	html {
-		container-name: var(--system-enhanced, --system);
-		container-type: var(--system-enhanced, inline-size);
 		font-family: var(--system-font-family-body);
 		/**
 		 * DO NOT EDIT! 
@@ -18,6 +16,12 @@
 	}
 
 	body {
+		/* Container needs to be on body due to a bug on Safari :( */
+		container-name: var(--system-enhanced, --system);
+		container-type: var(--system-enhanced, inline-size);
+
+		display: var(--system-enhanced, grid);
+		margin: var(--system-enhanced, unset);
 		color: var(--system-canvas-text);
 		background-color: var(--system-canvas);
 	}

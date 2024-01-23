@@ -1,22 +1,21 @@
 @layer --system {
+	body {
+		--viewport-padding: minmax(var(--system-spacing-page-inline), 1fr);
+		--content-width: minmax(
+			calc(var(--system-dimension-min-width) - (var(--system-spacing-page-inline) * 2)),
+			var(--system-dimension-content-width)
+		);
+
+		grid-template-columns:
+			[--viewport-start] var(--viewport-padding) [--content-start] var(--content-width) [--content-end] var(
+				--viewport-padding
+			)
+			[--viewport-end];
+	}
+
 	@container --system (width > 1rem) {
-		body {
-			--viewport-padding: minmax(var(--system-spacing-page-inline), 1fr);
-			--content-width: minmax(
-				calc(var(--system-dimension-min-width) - (var(--system-spacing-page-inline) * 2)),
-				var(--system-dimension-content-width)
-			);
-
-			display: grid;
-			grid-template-columns:
-				[--viewport-start] var(--viewport-padding) [--content-start] var(--content-width) [--content-end] var(
-					--viewport-padding
-				)
-				[--viewport-end];
-			margin: unset;
-		}
-
-		body > :is(header, footer) {
+		header:is(body > header),
+		footer:is(body > footer) {
 			display: grid;
 			grid-template-columns: subgrid;
 			grid-column: --viewport-start / --viewport-end;
@@ -29,7 +28,7 @@
 			}
 		}
 
-		body > header {
+		header:is(body > header) {
 			background: var(--system-surface-color);
 
 			& > :is(h1, h2, h3),
@@ -52,11 +51,11 @@
 			}
 		}
 
-		body > :is(header, main, footer):not(:has(*)) {
+		:is(header, main, footer):not(:has(*)) {
 			display: none;
 		}
 
-		body > main {
+		main:is(body > main) {
 			/* Center main in page */
 			grid-column: --content-start / --content-end;
 			container: --content / inline-size;
@@ -76,14 +75,10 @@
 			}
 		}
 
-		body > header > nav {
+		header:is(body > header) > nav {
 			display: flex;
 			column-gap: var(--system-spacing-column-gap);
 			margin-block-start: var(--system-spacing-single);
-		}
-
-		body > :is(header, main, footer):not(:has(*)) {
-			display: none;
 		}
 	}
 }
