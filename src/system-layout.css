@@ -13,7 +13,7 @@
 			[--viewport-end];
 	}
 
-	@container --system (width > 1rem) {
+	@container --system (width) {
 		header:is(body > header),
 		footer:is(body > footer) {
 			display: grid;
