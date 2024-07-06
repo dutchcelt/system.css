@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" style="--system-enhanced: var(--ON)">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>System Color overview</title>
+		<meta name="description" content="An overview of System colour in the major browsers" />
+		<meta name="keywords" content="system, css, framework, colors" />
+		<style>
+			body {
+				color-scheme: light dark;
+				color: canvasText;
+				background: canvas;
+				font-family: system-ui;
+				font-weight: 400;
+			}
+			table {
+				border-collapse: collapse;
+				tbody td {
+					&:first-child {
+						text-align: start;
+					}
+				}
+			}
+			td,
+			th {
+				border: 1px solid canvasText;
+				padding: 1ex 1ch;
+				text-align: center;
+				color: canvasText;
+				background: canvas;
+
+				&.fail {
+					color: crimson;
+					&::before {
+						content: '\2717';
+					}
+				}
+				&.pass {
+					color: green;
+					&::before {
+						content: '\2713';
+					}
+				}
+
+				@media (prefers-color-scheme: dark) {
+					&:is(td) {
+						font-weight: 500;
+					}
+					&.fail {
+						color: coral;
+					}
+					&.pass {
+						color: limegreen;
+					}
+				}
+			}
+			:is(.pass, .fail) span {
+				clip: rect(0 0 0 0);
+				clip-path: inset(50%);
+				height: 1px;
+				overflow: hidden;
+				position: absolute;
+				white-space: nowrap;
+				width: 1px;
+			}
+
+			tbody :is(td:nth-last-child(1), td:nth-last-child(3), td:nth-last-child(5)) {
+				color-scheme: dark;
+				&.fail {
+					color: coral;
+				}
+				&.pass {
+					color: limegreen;
+				}
+				@media (prefers-color-scheme: dark) {
+					color-scheme: light;
+					&.fail {
+						color: crimson;
+					}
+					&.pass {
+						color: green;
+					}
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<table style="">
+				<thead>
+					<tr>
+						<th rowspan="2">System Color</th>
+						<th rowspan="2">Appearence</th>
+						<th rowspan="2">Example</th>
+						<th colspan="2">Chrome Canary 128</th>
+						<th colspan="2">Safari TP (197)</th>
+						<th colspan="2">Firefox (127)</th>
+					</tr>
+					<tr>
+						<td>light</td>
+						<td>dark</td>
+						<td>light</td>
+						<td>dark</td>
+						<td>light</td>
+						<td>dark</td>
+					</tr>
+				</thead>
+				<!-- 				<tbody>
+					<tr>
+						<td>canvas</td>
+						<td style="background-color: canvas"></td>
+					</tr>
+				</tbody> -->
+				<tbody>
+					<tr>
+						<td>AccentColor</td>
+						<td style="background-color: AccentColor"></td>
+						<td rowspan="2"><span style="color: AccentColorText; background: AccentColor">Accent</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"></td>
+						<td class="fail"><span>fail</span></td>
+						<td class="fail"><span>fail</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>AccentColorText</td>
+						<td style="background-color: AccentColorText"></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>ActiveText</td>
+						<td style="background-color: ActiveText"></td>
+						<td><span style="color: ActiveText">Active</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>ButtonBorder</td>
+						<td style="background-color: ButtonBorder"></td>
+						<td rowspan="3">
+							<button
+								style="color: ButtonColorText; background: ButtonFace; border: 2px solid ButtonBorder"
+							>
+								Button
+							</button>
+						</td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="fail"><span>fail</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>ButtonFace</td>
+						<td style="background-color: ButtonFace"></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="fail"><span>fail</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>ButtonText</td>
+						<td style="background-color: ButtonText"></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="fail"><span>fail</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>Canvas</td>
+						<td style="background-color: Canvas"></td>
+						<td rowspan="2"><span style="color: CanvasText; background: Canvas">Canvas</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>CanvasText</td>
+						<td style="background-color: CanvasText"></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>Field</td>
+						<td style="background-color: Field"></td>
+						<td rowspan="2"><span style="color: FieldText; background: Field">Field</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>FieldText</td>
+						<td style="background-color: FieldText"></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>GrayText</td>
+						<td style="background-color: GrayText"></td>
+						<td><span style="color: GrayText">GrayText</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="fail"><span>fail</span></td>
+						<td class="fail"><span>fail</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>Highlight</td>
+						<td style="background-color: Highlight"></td>
+						<td rowspan="2"><span style="color: HighlightText; background: Highlight">Highlight</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="fail"><span>fail</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>HighlightText</td>
+						<td style="background-color: HighlightText"></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>LinkText</td>
+						<td style="background-color: LinkText"></td>
+						<td><span style="color: LinkText">LinkText</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="fail"><span>fail</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>Mark</td>
+						<td style="background-color: Mark"></td>
+						<td rowspan="2"><span style="color: MarkText; background: Mark">Mark</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>MarkText</td>
+						<td style="background-color: MarkText"></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>SelectedItem</td>
+						<td style="background-color: SelectedItem"></td>
+						<td rowspan="2">
+							<span style="color: SelectedItemText; background: SelectedItem">SelectedItem</span>
+						</td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>SelectedItemText</td>
+						<td style="background-color: SelectedItemText"></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+
+					<tr>
+						<td>VisitedText</td>
+						<td style="background-color: VisitedText"></td>
+						<td><span style="color: VisitedText">VisitedText</span></td>
+						<td class="fail"><span>fail</span></td>
+						<td class="fail"><span>fail</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+						<td class="pass"><span>pass</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</main>
+	</body>
+</html>
