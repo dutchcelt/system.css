@@ -12,6 +12,7 @@ export default defineConfig({
 				theme: resolve(__dirname, 'openprops.html'),
 				api: resolve(__dirname, 'style-api.html'),
 				example: resolve(__dirname, 'example.html'),
+				systemcolorstatus: resolve(__dirname, 'pure-system-colors.html'),
 			},
 		},
 	},
