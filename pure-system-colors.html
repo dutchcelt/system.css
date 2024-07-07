@@ -31,13 +31,13 @@
 				background: canvas;
 
 				&.fail {
-					color: crimson;
+					color: light-dark(crimson, coral);
 					&::before {
 						content: '\2717';
 					}
 				}
 				&.pass {
-					color: green;
+					color: light-dark(green, limegreen);
 					&::before {
 						content: '\2713';
 					}
@@ -46,12 +46,6 @@
 				@media (prefers-color-scheme: dark) {
 					&:is(td) {
 						font-weight: 500;
-					}
-					&.fail {
-						color: coral;
-					}
-					&.pass {
-						color: limegreen;
 					}
 				}
 			}
@@ -67,20 +61,8 @@
 
 			tbody :is(td:nth-last-child(1), td:nth-last-child(3), td:nth-last-child(5)) {
 				color-scheme: dark;
-				&.fail {
-					color: coral;
-				}
-				&.pass {
-					color: limegreen;
-				}
 				@media (prefers-color-scheme: dark) {
 					color-scheme: light;
-					&.fail {
-						color: crimson;
-					}
-					&.pass {
-						color: green;
-					}
 				}
 			}
 		</style>
